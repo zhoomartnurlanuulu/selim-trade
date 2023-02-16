@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:selim_trade/core/app_icons.dart';
-import 'package:selim_trade/core/app_images.dart';
-import 'package:selim_trade/core/app_text_style.dart';
+import 'package:selim_trade/core/constants/app_icons.dart';
+import 'package:selim_trade/core/constants/app_images.dart';
+import 'package:selim_trade/core/constants/app_text_style.dart';
 import 'package:selim_trade/core/enums.dart';
 import 'package:selim_trade/theme/app_colors.dart';
 
@@ -13,9 +13,8 @@ class CustomPopUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final scrolled = constraints.scrollOffset > 260;
     return PopupMenuButton(
-      icon: scrolled
+      icon: constraints.scrollOffset > 260
           ? SvgPicture.asset(AppIcons.menuBlackIcon)
           : SvgPicture.asset(AppIcons.menuIcon),
       onSelected: (value) {},

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:selim_trade/core/app_images.dart';
-import 'package:selim_trade/core/app_text_style.dart';
+import 'package:selim_trade/core/constants/app_text_style.dart';
 import 'package:selim_trade/theme/app_colors.dart';
 
 class AboutUs extends StatelessWidget {
@@ -8,19 +7,13 @@ class AboutUs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      width: 361,
-      height: 274,
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage(AppImages.secondBackground), fit: BoxFit.cover),
-      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(
-            height: 20,
+            height: 27,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -32,7 +25,7 @@ class AboutUs extends StatelessWidget {
             ],
           ),
           const SizedBox(
-            height: 13.77,
+            height: 10,
           ),
           SizedBox(
             height: 199,
@@ -63,8 +56,9 @@ class AboutUs extends StatelessWidget {
                   ),
                   Text(
                     'Основа нашей деятельности — это продажа \nи монтаж: ворот, рольставней, шлагбаумов, \nрол штор, жалюзи и многое другое.',
-                    style: AppTextStyles.s14w300
-                        .copyWith(color: AppColors.color414141),
+                    style: AppTextStyles.s14w300.copyWith(
+                      color: AppColors.color414141,
+                    ),
                   ),
                 ],
               ),

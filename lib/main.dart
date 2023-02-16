@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:injectable/injectable.dart';
 import 'package:selim_trade/router/router.gr.dart';
 
-void main() {
+import 'server/injection.dart';
+
+void main() async {
+  await configureInjection(Environment.dev);
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
@@ -14,6 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Selim Trade',
+      theme: ThemeData(fontFamily: 'Montserrat'),
       routerDelegate: router.delegate(),
       routeInformationParser: router.defaultRouteParser(),
     );

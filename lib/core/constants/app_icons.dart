@@ -4,4 +4,5 @@ class AppIcons {
   static const orderIcon = 'assets/icons/order.svg';
   static const arrowBack = 'assets/icons/arrowback.svg';
   static const arrowForward = 'assets/icons/arrowforward.svg';
+  static const support = 'assets/icons/support.svg';
 }

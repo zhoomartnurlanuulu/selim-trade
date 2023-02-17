@@ -5,4 +5,6 @@ class AppIcons {
   static const arrowBack = 'assets/icons/arrowback.svg';
   static const arrowForward = 'assets/icons/arrowforward.svg';
   static const support = 'assets/icons/support.svg';
+  static const instagram = 'assets/icons/instagram.svg';
+  static const whatsapp = 'assets/icons/whatsapp.svg';
 }

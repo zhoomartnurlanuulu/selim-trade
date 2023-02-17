@@ -27,13 +27,14 @@ class ReviewsWidget extends StatelessWidget {
           Expanded(
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               itemBuilder: (context, index) {
                 return SizedBox(
                   width: 241,
                   height: 151,
                   child: Card(
                     shadowColor: Colors.black,
+                    elevation: 2,
                     color: Colors.white,
                     child: Padding(
                       padding: const EdgeInsets.only(left: 10),

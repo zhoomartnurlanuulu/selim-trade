@@ -1,18 +1,20 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:selim_trade/components/circale_button_left.dart';
 import 'package:selim_trade/components/circale_button_right.dart';
 import 'package:selim_trade/components/custom_text_button.dart';
 import 'package:selim_trade/core/constants/app_images.dart';
 import 'package:selim_trade/core/constants/app_text_style.dart';
+import 'package:selim_trade/router/router.gr.dart';
 import 'package:selim_trade/theme/app_colors.dart';
 
 class OfferWidget extends StatelessWidget {
-  const OfferWidget({super.key});
-
+  OfferWidget({super.key});
+  final controller = ScrollController();
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: 337,
+        height: 340,
         child: Column(
           children: [
             const SizedBox(
@@ -31,6 +33,7 @@ class OfferWidget extends StatelessWidget {
             SizedBox(
               height: 174,
               child: ListView.separated(
+                controller: controller,
                 separatorBuilder: (context, index) => const SizedBox(
                   width: 20,
                 ),
@@ -93,7 +96,9 @@ class OfferWidget extends StatelessWidget {
                         style: AppTextStyles.s12w600
                             .copyWith(color: AppColors.color414141),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        context.router.replace(const ServiceScreenRoute());
+                      },
                     )),
                 const SizedBox(
                   width: 50,

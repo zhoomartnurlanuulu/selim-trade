@@ -69,12 +69,13 @@ class _OurWorksWidgetsState extends State<OurWorksWidgets> {
 
   _buildStoryPage(bool active) {
     final double top = active ? 1 : 30;
+    final double bottom = active ? 1 : 20;
 
     return AnimatedContainer(
       height: 161,
       duration: const Duration(milliseconds: 500),
       curve: Curves.easeOutQuint,
-      margin: EdgeInsets.only(top: top, right: 22.4),
+      margin: EdgeInsets.only(top: top, right: 22.4, bottom: bottom),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.96),
         image: const DecorationImage(

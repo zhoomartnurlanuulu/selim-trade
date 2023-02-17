@@ -4,7 +4,7 @@ import 'package:selim_trade/components/footer_widget.dart';
 import 'widgets/custom_sliver_appbar.dart';
 import 'widgets/main_sliver_delegate.dart';
 import 'widgets/our_works_widget.dart';
-import 'widgets/question_widget.dart';
+import '../../../components/question_widget.dart';
 import 'widgets/service_widget.dart';
 import 'widgets/reviews_widget.dart';
 

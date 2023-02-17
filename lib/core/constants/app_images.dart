@@ -9,4 +9,7 @@ class AppImages {
   static const footerLogo = 'assets/images/footerlogo.png';
   static const gateWork = 'assets/images/gate.png';
   static const footerBackground = 'assets/images/footerback.png';
+  static const gate = 'assets/images/gates.png';
+  static const results = 'assets/images/results.png';
+  static const gateAppbar = 'assets/images/gateappbar.png';
 }

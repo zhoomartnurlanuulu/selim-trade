@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:selim_trade/core/constants/app_images.dart';
 import 'package:selim_trade/feature/home/presentation/widgets/about_us.dart';
 import 'package:selim_trade/feature/home/presentation/widgets/benefits.dart';
-import 'package:selim_trade/feature/home/presentation/widgets/news_widget.dart';
+import 'package:selim_trade/feature/home/presentation/widgets/last_news_widget.dart';
 import 'package:selim_trade/feature/home/presentation/widgets/offer.dart';
 
 class MainSliverDelegate extends StatelessWidget {
@@ -21,11 +21,11 @@ class MainSliverDelegate extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          AboutUs(),
+        children: [
+          const AboutUs(),
           OfferWidget(),
-          Benefits(),
-          NewsWidget(),
+          const Benefits(),
+          const NewsWidget(),
         ],
       ),
     );

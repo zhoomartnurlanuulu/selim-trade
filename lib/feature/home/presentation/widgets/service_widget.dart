@@ -26,7 +26,7 @@ class ServiceWidget extends StatelessWidget {
           ),
           Expanded(
             child: ListView.separated(
-                padding: const EdgeInsets.symmetric(horizontal: 19),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) => Container(
                     decoration: BoxDecoration(

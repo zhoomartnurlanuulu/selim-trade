@@ -1,7 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:selim_trade/components/custom_text_button.dart';
 import 'package:selim_trade/core/constants/app_images.dart';
 import 'package:selim_trade/core/constants/app_text_style.dart';
+import 'package:selim_trade/router/router.gr.dart';
 import 'package:selim_trade/theme/app_colors.dart';
 
 class NewsWidget extends StatelessWidget {
@@ -29,6 +31,7 @@ class NewsWidget extends StatelessWidget {
           ),
           Expanded(
             child: ListView.separated(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => Container(
                 padding: const EdgeInsets.only(left: 26.33),
@@ -68,7 +71,9 @@ class NewsWidget extends StatelessWidget {
                 style: AppTextStyles.s12w600
                     .copyWith(color: AppColors.color414141),
               ),
-              onPressed: () {},
+              onPressed: () {
+                context.router.replace(const NewsScreenRoute());
+              },
             ),
           )
         ],

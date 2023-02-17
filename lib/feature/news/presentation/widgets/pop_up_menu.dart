@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:selim_trade/core/constants/app_icons.dart';
 import 'package:selim_trade/core/constants/app_images.dart';
@@ -10,28 +9,26 @@ import 'package:selim_trade/router/router.gr.dart';
 import 'package:selim_trade/theme/app_colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class CustomPopUp extends StatelessWidget {
-  const CustomPopUp({super.key, required this.constraints});
-  final SliverConstraints constraints;
+class NewsPopUp extends StatelessWidget {
+  const NewsPopUp({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton(
-      icon: constraints.scrollOffset > 260
-          ? SvgPicture.asset(AppIcons.menuBlackIcon)
-          : SvgPicture.asset(AppIcons.menuIcon),
+      icon: SvgPicture.asset(AppIcons.menuBlackIcon),
       onSelected: (value) {
-        if (value == MenuItem.services) {
+        if (value == MenuItem.main) {
+          context.router.replace(const HomeScreenRoute());
+        } else if (value == MenuItem.services) {
           context.router.replace(const ServiceScreenRoute());
-        } else if (value == MenuItem.news) {
-          context.router.replace(const NewsScreenRoute());
         } else if (value == MenuItem.works) {
           context.router.replace(const OurWorksScreenRoute());
         }
       },
       itemBuilder: (context) => [
         PopupMenuItem(
-          enabled: false,
           value: MenuItem.main,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -53,6 +50,7 @@ class CustomPopUp extends StatelessWidget {
           ),
         ),
         PopupMenuItem(
+          enabled: false,
           value: MenuItem.services,
           child: Text(
             'Услуги',
@@ -60,7 +58,7 @@ class CustomPopUp extends StatelessWidget {
           ),
         ),
         PopupMenuItem(
-          value: MenuItem.news,
+          enabled: false,
           child: Text(
             'Новости',
             style: AppTextStyles.s14w600.copyWith(color: AppColors.color001645),

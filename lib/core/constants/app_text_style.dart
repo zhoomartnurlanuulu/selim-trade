@@ -46,6 +46,10 @@ class AppTextStyles {
     fontSize: 12,
     fontWeight: FontWeight.w800,
   );
+  static const s12w500 = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w500,
+  );
   static const s12w600 = TextStyle(
     fontSize: 10,
     fontWeight: FontWeight.w600,

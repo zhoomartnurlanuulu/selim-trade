@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:selim_trade/components/contacts.dart';
+import 'package:selim_trade/components/navigation_footer.dart';
+import 'package:selim_trade/components/social.dart';
 import 'package:selim_trade/core/constants/app_images.dart';
-import 'package:selim_trade/theme/app_colors.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:selim_trade/core/constants/app_text_style.dart';
 
 import 'map.dart';
 
@@ -18,53 +19,46 @@ class FooterWidget extends StatelessWidget {
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(AppImages.footerBackground),
-          fit: BoxFit.cover,
+          fit: BoxFit.fill,
         ),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              const SizedBox(
-                width: 89.5,
+            children: const [
+              SizedBox(
+                width: 65,
               ),
-              Column(
-                children: const [
-                  Text('РЕЖИМ РАБОТЫ'),
-                  Text('Пн-Пт 8:30–18:30'),
-                  Text('Суббота 8:30–14:00'),
-                  SizedBox(
-                    height: 7,
-                  ),
-                  Text('TЕЛЕФОН'),
-                  Text('+996 (552) 57 07 55'),
-                  Text('+996 (500) 88 80 51'),
-                  Text('+996 (772) 32 76 76')
-                ],
+              Contacts(),
+              SizedBox(
+                width: 45,
               ),
-              const SizedBox(
-                width: 26.5,
-              ),
-              const MapWidget(),
+              Flexible(child: MapWidget()),
             ],
           ),
           const SizedBox(
-            height: 15,
+            height: 40,
           ),
-          Row(
-            children: [
-              Column(
+          Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+            Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   Text(
                     'Социальные \nсети',
                     textAlign: TextAlign.start,
+                    style: AppTextStyles.s12w500,
                   ),
-                ],
-              )
-            ],
-          )
+                  SizedBox(
+                    height: 6,
+                  ),
+                  Social(),
+                ]),
+            const SizedBox(
+              width: 60,
+            ),
+            const FooterNavigation()
+          ])
         ],
       ),
     );

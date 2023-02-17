@@ -52,7 +52,11 @@ class CustomFliexbleSpace extends StatelessWidget {
                     height: 34.46,
                     width: 150,
                     child: AppGradientButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        controller.animateTo(2280,
+                            duration: const Duration(milliseconds: 200),
+                            curve: Curves.bounceIn);
+                      },
                       child: Row(
                         children: [
                           SvgPicture.asset(

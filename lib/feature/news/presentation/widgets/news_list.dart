@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:selim_trade/core/constants/app_images.dart';
 import 'package:selim_trade/core/constants/app_text_style.dart';
+import 'package:selim_trade/router/router.gr.dart';
 
 class NewsList extends StatelessWidget {
   const NewsList({super.key});
@@ -12,7 +14,9 @@ class NewsList extends StatelessWidget {
       child: ListView.separated(
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) => GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  context.router.replace(const NewsDetailPageRoute());
+                },
                 child: Container(
                   height: 223,
                   width: 328,

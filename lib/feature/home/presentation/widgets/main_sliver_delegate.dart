@@ -25,7 +25,7 @@ class MainSliverDelegate extends StatelessWidget {
           const AboutUs(),
           OfferWidget(),
           const Benefits(),
-          const NewsWidget(),
+          const LastNewsWidget(),
         ],
       ),
     );

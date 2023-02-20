@@ -12,4 +12,8 @@ class AppImages {
   static const gate = 'assets/images/gates.png';
   static const results = 'assets/images/results.png';
   static const gateAppbar = 'assets/images/gateappbar.png';
+  static const gatte = 'assets/images/gatte.png';
+  static const advantages = 'assets/images/advantages.png';
+  static const restImage = 'assets/images/restimage.png';
+  static const table = 'assets/images/table.png';
 }

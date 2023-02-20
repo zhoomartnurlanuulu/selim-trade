@@ -29,6 +29,7 @@ class _OurWorksWidgetsState extends State<OurWorksWidgets> {
           height: 250,
           width: double.infinity,
           child: PageView.builder(
+            pageSnapping: true,
             physics: const BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
             controller: ctrl,
@@ -79,7 +80,10 @@ class _OurWorksWidgetsState extends State<OurWorksWidgets> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.96),
         image: const DecorationImage(
-            image: AssetImage(AppImages.gateWork), fit: BoxFit.fill),
+            image: AssetImage(
+              AppImages.gateWork,
+            ),
+            fit: BoxFit.fill),
       ),
     );
   }

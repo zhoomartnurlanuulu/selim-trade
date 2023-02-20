@@ -1,28 +1,34 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 import 'package:selim_trade/core/constants/app_icons.dart';
 import 'package:selim_trade/core/constants/app_images.dart';
 import 'package:selim_trade/core/constants/app_text_style.dart';
 import 'package:selim_trade/core/enums.dart';
 import 'package:selim_trade/router/router.gr.dart';
 import 'package:selim_trade/theme/app_colors.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-class NewsPopUp extends StatelessWidget {
-  const NewsPopUp({
-    super.key,
-  });
+class GateInfoPopUp extends StatelessWidget {
+  const GateInfoPopUp({
+    Key? key,
+    required this.constraints,
+  }) : super(key: key);
+  final SliverConstraints constraints;
 
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton(
-      icon: SvgPicture.asset(AppIcons.menuBlackIcon),
+      icon: constraints.scrollOffset > 100
+          ? SvgPicture.asset(AppIcons.menuBlackIcon)
+          : SvgPicture.asset(AppIcons.menuIcon),
       onSelected: (value) {
         if (value == MenuItem.main) {
           context.router.replace(const HomeScreenRoute());
-        } else if (value == MenuItem.services) {
-          context.router.replace(const ServiceScreenRoute());
+        } else if (value == MenuItem.news) {
+          context.router.replace(const NewsScreenRoute());
         } else if (value == MenuItem.works) {
           context.router.replace(const OurWorksScreenRoute());
         }
@@ -50,6 +56,7 @@ class NewsPopUp extends StatelessWidget {
           ),
         ),
         PopupMenuItem(
+          enabled: false,
           value: MenuItem.services,
           child: Text(
             'Услуги',
@@ -57,7 +64,7 @@ class NewsPopUp extends StatelessWidget {
           ),
         ),
         PopupMenuItem(
-          enabled: false,
+          value: MenuItem.news,
           child: Text(
             'Новости',
             style: AppTextStyles.s14w600.copyWith(color: AppColors.color001645),

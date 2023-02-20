@@ -9,8 +9,8 @@ import 'package:selim_trade/router/router.gr.dart';
 import 'package:selim_trade/theme/app_colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class NewsPopUp extends StatelessWidget {
-  const NewsPopUp({
+class DetailPopUp extends StatelessWidget {
+  const DetailPopUp({
     super.key,
   });
 
@@ -25,6 +25,8 @@ class NewsPopUp extends StatelessWidget {
           context.router.replace(const ServiceScreenRoute());
         } else if (value == MenuItem.works) {
           context.router.replace(const OurWorksScreenRoute());
+        } else if (value == MenuItem.news) {
+          context.router.replace(const NewsScreenRoute());
         }
       },
       itemBuilder: (context) => [
@@ -57,7 +59,7 @@ class NewsPopUp extends StatelessWidget {
           ),
         ),
         PopupMenuItem(
-          enabled: false,
+          value: MenuItem.news,
           child: Text(
             'Новости',
             style: AppTextStyles.s14w600.copyWith(color: AppColors.color001645),

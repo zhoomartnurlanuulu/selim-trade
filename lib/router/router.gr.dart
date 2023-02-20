@@ -11,41 +11,42 @@
 // ignore_for_file: type=lint
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i6;
-import 'package:flutter/material.dart' as _i7;
+import 'package:auto_route/auto_route.dart' as _i7;
+import 'package:flutter/material.dart' as _i8;
 
 import '../feature/home/presentation/home_screen.dart' as _i1;
 import '../feature/news/presentation/news_screen.dart' as _i4;
+import '../feature/news/presentation/widgets/news_detail.dart' as _i6;
 import '../feature/our_works/presentation/our_work_screen.dart' as _i2;
 import '../feature/services/presentation/service_screen.dart' as _i3;
 import '../feature/services/presentation/widgets/gates_info_page.dart' as _i5;
 
-class AppRouter extends _i6.RootStackRouter {
-  AppRouter([_i7.GlobalKey<_i7.NavigatorState>? navigatorKey])
+class AppRouter extends _i7.RootStackRouter {
+  AppRouter([_i8.GlobalKey<_i8.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
-  final Map<String, _i6.PageFactory> pagesMap = {
+  final Map<String, _i7.PageFactory> pagesMap = {
     HomeScreenRoute.name: (routeData) {
-      return _i6.MaterialPageX<dynamic>(
+      return _i7.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i1.HomeScreen(),
       );
     },
     OurWorksScreenRoute.name: (routeData) {
-      return _i6.MaterialPageX<dynamic>(
+      return _i7.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i2.OurWorksScreen(),
       );
     },
     ServiceScreenRoute.name: (routeData) {
-      return _i6.MaterialPageX<dynamic>(
+      return _i7.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i3.ServiceScreen(),
       );
     },
     NewsScreenRoute.name: (routeData) {
-      return _i6.MaterialPageX<dynamic>(
+      return _i7.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i4.NewsScreen(),
       );
@@ -53,41 +54,51 @@ class AppRouter extends _i6.RootStackRouter {
     GateInfoPageRoute.name: (routeData) {
       final args = routeData.argsAs<GateInfoPageRouteArgs>(
           orElse: () => const GateInfoPageRouteArgs());
-      return _i6.MaterialPageX<dynamic>(
+      return _i7.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i5.GateInfoPage(key: args.key),
+      );
+    },
+    NewsDetailPageRoute.name: (routeData) {
+      return _i7.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i6.NewsDetailPage(),
       );
     },
   };
 
   @override
-  List<_i6.RouteConfig> get routes => [
-        _i6.RouteConfig(
+  List<_i7.RouteConfig> get routes => [
+        _i7.RouteConfig(
           HomeScreenRoute.name,
           path: '/',
         ),
-        _i6.RouteConfig(
+        _i7.RouteConfig(
           OurWorksScreenRoute.name,
           path: '/our-works-screen',
         ),
-        _i6.RouteConfig(
+        _i7.RouteConfig(
           ServiceScreenRoute.name,
           path: '/service-screen',
         ),
-        _i6.RouteConfig(
+        _i7.RouteConfig(
           NewsScreenRoute.name,
           path: '/news-screen',
         ),
-        _i6.RouteConfig(
+        _i7.RouteConfig(
           GateInfoPageRoute.name,
           path: '/gate-info-page',
+        ),
+        _i7.RouteConfig(
+          NewsDetailPageRoute.name,
+          path: '/news-detail-page',
         ),
       ];
 }
 
 /// generated route for
 /// [_i1.HomeScreen]
-class HomeScreenRoute extends _i6.PageRouteInfo<void> {
+class HomeScreenRoute extends _i7.PageRouteInfo<void> {
   const HomeScreenRoute()
       : super(
           HomeScreenRoute.name,
@@ -99,7 +110,7 @@ class HomeScreenRoute extends _i6.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.OurWorksScreen]
-class OurWorksScreenRoute extends _i6.PageRouteInfo<void> {
+class OurWorksScreenRoute extends _i7.PageRouteInfo<void> {
   const OurWorksScreenRoute()
       : super(
           OurWorksScreenRoute.name,
@@ -111,7 +122,7 @@ class OurWorksScreenRoute extends _i6.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.ServiceScreen]
-class ServiceScreenRoute extends _i6.PageRouteInfo<void> {
+class ServiceScreenRoute extends _i7.PageRouteInfo<void> {
   const ServiceScreenRoute()
       : super(
           ServiceScreenRoute.name,
@@ -123,7 +134,7 @@ class ServiceScreenRoute extends _i6.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.NewsScreen]
-class NewsScreenRoute extends _i6.PageRouteInfo<void> {
+class NewsScreenRoute extends _i7.PageRouteInfo<void> {
   const NewsScreenRoute()
       : super(
           NewsScreenRoute.name,
@@ -135,8 +146,8 @@ class NewsScreenRoute extends _i6.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i5.GateInfoPage]
-class GateInfoPageRoute extends _i6.PageRouteInfo<GateInfoPageRouteArgs> {
-  GateInfoPageRoute({_i7.Key? key})
+class GateInfoPageRoute extends _i7.PageRouteInfo<GateInfoPageRouteArgs> {
+  GateInfoPageRoute({_i8.Key? key})
       : super(
           GateInfoPageRoute.name,
           path: '/gate-info-page',
@@ -149,10 +160,22 @@ class GateInfoPageRoute extends _i6.PageRouteInfo<GateInfoPageRouteArgs> {
 class GateInfoPageRouteArgs {
   const GateInfoPageRouteArgs({this.key});
 
-  final _i7.Key? key;
+  final _i8.Key? key;
 
   @override
   String toString() {
     return 'GateInfoPageRouteArgs{key: $key}';
   }
+}
+
+/// generated route for
+/// [_i6.NewsDetailPage]
+class NewsDetailPageRoute extends _i7.PageRouteInfo<void> {
+  const NewsDetailPageRoute()
+      : super(
+          NewsDetailPageRoute.name,
+          path: '/news-detail-page',
+        );
+
+  static const String name = 'NewsDetailPageRoute';
 }

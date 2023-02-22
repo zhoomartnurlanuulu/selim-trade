@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:selim_trade/components/custom_app_bar.dart';
+import 'package:selim_trade/components/custom_text_button.dart';
 import 'package:selim_trade/components/footer_widget.dart';
 import 'package:selim_trade/components/question_widget.dart';
 import 'package:selim_trade/core/constants/app_images.dart';
@@ -54,6 +55,22 @@ class NewsScreen extends StatelessWidget {
             height: 42,
           ),
           const NewsList(),
+          Center(
+            child: SizedBox(
+              width: 130,
+              height: 45,
+              child: CustomTextButton(
+                  child: Text(
+                    'загрузить ещё',
+                    style: AppTextStyles.s14w300
+                        .copyWith(color: AppColors.color414141),
+                  ),
+                  onPressed: () {}),
+            ),
+          ),
+          const SizedBox(
+            height: 71,
+          ),
           const QuestionWidget(),
           const FooterWidget()
         ],

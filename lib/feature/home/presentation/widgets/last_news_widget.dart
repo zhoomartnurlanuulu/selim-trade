@@ -1,10 +1,12 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:selim_trade/components/custom_text_button.dart';
 import 'package:selim_trade/core/constants/app_images.dart';
 import 'package:selim_trade/core/constants/app_text_style.dart';
 import 'package:selim_trade/router/router.gr.dart';
 import 'package:selim_trade/theme/app_colors.dart';
+import 'package:selim_trade/translation/locale_keys.g.dart';
 
 class LastNewsWidget extends StatelessWidget {
   const LastNewsWidget({super.key});
@@ -20,7 +22,7 @@ class LastNewsWidget extends StatelessWidget {
           ),
           Center(
             child: Text(
-              'Последние новости',
+              LocaleKeys.about_us_last_news.tr(),
               style: AppTextStyles.s16w700.copyWith(
                 color: AppColors.color414141,
               ),

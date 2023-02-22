@@ -1,11 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import 'package:selim_trade/components/custom_gradient_button.dart';
 import 'package:selim_trade/core/constants/app_icons.dart';
 import 'package:selim_trade/core/constants/app_images.dart';
-
 import 'package:selim_trade/core/constants/app_text_style.dart';
+import 'package:selim_trade/translation/locale_keys.g.dart';
 
 class CustomFliexbleSpace extends StatelessWidget {
   const CustomFliexbleSpace({
@@ -33,14 +33,14 @@ class CustomFliexbleSpace extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'СОВРЕМЕННАЯ\nИ НАДËЖНАЯ ЗАЩИТА',
+                LocaleKeys.sliver_app_bar_text_modern_safty.tr(),
                 style: AppTextStyles.s20w700.copyWith(color: Colors.white),
               ),
               const SizedBox(
                 height: 6,
               ),
               Text(
-                'Найдите идеальный вариант сами\nили предоставьте это нам',
+                LocaleKeys.sliver_app_bar_text_find.tr(),
                 style: AppTextStyles.s11w600.copyWith(color: Colors.white),
               ),
               const SizedBox(
@@ -66,7 +66,7 @@ class CustomFliexbleSpace extends StatelessWidget {
                             width: 15.11,
                           ),
                           Text(
-                            'Заказать ворота',
+                            LocaleKeys.sliver_app_bar_text_order_gate.tr(),
                             style: AppTextStyles.s15w900
                                 .copyWith(color: Colors.white),
                           ),

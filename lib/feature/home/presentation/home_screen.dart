@@ -29,7 +29,7 @@ class HomeScreen extends StatelessWidget {
                 const MainSliverDelegate(),
                 const OurWorksWidgets(),
                 const ServiceWidget(),
-                const ReviewsWidget(),
+                ReviewsWidget(),
                 const QuestionWidget(),
                 const FooterWidget()
               ],

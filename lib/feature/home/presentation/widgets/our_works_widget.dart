@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:selim_trade/core/constants/app_images.dart';
 import 'package:selim_trade/core/constants/app_text_style.dart';
+import 'package:selim_trade/translation/locale_keys.g.dart';
 
 class OurWorksWidgets extends StatefulWidget {
   const OurWorksWidgets({super.key});
@@ -16,9 +18,9 @@ class _OurWorksWidgetsState extends State<OurWorksWidgets> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Center(
+        Center(
           child: Text(
-            'Наши работы',
+            LocaleKeys.about_us_our_works.tr(),
             style: AppTextStyles.s16w700,
           ),
         ),

@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:selim_trade/core/constants/app_text_style.dart';
 import 'package:selim_trade/theme/app_colors.dart';
+import 'package:selim_trade/translation/locale_keys.g.dart';
 
 class AboutUs extends StatelessWidget {
   const AboutUs({super.key});
@@ -17,9 +19,9 @@ class AboutUs extends StatelessWidget {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
-            children: const [
+            children: [
               Text(
-                'Кто такие Selim trade?',
+                LocaleKeys.about_us_who_us.tr(),
                 style: AppTextStyles.s16w700,
               ),
             ],
@@ -39,7 +41,7 @@ class AboutUs extends StatelessWidget {
                     height: 3.77,
                   ),
                   Text(
-                    'Мы являемся официальным\n представителем DOORHAN.',
+                    LocaleKeys.about_us_about_slim.tr(),
                     style: AppTextStyles.s14w300
                         .copyWith(color: AppColors.color414141),
                   ),
@@ -47,7 +49,7 @@ class AboutUs extends StatelessWidget {
                     height: 10,
                   ),
                   Text(
-                    'Производственно — монтажная \nкомпания Selim trade основана \nв 2003 году.',
+                    LocaleKeys.about_us_about_slim1.tr(),
                     style: AppTextStyles.s14w300
                         .copyWith(color: AppColors.color414141),
                   ),
@@ -55,7 +57,7 @@ class AboutUs extends StatelessWidget {
                     height: 10,
                   ),
                   Text(
-                    'Основа нашей деятельности — это продажа \nи монтаж: ворот, рольставней, шлагбаумов, \nрол штор, жалюзи и многое другое.',
+                    LocaleKeys.about_us_about_slim2.tr(),
                     style: AppTextStyles.s14w300.copyWith(
                       color: AppColors.color414141,
                     ),

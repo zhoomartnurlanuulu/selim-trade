@@ -12,6 +12,7 @@ class CustomTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
         style: TextButton.styleFrom(
+          foregroundColor: AppColors.color105BFB,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
             side: const BorderSide(color: AppColors.color105BFB),

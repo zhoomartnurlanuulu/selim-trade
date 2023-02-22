@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:selim_trade/core/constants/app_icons.dart';
 import 'package:selim_trade/core/constants/app_text_style.dart';
 import 'package:selim_trade/theme/app_colors.dart';
+import 'package:selim_trade/translation/locale_keys.g.dart';
 
 class ServiceWidget extends StatelessWidget {
   const ServiceWidget({super.key});
@@ -15,7 +17,7 @@ class ServiceWidget extends StatelessWidget {
         children: [
           Center(
             child: Text(
-              'Сервис',
+              LocaleKeys.about_us_services.tr(),
               style: AppTextStyles.s16w700.copyWith(
                 color: AppColors.color414141,
               ),

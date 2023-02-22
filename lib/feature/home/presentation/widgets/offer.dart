@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:selim_trade/components/circale_button_left.dart';
 import 'package:selim_trade/components/circale_button_right.dart';
@@ -7,6 +8,7 @@ import 'package:selim_trade/core/constants/app_images.dart';
 import 'package:selim_trade/core/constants/app_text_style.dart';
 import 'package:selim_trade/router/router.gr.dart';
 import 'package:selim_trade/theme/app_colors.dart';
+import 'package:selim_trade/translation/locale_keys.g.dart';
 
 class OfferWidget extends StatelessWidget {
   OfferWidget({super.key});
@@ -20,9 +22,9 @@ class OfferWidget extends StatelessWidget {
             const SizedBox(
               height: 60,
             ),
-            const Center(
+            Center(
               child: Text(
-                'Мы предлагаем',
+                LocaleKeys.about_us_we_offer.tr(),
                 style: AppTextStyles.s16w700,
                 textAlign: TextAlign.center,
               ),

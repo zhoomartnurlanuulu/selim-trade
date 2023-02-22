@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:selim_trade/components/circale_button_left.dart';
 import 'package:selim_trade/components/circale_button_right.dart';
+import 'package:selim_trade/core/constants/app_images.dart';
 import 'package:selim_trade/core/constants/app_text_style.dart';
 import 'package:selim_trade/theme/app_colors.dart';
 
 class ReviewsWidget extends StatelessWidget {
-  const ReviewsWidget({super.key});
-
+  ReviewsWidget({super.key});
+  final controller = ScrollController();
+  int itemCount = 4;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -26,29 +28,29 @@ class ReviewsWidget extends StatelessWidget {
           ),
           Expanded(
             child: ListView.separated(
+              controller: controller,
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.symmetric(horizontal: 30),
               itemBuilder: (context, index) {
                 return SizedBox(
-                  width: 241,
-                  height: 151,
-                  child: Card(
-                    shadowColor: Colors.black,
-                    elevation: 2,
-                    color: Colors.white,
+                  child: Container(
+                    width: 241,
+                    height: 151,
+                    decoration: const BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(AppImages.reviewBack),
+                            fit: BoxFit.cover)),
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 10),
+                      padding: const EdgeInsets.only(
+                        left: 25.9,
+                      ),
                       child: Column(children: [
                         Row(
                           children: [
                             const CircleAvatar(
-                              radius: 20,
-                              backgroundColor: Colors.grey,
-                              child: CircleAvatar(
-                                radius: 18,
-                                backgroundImage: NetworkImage(
-                                    'https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2076&q=80'),
-                              ),
+                              radius: 25,
+                              backgroundImage: NetworkImage(
+                                  'https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2076&q=80'),
                             ),
                             const SizedBox(
                               width: 15,
@@ -82,7 +84,7 @@ class ReviewsWidget extends StatelessWidget {
               separatorBuilder: (context, index) => const SizedBox(
                 width: 20,
               ),
-              itemCount: 4,
+              itemCount: itemCount,
             ),
           ),
           const SizedBox(

@@ -31,6 +31,8 @@ class GateInfoPopUp extends StatelessWidget {
           context.router.replace(const NewsScreenRoute());
         } else if (value == MenuItem.works) {
           context.router.replace(const OurWorksScreenRoute());
+        } else if (value == MenuItem.services) {
+          context.router.replace(const ServiceScreenRoute());
         }
       },
       itemBuilder: (context) => [
@@ -56,7 +58,6 @@ class GateInfoPopUp extends StatelessWidget {
           ),
         ),
         PopupMenuItem(
-          enabled: false,
           value: MenuItem.services,
           child: Text(
             'Услуги',

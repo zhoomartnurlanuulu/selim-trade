@@ -1,13 +1,27 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
+
 import 'package:selim_trade/router/router.gr.dart';
 
 import 'server/injection.dart';
+import 'translation/codegen_loader.g.dart';
 
 void main() async {
   await configureInjection(Environment.prod);
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(MyApp());
+  await EasyLocalization.ensureInitialized();
+
+  runApp(
+    EasyLocalization(
+        assetLoader: const CodegenLoader(),
+        supportedLocales: const [
+          Locale('ru'),
+        ],
+        path: 'assets/l10n',
+        fallbackLocale: const Locale('ru'),
+        child: MyApp()),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -17,6 +31,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
       debugShowCheckedModeBanner: false,
       title: 'Selim Trade',
       theme: ThemeData(

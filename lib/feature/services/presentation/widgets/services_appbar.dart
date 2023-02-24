@@ -16,6 +16,8 @@ class ServicesAppBar extends StatelessWidget {
       builder: (context, constraints) {
         final scrolled = constraints.scrollOffset > 100;
         return SliverAppBar(
+            elevation: 0,
+            automaticallyImplyLeading: false,
             pinned: true,
             centerTitle: false,
             title: scrolled

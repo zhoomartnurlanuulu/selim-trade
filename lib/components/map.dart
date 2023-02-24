@@ -18,7 +18,7 @@ class MapWidget extends StatelessWidget {
         ],
         borderRadius: BorderRadius.circular(5),
       ),
-      height: 120,
+      height: 155,
       width: 170,
       child: GoogleMap(
         zoomControlsEnabled: false,
@@ -29,8 +29,6 @@ class MapWidget extends StatelessWidget {
           final url = Uri.parse(uri);
           if (await canLaunchUrl(url)) {
             launchUrl(url);
-          } else {
-            throw 'couldn\'t launch $url';
           }
         },
         buildingsEnabled: true,

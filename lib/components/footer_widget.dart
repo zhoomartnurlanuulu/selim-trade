@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:selim_trade/components/contacts.dart';
-import 'package:selim_trade/components/navigation_footer.dart';
 import 'package:selim_trade/components/social.dart';
 import 'package:selim_trade/core/constants/app_images.dart';
 import 'package:selim_trade/core/constants/app_text_style.dart';
@@ -57,7 +56,6 @@ class FooterWidget extends StatelessWidget {
             const SizedBox(
               width: 60,
             ),
-            const FooterNavigation()
           ])
         ],
       ),

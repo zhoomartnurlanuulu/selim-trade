@@ -15,7 +15,7 @@ class NewsList extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) => GestureDetector(
                 onTap: () {
-                  context.router.replace(const NewsDetailPageRoute());
+                  context.router.push(const NewsDetailPageRoute());
                 },
                 child: Container(
                   height: 223,

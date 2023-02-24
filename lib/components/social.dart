@@ -14,7 +14,7 @@ class Social extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () async {
-            const uri = 'https://instagram.com/selimtrade?igshid=YmMyMTA2M2Y=';
+            const uri = 'https://www.instagram.com/selimtrade/';
             final url = Uri.parse(uri);
             if (await canLaunchUrl(url)) {
               launchUrl(url);

@@ -22,11 +22,11 @@ class CustomPopUp extends StatelessWidget {
           : SvgPicture.asset(AppIcons.menuIcon),
       onSelected: (value) {
         if (value == MenuItem.services) {
-          context.router.replace(const ServiceScreenRoute());
+          context.router.push(const ServiceScreenRoute());
         } else if (value == MenuItem.news) {
-          context.router.replace(const NewsScreenRoute());
+          context.router.push(const NewsScreenRoute());
         } else if (value == MenuItem.works) {
-          context.router.replace(const OurWorksScreenRoute());
+          context.router.push(const OurWorksScreenRoute());
         }
       },
       itemBuilder: (context) => [

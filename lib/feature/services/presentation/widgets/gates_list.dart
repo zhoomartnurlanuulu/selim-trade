@@ -21,7 +21,7 @@ class GatesList extends StatelessWidget {
             ),
             itemBuilder: (context, index) => GestureDetector(
               onTap: () {
-                context.router.replace(GateInfoPageRoute());
+                context.router.push(GateInfoPageRoute());
               },
               child: Container(
                 height: 172,

@@ -20,6 +20,7 @@ class GateInfoPage extends StatelessWidget {
         controller: ctrl,
         slivers: [
           ServicesAppBar(
+            
             ctrl: ctrl,
           ),
           SliverList(

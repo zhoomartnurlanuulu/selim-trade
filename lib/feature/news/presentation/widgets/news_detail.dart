@@ -17,6 +17,7 @@ class NewsDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
+        
         elevation: 0,
         centerTitle: false,
         title: Image.asset(

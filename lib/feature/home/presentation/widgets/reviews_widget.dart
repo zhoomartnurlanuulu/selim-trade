@@ -87,7 +87,7 @@ class ReviewsWidget extends StatelessWidget {
                                             style: AppTextStyles.s14w600,
                                           ),
                                           Text(
-                                            model[index].title ?? 'null',
+                                            model[index].title ?? '',
                                             style: AppTextStyles.s11w600,
                                           ),
                                         ],

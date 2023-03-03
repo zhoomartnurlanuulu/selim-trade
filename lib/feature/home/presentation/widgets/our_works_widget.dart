@@ -1,91 +1,86 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:selim_trade/core/constants/app_images.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:selim_trade/core/constants/app_text_style.dart';
+import 'package:selim_trade/feature/our_works/presentation/blocs/our_works_cubit/our_works_cubit.dart';
+import 'package:selim_trade/server/service_locator.dart';
+import 'package:selim_trade/theme/app_colors.dart';
 import 'package:selim_trade/translation/locale_keys.g.dart';
 
-class OurWorksWidgets extends StatefulWidget {
+class OurWorksWidgets extends StatelessWidget {
   const OurWorksWidgets({super.key});
 
   @override
-  State<OurWorksWidgets> createState() => _OurWorksWidgetsState();
-}
-
-class _OurWorksWidgetsState extends State<OurWorksWidgets> {
-  final ctrl = PageController(initialPage: 1, viewportFraction: 0.7);
-  int currentPage = 1;
-  @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Center(
-          child: Text(
-            LocaleKeys.about_us_our_works.tr(),
-            style: AppTextStyles.s16w700,
+    final ctrl = PageController(initialPage: 0, viewportFraction: 0.7);
+    return BlocProvider(
+      create: (context) => sl<OurWorksCubit>(),
+      child: Column(
+        children: [
+          Center(
+            child: Text(
+              LocaleKeys.about_us_our_works.tr(),
+              style: AppTextStyles.s16w700,
+            ),
           ),
-        ),
-        const SizedBox(
-          height: 17,
-        ),
-        SizedBox(
-          height: 250,
-          width: double.infinity,
-          child: PageView.builder(
-            pageSnapping: true,
-            physics: const BouncingScrollPhysics(),
-            scrollDirection: Axis.horizontal,
-            controller: ctrl,
-            itemCount: 4,
-            itemBuilder: (context, index) {
-              bool active = index == currentPage;
-              return _buildStoryPage(active);
+          const SizedBox(
+            height: 17,
+          ),
+          BlocBuilder<OurWorksCubit, OurWorksState>(
+            builder: (context, state) {
+              return state.when(
+                loading: () => const Center(
+                  child:
+                      CircularProgressIndicator(color: AppColors.color105BFB),
+                ),
+                error: (error) => Center(
+                  child: Text(error.message),
+                ),
+                success: (model) => SizedBox(
+                  height: 250,
+                  width: double.infinity,
+                  child: PageView.builder(
+                    pageSnapping: true,
+                    physics: const BouncingScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    controller: ctrl,
+                    itemCount: 5,
+                    itemBuilder: (context, index) {
+                      return AnimatedBuilder(
+                        animation: ctrl,
+                        builder: (context, child) {
+                          double value = 1.0;
+                          if (ctrl.position.haveDimensions) {
+                            value = ctrl.page! - index;
+                            value = (1 - (value.abs() * .5)).clamp(0.0, 1.0);
+                          } else if (index != 0) {
+                            value = 0.5;
+                          }
+
+                          return Padding(
+                            padding: EdgeInsets.all(50 - value * 50),
+                            child: child,
+                          );
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8.96),
+                            image: DecorationImage(
+                                image: NetworkImage(model[index].image!),
+                                fit: BoxFit.fill),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              );
             },
           ),
-        ),
-        const SizedBox(
-          height: 60,
-        ),
-      ],
-    );
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    ctrl.addListener(() {
-      int pos = ctrl.page!.round();
-      if (currentPage != pos) {
-        {
-          setState(() {
-            currentPage = pos;
-          });
-        }
-      }
-    });
-  }
-
-  @override
-  void dispose() {
-    ctrl.dispose();
-    super.dispose();
-  }
-
-  _buildStoryPage(bool active) {
-    final double top = active ? 1 : 30;
-    final double bottom = active ? 1 : 20;
-
-    return AnimatedContainer(
-      height: 161,
-      duration: const Duration(milliseconds: 500),
-      curve: Curves.easeOutQuint,
-      margin: EdgeInsets.only(top: top, right: 22.4, bottom: bottom),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8.96),
-        image: const DecorationImage(
-            image: AssetImage(
-              AppImages.gateWork,
-            ),
-            fit: BoxFit.fill),
+          const SizedBox(
+            height: 60,
+          ),
+        ],
       ),
     );
   }

@@ -3,7 +3,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:selim_trade/theme/app_colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-const LatLng currentLoc = LatLng(42.848347597623814, 74.58740061363872);
+LatLng currentLoc = const LatLng(42.848347597623814, 74.58740061363872);
 
 class MapWidget extends StatelessWidget {
   const MapWidget({super.key});
@@ -32,8 +32,7 @@ class MapWidget extends StatelessWidget {
           }
         },
         buildingsEnabled: true,
-        initialCameraPosition:
-            const CameraPosition(target: currentLoc, zoom: 17.5),
+        initialCameraPosition: CameraPosition(target: currentLoc, zoom: 17.5),
       ),
     );
   }

@@ -14,28 +14,35 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = ScrollController();
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: CustomScrollView(
-        controller: controller,
-        physics: const ClampingScrollPhysics(),
-        slivers: [
-          CustomSliverAppBar(
-            controller: controller,
-          ),
-          SliverList(
-            delegate: SliverChildListDelegate(
-              [
-                const MainSliverDelegate(),
-                const OurWorksWidgets(),
-                const ServiceWidget(),
-                ReviewsWidget(),
-                const QuestionWidget(),
-                const FooterWidget()
-              ],
+    Future<bool> _onWillPop() async {
+      return false;
+    }
+
+    return WillPopScope(
+      onWillPop: _onWillPop,
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: CustomScrollView(
+          controller: controller,
+          physics: const ClampingScrollPhysics(),
+          slivers: [
+            CustomSliverAppBar(
+              controller: controller,
             ),
-          ),
-        ],
+            SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  const MainSliverDelegate(),
+                  const OurWorksWidgets(),
+                  const ServiceWidget(),
+                  ReviewsWidget(),
+                  QuestionWidget(),
+                  const FooterWidget()
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

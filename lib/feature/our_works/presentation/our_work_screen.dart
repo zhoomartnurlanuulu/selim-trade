@@ -7,7 +7,6 @@ import 'package:selim_trade/core/constants/app_text_style.dart';
 import 'package:selim_trade/feature/our_works/presentation/widgets/pop_up_menu.dart';
 import 'package:selim_trade/theme/app_colors.dart';
 
-import 'widgets/filter_button.dart';
 import 'widgets/result_list.dart';
 
 class OurWorksScreen extends StatelessWidget {
@@ -50,10 +49,6 @@ class OurWorksScreen extends StatelessWidget {
           ),
           const SizedBox(
             height: 30,
-          ),
-          const FilterButtons(),
-          const SizedBox(
-            height: 25,
           ),
           const ResultList(),
           const QuestionWidget(),

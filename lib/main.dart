@@ -1,15 +1,14 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:injectable/injectable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:selim_trade/feature/home/presentation/blocs/questions_cubit/questions_cubit.dart';
 
 import 'package:selim_trade/router/router.gr.dart';
-
-import 'server/injection.dart';
+import 'package:selim_trade/server/service_locator.dart';
 import 'translation/codegen_loader.g.dart';
 
 void main() async {
-  await configureInjection(Environment.prod);
-  WidgetsFlutterBinding.ensureInitialized();
+  await init();
   await EasyLocalization.ensureInitialized();
 
   runApp(
@@ -30,17 +29,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-      debugShowCheckedModeBanner: false,
-      title: 'Selim Trade',
-      theme: ThemeData(
-        fontFamily: 'Montserrat',
+    return BlocProvider(
+      create: (context) => sl<QuestionsCubit>(),
+      child: MaterialApp.router(
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+        debugShowCheckedModeBanner: false,
+        title: 'Selim Trade',
+        theme: ThemeData(
+          fontFamily: 'Montserrat',
+        ),
+        routerDelegate: router.delegate(),
+        routeInformationParser: router.defaultRouteParser(),
       ),
-      routerDelegate: router.delegate(),
-      routeInformationParser: router.defaultRouteParser(),
     );
   }
 }

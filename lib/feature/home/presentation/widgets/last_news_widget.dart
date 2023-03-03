@@ -37,7 +37,7 @@ class LastNewsWidget extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => GestureDetector(
                 onTap: () {
-                  context.router.replace(const NewsDetailPageRoute());
+                  context.router.replace(NewsDetailPageRoute());
                 },
                 child: Container(
                   padding: const EdgeInsets.only(left: 26.33),

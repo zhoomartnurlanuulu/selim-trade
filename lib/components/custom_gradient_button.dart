@@ -8,7 +8,7 @@ class AppGradientButton extends StatelessWidget {
     required this.onPressed,
     required this.child,
   }) : super(key: key);
-  final Function() onPressed;
+  final Function()? onPressed;
   final Widget child;
   @override
   Widget build(BuildContext context) {

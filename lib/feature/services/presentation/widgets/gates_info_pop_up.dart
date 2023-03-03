@@ -26,13 +26,13 @@ class GateInfoPopUp extends StatelessWidget {
           : SvgPicture.asset(AppIcons.menuIcon),
       onSelected: (value) {
         if (value == MenuItem.main) {
-          context.router.replace(const HomeScreenRoute());
+          context.router.replace(HomeScreenRoute());
         } else if (value == MenuItem.news) {
-          context.router.replace(const NewsScreenRoute());
+          context.router.replace(NewsScreenRoute());
         } else if (value == MenuItem.works) {
-          context.router.replace(const OurWorksScreenRoute());
+          context.router.replace(OurWorksScreenRoute());
         } else if (value == MenuItem.services) {
-          context.router.replace(const ServiceScreenRoute());
+          context.router.replace(ServiceScreenRoute());
         }
       },
       itemBuilder: (context) => [

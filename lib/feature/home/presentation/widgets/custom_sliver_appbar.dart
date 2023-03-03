@@ -6,7 +6,7 @@ import 'package:selim_trade/feature/home/presentation/widgets/custom_fliexble_sp
 import 'pop_up_menu_item.dart';
 
 class CustomSliverAppBar extends StatelessWidget {
-  const CustomSliverAppBar({
+  CustomSliverAppBar({
     Key? key,
     required this.controller,
   }) : super(key: key);
@@ -17,6 +17,7 @@ class CustomSliverAppBar extends StatelessWidget {
       builder: (context, constraints) {
         final scrolled = constraints.scrollOffset > 260;
         return SliverAppBar(
+          automaticallyImplyLeading: false,
           pinned: true,
           centerTitle: false,
           title: scrolled

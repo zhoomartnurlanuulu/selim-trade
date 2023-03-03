@@ -7,4 +7,5 @@ class AppIcons {
   static const support = 'assets/icons/support.svg';
   static const instagram = 'assets/icons/instagram.svg';
   static const whatsapp = 'assets/icons/whatsapp.svg';
+  static const requestIcon = 'assets/icons/request.svg';
 }

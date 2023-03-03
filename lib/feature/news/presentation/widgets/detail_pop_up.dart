@@ -20,13 +20,13 @@ class DetailPopUp extends StatelessWidget {
       icon: SvgPicture.asset(AppIcons.menuBlackIcon),
       onSelected: (value) {
         if (value == MenuItem.main) {
-          context.router.replace(const HomeScreenRoute());
+          context.router.replace(HomeScreenRoute());
         } else if (value == MenuItem.services) {
-          context.router.replace(const ServiceScreenRoute());
+          context.router.replace(ServiceScreenRoute());
         } else if (value == MenuItem.works) {
-          context.router.replace(const OurWorksScreenRoute());
+          context.router.replace(OurWorksScreenRoute());
         } else if (value == MenuItem.news) {
-          context.router.replace(const NewsScreenRoute());
+          context.router.replace(NewsScreenRoute());
         }
       },
       itemBuilder: (context) => [

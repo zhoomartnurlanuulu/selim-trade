@@ -11,13 +11,12 @@ import 'package:selim_trade/router/router.gr.dart';
 import '../../../../core/constants/app_text_style.dart';
 
 class NewsDetailPage extends StatelessWidget {
-  const NewsDetailPage({super.key});
+  NewsDetailPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        
         elevation: 0,
         centerTitle: false,
         title: Image.asset(
@@ -25,19 +24,19 @@ class NewsDetailPage extends StatelessWidget {
           height: 39,
         ),
         color: Colors.white,
-        actions: const [DetailPopUp()],
+        actions: [DetailPopUp()],
       ),
       body: ListView(
-        physics: const ClampingScrollPhysics(),
+        physics: ClampingScrollPhysics(),
         children: [
-          const NewsDetailInfo(),
-          const SizedBox(
+          NewsDetailInfo(),
+          SizedBox(
             height: 7,
           ),
           Container(
             height: 350,
             width: 336,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(AppImages.restImage),
                 fit: BoxFit.fill,
@@ -47,14 +46,14 @@ class NewsDetailPage extends StatelessWidget {
           Container(
             height: 168,
             width: 350,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(AppImages.table),
                 fit: BoxFit.fill,
               ),
             ),
           ),
-          const SizedBox(
+          SizedBox(
             height: 51,
           ),
           Center(
@@ -63,25 +62,25 @@ class NewsDetailPage extends StatelessWidget {
               style: AppTextStyles.s16w700,
             ),
           ),
-          const SizedBox(
+          SizedBox(
             height: 27,
           ),
           SizedBox(
             height: 216,
             width: 316,
             child: ListView.separated(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20),
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => GestureDetector(
                 onTap: () {
-                  context.router.replace(const NewsDetailPageRoute());
+                  context.router.replace(NewsDetailPageRoute());
                 },
                 child: Container(
-                  padding: const EdgeInsets.only(left: 26.33),
+                  padding: EdgeInsets.only(left: 26.33),
                   height: 164,
                   width: 241,
                   decoration: BoxDecoration(
-                    image: const DecorationImage(
+                    image: DecorationImage(
                       image: AssetImage(AppImages.newsImage),
                       fit: BoxFit.fill,
                     ),
@@ -98,17 +97,17 @@ class NewsDetailPage extends StatelessWidget {
                   ),
                 ),
               ),
-              separatorBuilder: (context, index) => const SizedBox(
+              separatorBuilder: (context, index) => SizedBox(
                 width: 20,
               ),
               itemCount: 4,
             ),
           ),
-          const SizedBox(
+          SizedBox(
             height: 50,
           ),
-          const QuestionWidget(),
-          const FooterWidget(),
+          QuestionWidget(),
+          FooterWidget(),
         ],
       ),
     );

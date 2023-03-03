@@ -17,5 +17,9 @@ abstract class  LocaleKeys {
   static const about_us_reviews = 'about_us.reviews';
   static const about_us_you_have_question = 'about_us.you_have_question';
   static const about_us = 'about_us';
+  static const news_company_news = 'news.company_news';
+  static const news_for_your_attention = 'news.for_your_attention';
+  static const news_load_more = 'news.load_more';
+  static const news = 'news';
 
 }

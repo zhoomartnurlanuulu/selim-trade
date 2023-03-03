@@ -27,6 +27,8 @@ dependencies:
   freezed_annotation: ^2.2.0
   url_launcher: ^6.1.9
   google_maps_flutter: ^2.2.3
+  carousel_slider: ^4.2.1
+  dart_code_metrics: ^5.5.1
 
 
 
@@ -38,7 +40,6 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   json_serializable: ^6.6.1
   build_runner: ^2.3.3
-  dart_code_metrics: ^5.5.1
   auto_route_generator: ^5.0.3
   injectable_generator: ^2.1.4
   
@@ -53,6 +54,7 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/images/mainbackground.png
+    - assets/images/baa.png
     - assets/l10n/
 
   

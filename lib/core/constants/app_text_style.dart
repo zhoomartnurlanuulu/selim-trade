@@ -19,6 +19,11 @@ class AppTextStyles {
     fontSize: 16,
     fontWeight: FontWeight.w800,
   );
+  static const s18w800 = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w800,
+  );
+
   //font size 15
   static const s15w900 = TextStyle(
     fontSize: 10,

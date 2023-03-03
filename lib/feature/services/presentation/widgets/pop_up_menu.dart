@@ -20,11 +20,11 @@ class ServicePopUp extends StatelessWidget {
       icon: SvgPicture.asset(AppIcons.menuBlackIcon),
       onSelected: (value) {
         if (value == MenuItem.main) {
-          context.router.replace(const HomeScreenRoute());
+          context.router.replace(HomeScreenRoute());
         } else if (value == MenuItem.news) {
-          context.router.replace(const NewsScreenRoute());
+          context.router.replace(NewsScreenRoute());
         } else if (value == MenuItem.works) {
-          context.router.replace(const OurWorksScreenRoute());
+          context.router.replace(OurWorksScreenRoute());
         }
       },
       itemBuilder: (context) => [
@@ -75,7 +75,7 @@ class ServicePopUp extends StatelessWidget {
           enabled: false,
           child: GestureDetector(
             onTap: () async {
-              const uri = '+996552570755';
+           final   uri = '+996552570755';
               final url = Uri.parse('tel:$uri');
               if (await canLaunchUrl(url)) {
                 launchUrl(url);

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:selim_trade/components/custom_app_bar.dart';
 import 'package:selim_trade/components/custom_text_button.dart';
@@ -6,6 +7,7 @@ import 'package:selim_trade/components/question_widget.dart';
 import 'package:selim_trade/core/constants/app_images.dart';
 import 'package:selim_trade/core/constants/app_text_style.dart';
 import 'package:selim_trade/theme/app_colors.dart';
+import 'package:selim_trade/translation/locale_keys.g.dart';
 
 import 'widgets/news_list.dart';
 import 'widgets/pop_up_menu.dart';
@@ -37,15 +39,15 @@ class NewsScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  'Новости компании',
+                  LocaleKeys.news_company_news.tr(),
                   style: AppTextStyles.s16w800
                       .copyWith(color: AppColors.color414141),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                const Text(
-                  'К вашему вниманию здесь мы собрали все актуальные новости нашей компании',
+                Text(
+                  LocaleKeys.news_for_your_attention.tr(),
                   textAlign: TextAlign.center,
                 )
               ],
@@ -61,7 +63,7 @@ class NewsScreen extends StatelessWidget {
               height: 45,
               child: CustomTextButton(
                   child: Text(
-                    'загрузить ещё',
+                    LocaleKeys.news_load_more.tr(),
                     style: AppTextStyles.s14w300
                         .copyWith(color: AppColors.color414141),
                   ),

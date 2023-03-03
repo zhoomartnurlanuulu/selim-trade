@@ -9,7 +9,7 @@ class CircleButtonLeft extends StatelessWidget {
     Key? key,
     required this.onPressed,
   }) : super(key: key);
-  final Function()? onPressed;
+  final Function() onPressed;
   @override
   Widget build(BuildContext context) {
     return TextButton(

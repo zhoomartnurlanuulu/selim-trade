@@ -31,17 +31,17 @@ class ServiceScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         physics: const ClampingScrollPhysics(),
-        children: const [
-          TitleText(),
-          SizedBox(
+        children: [
+          const TitleText(),
+          const SizedBox(
             height: 40,
           ),
-          GatesList(),
-          SizedBox(
+           GatesList(),
+          const SizedBox(
             height: 40,
           ),
           QuestionWidget(),
-          FooterWidget()
+          const FooterWidget()
         ],
       ),
     );

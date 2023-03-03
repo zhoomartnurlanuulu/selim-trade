@@ -22,7 +22,7 @@ class NewsPopUp extends StatelessWidget {
         if (value == MenuItem.main) {
           context.router.replace(const HomeScreenRoute());
         } else if (value == MenuItem.services) {
-          context.router.replace(const ServiceScreenRoute());
+          context.router.replace(ServiceScreenRoute());
         } else if (value == MenuItem.works) {
           context.router.replace(const OurWorksScreenRoute());
         }

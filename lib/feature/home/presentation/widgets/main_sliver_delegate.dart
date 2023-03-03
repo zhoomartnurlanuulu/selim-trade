@@ -22,7 +22,7 @@ class MainSliverDelegate extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const AboutUs(),
+          AboutUs(),
           OfferWidget(),
           const Benefits(),
           const LastNewsWidget(),

@@ -47,7 +47,7 @@ class GatesList extends StatelessWidget {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           image: DecorationImage(
-                              image: NetworkImage(model[index].image ?? ''),
+                              image: NetworkImage(model[index].image),
                               fit: BoxFit.fill),
                         ),
                         child: Row(
@@ -63,7 +63,7 @@ class GatesList extends StatelessWidget {
                               ),
                               child: Center(
                                 child: Text(
-                                  model[index].title!,
+                                  model[index].title,
                                   style: AppTextStyles.s12w800
                                       .copyWith(color: Colors.white),
                                 ),

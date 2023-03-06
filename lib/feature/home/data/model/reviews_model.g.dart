@@ -8,20 +8,20 @@ part of 'reviews_model.dart';
 
 _$_ReviewsModel _$$_ReviewsModelFromJson(Map<String, dynamic> json) =>
     _$_ReviewsModel(
-      id: json['id'] as int?,
-      name: json['name'] as String?,
-      surname: json['surname'] as String?,
-      image: json['image'] as String?,
-      content: json['content'] as String?,
-      title: json['title'] as String?,
+      id: json['id'] as int,
+      name: json['author_name'] as String,
+      surname: json['author_surname'] as String,
+      image: json['author_image'] as String,
+      content: json['content'] as String,
+      title: json['gate_title'] as String,
     );
 
 Map<String, dynamic> _$$_ReviewsModelToJson(_$_ReviewsModel instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'name': instance.name,
-      'surname': instance.surname,
-      'image': instance.image,
+      'author_name': instance.name,
+      'author_surname': instance.surname,
+      'author_image': instance.image,
       'content': instance.content,
-      'title': instance.title,
+      'gate_title': instance.title,
     };

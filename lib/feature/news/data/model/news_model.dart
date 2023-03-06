@@ -6,11 +6,12 @@ part 'news_model.g.dart';
 @freezed
 class NewsModel with _$NewsModel {
   const factory NewsModel({
-    int? id,
-    String? title,
-    String? content,
-    DateTime? createdAt,
-    List<Image>? images,
+    required int id,
+    required String title,
+    required String content,
+    @JsonKey(name: 'created_at') required DateTime createdAt,
+    @JsonKey(name: 'title_image') required String titleImage,
+    List<NewsImage>? images,
   }) = _NewsModel;
 
   factory NewsModel.fromJson(Map<String, dynamic> json) =>
@@ -18,11 +19,12 @@ class NewsModel with _$NewsModel {
 }
 
 @freezed
-class Image with _$Image {
-  const factory Image({
+class NewsImage with _$NewsImage {
+  const factory NewsImage({
     int? id,
     String? image,
-  }) = _Image;
+  }) = _NewsImage;
 
-  factory Image.fromJson(Map<String, dynamic> json) => _$ImageFromJson(json);
+  factory NewsImage.fromJson(Map<String, dynamic> json) =>
+      _$NewsImageFromJson(json);
 }

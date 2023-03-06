@@ -6,7 +6,7 @@ class NewsUseCase {
   final NewsRepo repo;
   Future<List<NewsModel>> getNews() async {
     try {
-      return await repo.getNews();
+      return repo.getNews();
     } catch (e) {
       rethrow;
     }

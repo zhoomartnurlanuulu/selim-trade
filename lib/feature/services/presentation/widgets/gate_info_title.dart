@@ -15,7 +15,7 @@ class GateInfoTitle extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Text(
-            model.content!,
+            model.content,
             textAlign: TextAlign.center,
             style: AppTextStyles.s14w300,
           ),

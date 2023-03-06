@@ -21,5 +21,8 @@ abstract class  LocaleKeys {
   static const news_for_your_attention = 'news.for_your_attention';
   static const news_load_more = 'news.load_more';
   static const news = 'news';
+  static const work_time_operation_mode = 'work_time.operation_mode';
+  static const work_time_phone = 'work_time.phone';
+  static const work_time = 'work_time';
 
 }

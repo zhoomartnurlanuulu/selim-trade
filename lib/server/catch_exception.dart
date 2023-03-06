@@ -12,15 +12,15 @@ class CatchException {
       if (error.type == DioErrorType.connectTimeout) {
         return CatchException(message: 'не удалось подключиться');
       } else if (error.type == DioErrorType.receiveTimeout) {
-        return CatchException(message: 'dhjagskasm');
+        return CatchException(message: 'Вышло время');
       } else if (error.response == null) {
         return CatchException(message: 'нет интернета');
       } else if (error.response!.statusCode == 405) {
-        return CatchException(message: '4');
+        return CatchException(message: 'ошибка');
       } else if (error.response!.statusCode == 409) {
-        return CatchException(message: 'ghjk');
+        return CatchException(message: '409');
       } else if (error.response!.statusCode == 500) {
-        return CatchException(message: 'valueMap');
+        return CatchException(message: '500');
       } else {
         return CatchException(message: 'error');
       }

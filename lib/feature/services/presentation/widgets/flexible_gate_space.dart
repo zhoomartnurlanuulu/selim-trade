@@ -13,7 +13,7 @@ class FlexSpace extends StatelessWidget {
     return FlexibleSpaceBar(
       collapseMode: CollapseMode.parallax,
       background: Image.network(
-        model.image!,
+        model.image,
         fit: BoxFit.fill,
       ),
       title: AnimatedOpacity(
@@ -23,7 +23,7 @@ class FlexSpace extends StatelessWidget {
           padding: const EdgeInsets.only(top: 100, right: 20, left: 20),
           child: Center(
             child: Text(
-              model.title!,
+              model.title,
               textAlign: TextAlign.center,
               style: AppTextStyles.s16w800,
             ),

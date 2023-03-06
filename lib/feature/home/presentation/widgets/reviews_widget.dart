@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -72,8 +73,9 @@ class ReviewsWidget extends StatelessWidget {
                                     children: [
                                       CircleAvatar(
                                         radius: 26,
-                                        backgroundImage: NetworkImage(
-                                            model[index].image ?? ''),
+                                        backgroundImage:
+                                            CachedNetworkImageProvider(
+                                                model[index].image),
                                       ),
                                       const SizedBox(
                                         width: 15,
@@ -87,7 +89,7 @@ class ReviewsWidget extends StatelessWidget {
                                             style: AppTextStyles.s14w600,
                                           ),
                                           Text(
-                                            model[index].title ?? '',
+                                            model[index].title,
                                             style: AppTextStyles.s11w600,
                                           ),
                                         ],
@@ -97,7 +99,7 @@ class ReviewsWidget extends StatelessWidget {
                                   const SizedBox(
                                     height: 15,
                                   ),
-                                  Text(model[index].content!,
+                                  Text(model[index].content,
                                       style: AppTextStyles.s12w400)
                                 ],
                               ),

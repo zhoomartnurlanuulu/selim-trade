@@ -20,10 +20,10 @@ GatesModel _$GatesModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GatesModel {
-  int? get id => throw _privateConstructorUsedError;
-  String? get title => throw _privateConstructorUsedError;
-  String? get content => throw _privateConstructorUsedError;
-  String? get image => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  String get content => throw _privateConstructorUsedError;
+  String get image => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +37,7 @@ abstract class $GatesModelCopyWith<$Res> {
           GatesModel value, $Res Function(GatesModel) then) =
       _$GatesModelCopyWithImpl<$Res, GatesModel>;
   @useResult
-  $Res call({int? id, String? title, String? content, String? image});
+  $Res call({int id, String title, String content, String image});
 }
 
 /// @nodoc
@@ -53,28 +53,28 @@ class _$GatesModelCopyWithImpl<$Res, $Val extends GatesModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? content = freezed,
-    Object? image = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? content = null,
+    Object? image = null,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      title: freezed == title
+              as int,
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      content: freezed == content
+              as String,
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String?,
-      image: freezed == image
+              as String,
+      image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ) as $Val);
   }
 }
@@ -87,7 +87,7 @@ abstract class _$$_GatesModelCopyWith<$Res>
       __$$_GatesModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? id, String? title, String? content, String? image});
+  $Res call({int id, String title, String content, String image});
 }
 
 /// @nodoc
@@ -101,28 +101,28 @@ class __$$_GatesModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? content = freezed,
-    Object? image = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? content = null,
+    Object? image = null,
   }) {
     return _then(_$_GatesModel(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      title: freezed == title
+              as int,
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      content: freezed == content
+              as String,
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String?,
-      image: freezed == image
+              as String,
+      image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -130,19 +130,23 @@ class __$$_GatesModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_GatesModel implements _GatesModel {
-  const _$_GatesModel({this.id, this.title, this.content, this.image});
+  const _$_GatesModel(
+      {required this.id,
+      required this.title,
+      required this.content,
+      required this.image});
 
   factory _$_GatesModel.fromJson(Map<String, dynamic> json) =>
       _$$_GatesModelFromJson(json);
 
   @override
-  final int? id;
+  final int id;
   @override
-  final String? title;
+  final String title;
   @override
-  final String? content;
+  final String content;
   @override
-  final String? image;
+  final String image;
 
   @override
   String toString() {
@@ -180,22 +184,22 @@ class _$_GatesModel implements _GatesModel {
 
 abstract class _GatesModel implements GatesModel {
   const factory _GatesModel(
-      {final int? id,
-      final String? title,
-      final String? content,
-      final String? image}) = _$_GatesModel;
+      {required final int id,
+      required final String title,
+      required final String content,
+      required final String image}) = _$_GatesModel;
 
   factory _GatesModel.fromJson(Map<String, dynamic> json) =
       _$_GatesModel.fromJson;
 
   @override
-  int? get id;
+  int get id;
   @override
-  String? get title;
+  String get title;
   @override
-  String? get content;
+  String get content;
   @override
-  String? get image;
+  String get image;
   @override
   @JsonKey(ignore: true)
   _$$_GatesModelCopyWith<_$_GatesModel> get copyWith =>

@@ -15,6 +15,7 @@ import 'package:auto_route/auto_route.dart' as _i7;
 import 'package:flutter/material.dart' as _i8;
 
 import '../feature/home/presentation/home_screen.dart' as _i1;
+import '../feature/news/data/model/news_model.dart' as _i10;
 import '../feature/news/presentation/news_screen.dart' as _i4;
 import '../feature/news/presentation/widgets/news_detail.dart' as _i6;
 import '../feature/our_works/presentation/our_work_screen.dart' as _i2;
@@ -63,11 +64,13 @@ class AppRouter extends _i7.RootStackRouter {
       );
     },
     NewsDetailPageRoute.name: (routeData) {
-      final args = routeData.argsAs<NewsDetailPageRouteArgs>(
-          orElse: () => const NewsDetailPageRouteArgs());
+      final args = routeData.argsAs<NewsDetailPageRouteArgs>();
       return _i7.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i6.NewsDetailPage(key: args.key),
+        child: _i6.NewsDetailPage(
+          key: args.key,
+          model: args.model,
+        ),
       );
     },
   };
@@ -186,23 +189,33 @@ class GateInfoPageRouteArgs {
 /// generated route for
 /// [_i6.NewsDetailPage]
 class NewsDetailPageRoute extends _i7.PageRouteInfo<NewsDetailPageRouteArgs> {
-  NewsDetailPageRoute({_i8.Key? key})
-      : super(
+  NewsDetailPageRoute({
+    _i8.Key? key,
+    required _i10.NewsModel model,
+  }) : super(
           NewsDetailPageRoute.name,
           path: '/news-detail-page',
-          args: NewsDetailPageRouteArgs(key: key),
+          args: NewsDetailPageRouteArgs(
+            key: key,
+            model: model,
+          ),
         );
 
   static const String name = 'NewsDetailPageRoute';
 }
 
 class NewsDetailPageRouteArgs {
-  const NewsDetailPageRouteArgs({this.key});
+  const NewsDetailPageRouteArgs({
+    this.key,
+    required this.model,
+  });
 
   final _i8.Key? key;
 
+  final _i10.NewsModel model;
+
   @override
   String toString() {
-    return 'NewsDetailPageRouteArgs{key: $key}';
+    return 'NewsDetailPageRouteArgs{key: $key, model: $model}';
   }
 }

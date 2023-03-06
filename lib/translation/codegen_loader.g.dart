@@ -37,6 +37,10 @@ class CodegenLoader extends AssetLoader{
     "company_news": "Новости компании",
     "for_your_attention": "К вашему вниманию здесь мы собрали все актуальные новости нашей компании",
     "load_more": "загрузить ещё"
+  },
+  "work_time": {
+    "operation_mode": "РЕЖИМ РАБОТЫ",
+    "phone": "ТЕЛЕФОН"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": ru};

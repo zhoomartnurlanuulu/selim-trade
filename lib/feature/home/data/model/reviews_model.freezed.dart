@@ -20,12 +20,16 @@ ReviewsModel _$ReviewsModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ReviewsModel {
-  int? get id => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
-  String? get surname => throw _privateConstructorUsedError;
-  String? get image => throw _privateConstructorUsedError;
-  String? get content => throw _privateConstructorUsedError;
-  String? get title => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'author_name')
+  String get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'author_surname')
+  String get surname => throw _privateConstructorUsedError;
+  @JsonKey(name: 'author_image')
+  String get image => throw _privateConstructorUsedError;
+  String get content => throw _privateConstructorUsedError;
+  @JsonKey(name: 'gate_title')
+  String get title => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,12 +44,12 @@ abstract class $ReviewsModelCopyWith<$Res> {
       _$ReviewsModelCopyWithImpl<$Res, ReviewsModel>;
   @useResult
   $Res call(
-      {int? id,
-      String? name,
-      String? surname,
-      String? image,
-      String? content,
-      String? title});
+      {int id,
+      @JsonKey(name: 'author_name') String name,
+      @JsonKey(name: 'author_surname') String surname,
+      @JsonKey(name: 'author_image') String image,
+      String content,
+      @JsonKey(name: 'gate_title') String title});
 }
 
 /// @nodoc
@@ -61,38 +65,38 @@ class _$ReviewsModelCopyWithImpl<$Res, $Val extends ReviewsModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
-    Object? surname = freezed,
-    Object? image = freezed,
-    Object? content = freezed,
-    Object? title = freezed,
+    Object? id = null,
+    Object? name = null,
+    Object? surname = null,
+    Object? image = null,
+    Object? content = null,
+    Object? title = null,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      name: freezed == name
+              as int,
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      surname: freezed == surname
+              as String,
+      surname: null == surname
           ? _value.surname
           : surname // ignore: cast_nullable_to_non_nullable
-              as String?,
-      image: freezed == image
+              as String,
+      image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String?,
-      content: freezed == content
+              as String,
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String?,
-      title: freezed == title
+              as String,
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ) as $Val);
   }
 }
@@ -106,12 +110,12 @@ abstract class _$$_ReviewsModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int? id,
-      String? name,
-      String? surname,
-      String? image,
-      String? content,
-      String? title});
+      {int id,
+      @JsonKey(name: 'author_name') String name,
+      @JsonKey(name: 'author_surname') String surname,
+      @JsonKey(name: 'author_image') String image,
+      String content,
+      @JsonKey(name: 'gate_title') String title});
 }
 
 /// @nodoc
@@ -125,38 +129,38 @@ class __$$_ReviewsModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
-    Object? surname = freezed,
-    Object? image = freezed,
-    Object? content = freezed,
-    Object? title = freezed,
+    Object? id = null,
+    Object? name = null,
+    Object? surname = null,
+    Object? image = null,
+    Object? content = null,
+    Object? title = null,
   }) {
     return _then(_$_ReviewsModel(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      name: freezed == name
+              as int,
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      surname: freezed == surname
+              as String,
+      surname: null == surname
           ? _value.surname
           : surname // ignore: cast_nullable_to_non_nullable
-              as String?,
-      image: freezed == image
+              as String,
+      image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String?,
-      content: freezed == content
+              as String,
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String?,
-      title: freezed == title
+              as String,
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -165,23 +169,32 @@ class __$$_ReviewsModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ReviewsModel implements _ReviewsModel {
   const _$_ReviewsModel(
-      {this.id, this.name, this.surname, this.image, this.content, this.title});
+      {required this.id,
+      @JsonKey(name: 'author_name') required this.name,
+      @JsonKey(name: 'author_surname') required this.surname,
+      @JsonKey(name: 'author_image') required this.image,
+      required this.content,
+      @JsonKey(name: 'gate_title') required this.title});
 
   factory _$_ReviewsModel.fromJson(Map<String, dynamic> json) =>
       _$$_ReviewsModelFromJson(json);
 
   @override
-  final int? id;
+  final int id;
   @override
-  final String? name;
+  @JsonKey(name: 'author_name')
+  final String name;
   @override
-  final String? surname;
+  @JsonKey(name: 'author_surname')
+  final String surname;
   @override
-  final String? image;
+  @JsonKey(name: 'author_image')
+  final String image;
   @override
-  final String? content;
+  final String content;
   @override
-  final String? title;
+  @JsonKey(name: 'gate_title')
+  final String title;
 
   @override
   String toString() {
@@ -222,28 +235,33 @@ class _$_ReviewsModel implements _ReviewsModel {
 
 abstract class _ReviewsModel implements ReviewsModel {
   const factory _ReviewsModel(
-      {final int? id,
-      final String? name,
-      final String? surname,
-      final String? image,
-      final String? content,
-      final String? title}) = _$_ReviewsModel;
+          {required final int id,
+          @JsonKey(name: 'author_name') required final String name,
+          @JsonKey(name: 'author_surname') required final String surname,
+          @JsonKey(name: 'author_image') required final String image,
+          required final String content,
+          @JsonKey(name: 'gate_title') required final String title}) =
+      _$_ReviewsModel;
 
   factory _ReviewsModel.fromJson(Map<String, dynamic> json) =
       _$_ReviewsModel.fromJson;
 
   @override
-  int? get id;
+  int get id;
   @override
-  String? get name;
+  @JsonKey(name: 'author_name')
+  String get name;
   @override
-  String? get surname;
+  @JsonKey(name: 'author_surname')
+  String get surname;
   @override
-  String? get image;
+  @JsonKey(name: 'author_image')
+  String get image;
   @override
-  String? get content;
+  String get content;
   @override
-  String? get title;
+  @JsonKey(name: 'gate_title')
+  String get title;
   @override
   @JsonKey(ignore: true)
   _$$_ReviewsModelCopyWith<_$_ReviewsModel> get copyWith =>

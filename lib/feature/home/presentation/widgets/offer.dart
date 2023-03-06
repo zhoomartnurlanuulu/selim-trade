@@ -15,7 +15,7 @@ import 'package:selim_trade/translation/locale_keys.g.dart';
 
 class OfferWidget extends StatelessWidget {
   OfferWidget({super.key});
-  CarouselController? controller = CarouselController();
+  final CarouselController controller = CarouselController();
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -58,36 +58,42 @@ class OfferWidget extends StatelessWidget {
                           padEnds: false,
                           initialPage: 0,
                         ),
-                        itemBuilder: (context, index, _) => Container(
-                          height: 170,
-                          width: 250,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            image: DecorationImage(
-                              image: NetworkImage(model[index].image!),
-                              fit: BoxFit.fill,
+                        itemBuilder: (context, index, _) => GestureDetector(
+                          onTap: () {
+                            context.router
+                                .push(GateInfoPageRoute(model: model[index]));
+                          },
+                          child: Container(
+                            height: 170,
+                            width: 250,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              image: DecorationImage(
+                                image: NetworkImage(model[index].image),
+                                fit: BoxFit.fill,
+                              ),
                             ),
-                          ),
-                          child: Row(
-                            children: [
-                              Container(
-                                margin:
-                                    const EdgeInsets.only(top: 127, left: 6),
-                                height: 34,
-                                width: 135,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(12),
-                                  color: Colors.black.withOpacity(0.2),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    model[index].title!,
-                                    style: AppTextStyles.s14w800
-                                        .copyWith(color: Colors.white),
+                            child: Row(
+                              children: [
+                                Container(
+                                  margin:
+                                      const EdgeInsets.only(top: 127, left: 6),
+                                  height: 34,
+                                  width: 135,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(12),
+                                    color: Colors.black.withOpacity(0.2),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      model[index].title,
+                                      style: AppTextStyles.s14w800
+                                          .copyWith(color: Colors.white),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -106,7 +112,7 @@ class OfferWidget extends StatelessWidget {
                       width: 42.35,
                       child: CircleButtonLeft(
                         onPressed: () {
-                          controller!.previousPage();
+                          controller.previousPage();
                         },
                       )),
                   const SizedBox(
@@ -133,11 +139,9 @@ class OfferWidget extends StatelessWidget {
                     width: 42.35,
                     child: CircleButtonRight(
                       onPressed: () {
-                        if (controller != null) {
-                          controller!.nextPage(
-                              curve: Curves.bounceIn,
-                              duration: const Duration(milliseconds: 200));
-                        }
+                        controller.nextPage(
+                            curve: Curves.bounceIn,
+                            duration: const Duration(milliseconds: 200));
                       },
                     ),
                   ),

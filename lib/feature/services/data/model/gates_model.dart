@@ -6,10 +6,10 @@ part 'gates_model.g.dart';
 @freezed
 class GatesModel with _$GatesModel {
   const factory GatesModel({
-    int? id,
-    String? title,
-    String? content,
-    String? image,
+    required int id,
+    required String title,
+    required String content,
+    required String image,
   }) = _GatesModel;
 
   factory GatesModel.fromJson(Map<String, dynamic> json) =>

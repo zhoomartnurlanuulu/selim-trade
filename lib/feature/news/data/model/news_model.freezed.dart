@@ -20,11 +20,14 @@ NewsModel _$NewsModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$NewsModel {
-  int? get id => throw _privateConstructorUsedError;
-  String? get title => throw _privateConstructorUsedError;
-  String? get content => throw _privateConstructorUsedError;
-  DateTime? get createdAt => throw _privateConstructorUsedError;
-  List<Image>? get images => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  String get content => throw _privateConstructorUsedError;
+  @JsonKey(name: 'created_at')
+  DateTime get createdAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'title_image')
+  String get titleImage => throw _privateConstructorUsedError;
+  List<NewsImage>? get images => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,11 +41,12 @@ abstract class $NewsModelCopyWith<$Res> {
       _$NewsModelCopyWithImpl<$Res, NewsModel>;
   @useResult
   $Res call(
-      {int? id,
-      String? title,
-      String? content,
-      DateTime? createdAt,
-      List<Image>? images});
+      {int id,
+      String title,
+      String content,
+      @JsonKey(name: 'created_at') DateTime createdAt,
+      @JsonKey(name: 'title_image') String titleImage,
+      List<NewsImage>? images});
 }
 
 /// @nodoc
@@ -58,33 +62,38 @@ class _$NewsModelCopyWithImpl<$Res, $Val extends NewsModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? content = freezed,
-    Object? createdAt = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? content = null,
+    Object? createdAt = null,
+    Object? titleImage = null,
     Object? images = freezed,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      title: freezed == title
+              as int,
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      content: freezed == content
+              as String,
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String?,
-      createdAt: freezed == createdAt
+              as String,
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
+      titleImage: null == titleImage
+          ? _value.titleImage
+          : titleImage // ignore: cast_nullable_to_non_nullable
+              as String,
       images: freezed == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
-              as List<Image>?,
+              as List<NewsImage>?,
     ) as $Val);
   }
 }
@@ -97,11 +106,12 @@ abstract class _$$_NewsModelCopyWith<$Res> implements $NewsModelCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int? id,
-      String? title,
-      String? content,
-      DateTime? createdAt,
-      List<Image>? images});
+      {int id,
+      String title,
+      String content,
+      @JsonKey(name: 'created_at') DateTime createdAt,
+      @JsonKey(name: 'title_image') String titleImage,
+      List<NewsImage>? images});
 }
 
 /// @nodoc
@@ -115,33 +125,38 @@ class __$$_NewsModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? content = freezed,
-    Object? createdAt = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? content = null,
+    Object? createdAt = null,
+    Object? titleImage = null,
     Object? images = freezed,
   }) {
     return _then(_$_NewsModel(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      title: freezed == title
+              as int,
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      content: freezed == content
+              as String,
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String?,
-      createdAt: freezed == createdAt
+              as String,
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
+      titleImage: null == titleImage
+          ? _value.titleImage
+          : titleImage // ignore: cast_nullable_to_non_nullable
+              as String,
       images: freezed == images
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
-              as List<Image>?,
+              as List<NewsImage>?,
     ));
   }
 }
@@ -150,27 +165,32 @@ class __$$_NewsModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_NewsModel implements _NewsModel {
   const _$_NewsModel(
-      {this.id,
-      this.title,
-      this.content,
-      this.createdAt,
-      final List<Image>? images})
+      {required this.id,
+      required this.title,
+      required this.content,
+      @JsonKey(name: 'created_at') required this.createdAt,
+      @JsonKey(name: 'title_image') required this.titleImage,
+      final List<NewsImage>? images})
       : _images = images;
 
   factory _$_NewsModel.fromJson(Map<String, dynamic> json) =>
       _$$_NewsModelFromJson(json);
 
   @override
-  final int? id;
+  final int id;
   @override
-  final String? title;
+  final String title;
   @override
-  final String? content;
+  final String content;
   @override
-  final DateTime? createdAt;
-  final List<Image>? _images;
+  @JsonKey(name: 'created_at')
+  final DateTime createdAt;
   @override
-  List<Image>? get images {
+  @JsonKey(name: 'title_image')
+  final String titleImage;
+  final List<NewsImage>? _images;
+  @override
+  List<NewsImage>? get images {
     final value = _images;
     if (value == null) return null;
     if (_images is EqualUnmodifiableListView) return _images;
@@ -180,7 +200,7 @@ class _$_NewsModel implements _NewsModel {
 
   @override
   String toString() {
-    return 'NewsModel(id: $id, title: $title, content: $content, createdAt: $createdAt, images: $images)';
+    return 'NewsModel(id: $id, title: $title, content: $content, createdAt: $createdAt, titleImage: $titleImage, images: $images)';
   }
 
   @override
@@ -193,13 +213,15 @@ class _$_NewsModel implements _NewsModel {
             (identical(other.content, content) || other.content == content) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
+            (identical(other.titleImage, titleImage) ||
+                other.titleImage == titleImage) &&
             const DeepCollectionEquality().equals(other._images, _images));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, title, content, createdAt,
-      const DeepCollectionEquality().hash(_images));
+      titleImage, const DeepCollectionEquality().hash(_images));
 
   @JsonKey(ignore: true)
   @override
@@ -217,57 +239,63 @@ class _$_NewsModel implements _NewsModel {
 
 abstract class _NewsModel implements NewsModel {
   const factory _NewsModel(
-      {final int? id,
-      final String? title,
-      final String? content,
-      final DateTime? createdAt,
-      final List<Image>? images}) = _$_NewsModel;
+      {required final int id,
+      required final String title,
+      required final String content,
+      @JsonKey(name: 'created_at') required final DateTime createdAt,
+      @JsonKey(name: 'title_image') required final String titleImage,
+      final List<NewsImage>? images}) = _$_NewsModel;
 
   factory _NewsModel.fromJson(Map<String, dynamic> json) =
       _$_NewsModel.fromJson;
 
   @override
-  int? get id;
+  int get id;
   @override
-  String? get title;
+  String get title;
   @override
-  String? get content;
+  String get content;
   @override
-  DateTime? get createdAt;
+  @JsonKey(name: 'created_at')
+  DateTime get createdAt;
   @override
-  List<Image>? get images;
+  @JsonKey(name: 'title_image')
+  String get titleImage;
+  @override
+  List<NewsImage>? get images;
   @override
   @JsonKey(ignore: true)
   _$$_NewsModelCopyWith<_$_NewsModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-Image _$ImageFromJson(Map<String, dynamic> json) {
-  return _Image.fromJson(json);
+NewsImage _$NewsImageFromJson(Map<String, dynamic> json) {
+  return _NewsImage.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Image {
+mixin _$NewsImage {
   int? get id => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ImageCopyWith<Image> get copyWith => throw _privateConstructorUsedError;
+  $NewsImageCopyWith<NewsImage> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ImageCopyWith<$Res> {
-  factory $ImageCopyWith(Image value, $Res Function(Image) then) =
-      _$ImageCopyWithImpl<$Res, Image>;
+abstract class $NewsImageCopyWith<$Res> {
+  factory $NewsImageCopyWith(NewsImage value, $Res Function(NewsImage) then) =
+      _$NewsImageCopyWithImpl<$Res, NewsImage>;
   @useResult
   $Res call({int? id, String? image});
 }
 
 /// @nodoc
-class _$ImageCopyWithImpl<$Res, $Val extends Image>
-    implements $ImageCopyWith<$Res> {
-  _$ImageCopyWithImpl(this._value, this._then);
+class _$NewsImageCopyWithImpl<$Res, $Val extends NewsImage>
+    implements $NewsImageCopyWith<$Res> {
+  _$NewsImageCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -294,18 +322,21 @@ class _$ImageCopyWithImpl<$Res, $Val extends Image>
 }
 
 /// @nodoc
-abstract class _$$_ImageCopyWith<$Res> implements $ImageCopyWith<$Res> {
-  factory _$$_ImageCopyWith(_$_Image value, $Res Function(_$_Image) then) =
-      __$$_ImageCopyWithImpl<$Res>;
+abstract class _$$_NewsImageCopyWith<$Res> implements $NewsImageCopyWith<$Res> {
+  factory _$$_NewsImageCopyWith(
+          _$_NewsImage value, $Res Function(_$_NewsImage) then) =
+      __$$_NewsImageCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int? id, String? image});
 }
 
 /// @nodoc
-class __$$_ImageCopyWithImpl<$Res> extends _$ImageCopyWithImpl<$Res, _$_Image>
-    implements _$$_ImageCopyWith<$Res> {
-  __$$_ImageCopyWithImpl(_$_Image _value, $Res Function(_$_Image) _then)
+class __$$_NewsImageCopyWithImpl<$Res>
+    extends _$NewsImageCopyWithImpl<$Res, _$_NewsImage>
+    implements _$$_NewsImageCopyWith<$Res> {
+  __$$_NewsImageCopyWithImpl(
+      _$_NewsImage _value, $Res Function(_$_NewsImage) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -314,7 +345,7 @@ class __$$_ImageCopyWithImpl<$Res> extends _$ImageCopyWithImpl<$Res, _$_Image>
     Object? id = freezed,
     Object? image = freezed,
   }) {
-    return _then(_$_Image(
+    return _then(_$_NewsImage(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -329,11 +360,11 @@ class __$$_ImageCopyWithImpl<$Res> extends _$ImageCopyWithImpl<$Res, _$_Image>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Image implements _Image {
-  const _$_Image({this.id, this.image});
+class _$_NewsImage implements _NewsImage {
+  const _$_NewsImage({this.id, this.image});
 
-  factory _$_Image.fromJson(Map<String, dynamic> json) =>
-      _$$_ImageFromJson(json);
+  factory _$_NewsImage.fromJson(Map<String, dynamic> json) =>
+      _$$_NewsImageFromJson(json);
 
   @override
   final int? id;
@@ -342,14 +373,14 @@ class _$_Image implements _Image {
 
   @override
   String toString() {
-    return 'Image(id: $id, image: $image)';
+    return 'NewsImage(id: $id, image: $image)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Image &&
+            other is _$_NewsImage &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.image, image) || other.image == image));
   }
@@ -361,21 +392,22 @@ class _$_Image implements _Image {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ImageCopyWith<_$_Image> get copyWith =>
-      __$$_ImageCopyWithImpl<_$_Image>(this, _$identity);
+  _$$_NewsImageCopyWith<_$_NewsImage> get copyWith =>
+      __$$_NewsImageCopyWithImpl<_$_NewsImage>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ImageToJson(
+    return _$$_NewsImageToJson(
       this,
     );
   }
 }
 
-abstract class _Image implements Image {
-  const factory _Image({final int? id, final String? image}) = _$_Image;
+abstract class _NewsImage implements NewsImage {
+  const factory _NewsImage({final int? id, final String? image}) = _$_NewsImage;
 
-  factory _Image.fromJson(Map<String, dynamic> json) = _$_Image.fromJson;
+  factory _NewsImage.fromJson(Map<String, dynamic> json) =
+      _$_NewsImage.fromJson;
 
   @override
   int? get id;
@@ -383,6 +415,6 @@ abstract class _Image implements Image {
   String? get image;
   @override
   @JsonKey(ignore: true)
-  _$$_ImageCopyWith<_$_Image> get copyWith =>
+  _$$_NewsImageCopyWith<_$_NewsImage> get copyWith =>
       throw _privateConstructorUsedError;
 }

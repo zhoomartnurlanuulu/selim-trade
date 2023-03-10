@@ -11,7 +11,7 @@ class ReviewsRepoImpl implements ReviewsRepo {
   Future<List<ReviewsModel>> getReviews() async {
     try {
       final response = await dio.get(
-        '/selim/reviews/',
+        'reviews/',
       );
       return response.data
           .map<ReviewsModel>((e) => ReviewsModel.fromJson(e))

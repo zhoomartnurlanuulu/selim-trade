@@ -12,7 +12,7 @@ class OurWorksRepoImpl implements OurWorksRepo {
   @override
   Future<List<OurWorksModel>> getAllWorks() async {
     try {
-      final response = await dio.get('selim/our-works');
+      final response = await dio.get('our-works');
       return response.data
           .map<OurWorksModel>((e) => OurWorksModel.fromJson(e))
           .toList();

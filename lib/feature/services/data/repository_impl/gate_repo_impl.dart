@@ -9,7 +9,7 @@ class GatesRepoImpl implements GatesRepo {
   @override
   Future<List<GatesModel>> getGates() async {
     try {
-      final response = await dio.get('selim/gates/');
+      final response = await dio.get('gates/');
       return response.data
           .map<GatesModel>((e) => GatesModel.fromJson(e))
           .toList();

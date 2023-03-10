@@ -75,7 +75,7 @@ class ServicePopUp extends StatelessWidget {
           enabled: false,
           child: GestureDetector(
             onTap: () async {
-           final   uri = '+996552570755';
+              final uri = '+996552570755';
               final url = Uri.parse('tel:$uri');
               if (await canLaunchUrl(url)) {
                 launchUrl(url);

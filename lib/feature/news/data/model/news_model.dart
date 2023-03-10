@@ -11,7 +11,7 @@ class NewsModel with _$NewsModel {
     required String content,
     @JsonKey(name: 'created_at') required DateTime createdAt,
     @JsonKey(name: 'title_image') required String titleImage,
-   required List<NewsImage> images,
+    required List<NewsImage> images,
   }) = _NewsModel;
 
   factory NewsModel.fromJson(Map<String, dynamic> json) =>

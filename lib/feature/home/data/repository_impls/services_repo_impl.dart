@@ -13,7 +13,7 @@ class ServicesRepoImpl implements ServicesRepo {
   @override
   Future<List<ServicesModel>> getServices() async {
     try {
-      final response = await dio.get('selim/services/');
+      final response = await dio.get('services/');
       return response.data
           .map<ServicesModel>((e) => ServicesModel.fromJson(e))
           .toList();

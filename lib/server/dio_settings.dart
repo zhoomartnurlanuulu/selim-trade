@@ -7,7 +7,7 @@ class DioSettings {
 
   Dio dio = Dio(
     BaseOptions(
-      baseUrl: 'http://161.35.29.179:8002/api/v1/',
+      baseUrl: 'http://161.35.29.179:8002/api/v1/selim/',
       connectTimeout: 20000,
       receiveTimeout: 20000,
     ),

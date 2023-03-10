@@ -9,7 +9,7 @@ class AdvantageRepoImpl implements AdvantageRepo {
   @override
   Future<List<AdvantageModel>> getAdvantage() async {
     try {
-      final response = await dio.get('selim/gate-advantages/');
+      final response = await dio.get('gate-advantages/');
 
       return response.data
           .map<AdvantageModel>((e) => AdvantageModel.fromJson(e))

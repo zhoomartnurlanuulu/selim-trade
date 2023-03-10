@@ -14,7 +14,7 @@ class QuestionsRepoImpl implements QuestionsRepo {
       String name, String phone, String content) async {
     try {
       final response = await dio.post(
-        'selim/questions/',
+        'questions/',
         data: {'username': name, 'phone': phone, 'content': content},
       );
       return QuestionsModel.fromJson(response.data);

@@ -6,7 +6,6 @@ class AdvantageUseCase {
   AdvantageRepo repo;
   Future<List<AdvantageModel>> getAdvantage() async {
     try {
-
       return await repo.getAdvantage();
     } catch (e) {
       rethrow;

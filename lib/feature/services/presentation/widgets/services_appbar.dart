@@ -6,11 +6,8 @@ import 'package:selim_trade/feature/services/presentation/widgets/flexible_gate_
 import 'package:selim_trade/feature/services/presentation/widgets/gates_info_pop_up.dart';
 
 class ServicesAppBar extends StatelessWidget {
-   ServicesAppBar({
-    Key? key,
-    required this.ctrl,
-    required this.model
-  }) : super(key: key);
+  ServicesAppBar({Key? key, required this.ctrl, required this.model})
+      : super(key: key);
   final ScrollController ctrl;
   GatesModel model;
   @override

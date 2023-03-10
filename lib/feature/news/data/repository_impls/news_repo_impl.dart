@@ -9,7 +9,7 @@ class NewsRepoImpl implements NewsRepo {
   @override
   Future<List<NewsModel>> getNews() async {
     try {
-      final response = await dio.get('selim/news/');
+      final response = await dio.get('news/');
       return response.data
           .map<NewsModel>((e) => NewsModel.fromJson(e))
           .toList();

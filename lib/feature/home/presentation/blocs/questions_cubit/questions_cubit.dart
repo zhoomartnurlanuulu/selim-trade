@@ -9,7 +9,7 @@ part 'questions_cubit.freezed.dart';
 
 class QuestionsCubit extends Cubit<QuestionsState> {
   QuestionsCubit({required this.useCase}) : super(QuestionsState.loading()) {
-    getQuestions('','','');
+    getQuestions('', '', '');
   }
   QuestionsUseCase useCase;
   Future<void> getQuestions(String name, String phone, String content) async {

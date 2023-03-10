@@ -12,7 +12,7 @@ class BenifitsRepoImpl implements BenifitsRepo {
   @override
   Future<List<BenifitsModel>> getBenifits() async {
     try {
-      final response = await dio.get('selim/advantages/');
+      final response = await dio.get('advantages/');
       return response.data
           .map<BenifitsModel>((e) => BenifitsModel.fromJson(e))
           .toList();

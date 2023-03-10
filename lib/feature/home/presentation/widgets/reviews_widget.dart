@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:selim_trade/components/app_shimmer_widget.dart';
 import 'package:selim_trade/components/circale_button_left.dart';
 import 'package:selim_trade/components/circale_button_right.dart';
 import 'package:selim_trade/core/constants/app_images.dart';
@@ -36,11 +37,20 @@ class ReviewsWidget extends StatelessWidget {
             BlocBuilder<ReviewsCubit, ReviewsState>(
               builder: (context, state) {
                 return state.when(
-                  loading: () => const Center(
-                    child: CircularProgressIndicator(
-                      color: AppColors.color105BFB,
-                    ),
-                  ),
+                  loading: () => SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          AppShimmerWidget(width: 260, height: 151),
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          AppShimmerWidget(
+                            width: 260,
+                            height: 151,
+                          )
+                        ],
+                      )),
                   error: (error) => Center(child: Text(error.message)),
                   success: (model) => SizedBox(
                     height: 150,
@@ -49,13 +59,13 @@ class ReviewsWidget extends StatelessWidget {
                       carouselController: controller,
                       options: CarouselOptions(
                         padEnds: false,
-                        viewportFraction: 0.6,
+                        viewportFraction: 0.64,
                         enableInfiniteScroll: false,
                       ),
                       itemBuilder: (context, index, _) {
                         return SizedBox(
                           child: Container(
-                            width: 241,
+                            width: 260,
                             height: 151,
                             decoration: const BoxDecoration(
                               image: DecorationImage(

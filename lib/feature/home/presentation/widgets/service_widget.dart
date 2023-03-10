@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:selim_trade/components/app_shimmer_widget.dart';
 import 'package:selim_trade/core/constants/app_text_style.dart';
 import 'package:selim_trade/feature/home/presentation/blocs/services_cubit/services_cubit.dart';
 import 'package:selim_trade/server/service_locator.dart';
@@ -33,8 +34,21 @@ class ServiceWidget extends StatelessWidget {
             BlocBuilder<ServicesCubit, ServicesState>(
               builder: (context, state) {
                 return state.when(
-                  loading: () => const Center(
-                    child: CircularProgressIndicator(),
+                  loading: () => SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        AppShimmerWidget(
+                          height: 123,
+                          width: 225,
+                        ),
+                        const SizedBox(width: 20),
+                        AppShimmerWidget(
+                          height: 123,
+                          width: 225,
+                        )
+                      ],
+                    ),
                   ),
                   error: (error) => Center(
                     child: Text(error.message),

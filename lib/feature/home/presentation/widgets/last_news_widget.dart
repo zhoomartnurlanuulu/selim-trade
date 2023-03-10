@@ -3,6 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:selim_trade/components/app_shimmer_widget.dart';
 import 'package:selim_trade/components/custom_text_button.dart';
 import 'package:selim_trade/core/constants/app_text_style.dart';
 import 'package:selim_trade/feature/news/presentation/blocs/news_cubit/news_cubit.dart';
@@ -39,8 +40,23 @@ class LastNewsWidget extends StatelessWidget {
             BlocBuilder<NewsCubit, NewsState>(
               builder: (context, state) {
                 return state.when(
-                  loading: () => const Center(
-                    child: CircularProgressIndicator(),
+                  loading: () => SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        AppShimmerWidget(
+                          height: 164,
+                          width: 241,
+                        ),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        AppShimmerWidget(
+                          height: 164,
+                          width: 241,
+                        ),
+                      ],
+                    ),
                   ),
                   error: (error) => Center(
                     child: Text(error.message),

@@ -2,6 +2,7 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:selim_trade/components/app_shimmer_widget.dart';
 import 'package:selim_trade/feature/news/data/model/news_model.dart';
 import 'package:selim_trade/feature/news/presentation/blocs/news_cubit/news_cubit.dart';
 import 'package:selim_trade/feature/news/presentation/widgets/news_detail_info.dart';
@@ -11,6 +12,7 @@ import 'package:selim_trade/components/question_widget.dart';
 import 'package:selim_trade/components/custom_app_bar.dart';
 import 'package:selim_trade/components/footer_widget.dart';
 import 'package:selim_trade/core/constants/app_images.dart';
+import 'package:selim_trade/feature/news/presentation/widgets/news_image_builder.dart';
 import 'package:selim_trade/router/router.gr.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -44,25 +46,8 @@ class NewsDetailPage extends StatelessWidget {
             const SizedBox(
               height: 7,
             ),
-            Container(
-              height: 350,
-              width: 336,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage(model.titleImage),
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
-            Container(
-              height: 168,
-              width: 350,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(AppImages.table),
-                  fit: BoxFit.fill,
-                ),
-              ),
+            NewsImageBuilder(
+              model: model,
             ),
             const SizedBox(
               height: 51,
@@ -79,8 +64,23 @@ class NewsDetailPage extends StatelessWidget {
             BlocBuilder<NewsCubit, NewsState>(
               builder: (context, state) {
                 return state.when(
-                  loading: () => const Center(
-                    child: CircularProgressIndicator(),
+                  loading: () => SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        AppShimmerWidget(
+                          height: 161,
+                          width: 260,
+                        ),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        AppShimmerWidget(
+                          height: 161,
+                          width: 260,
+                        ),
+                      ],
+                    ),
                   ),
                   error: (error) => Center(
                     child: Text(error.message),

@@ -67,9 +67,7 @@ class NewsScreen extends StatelessWidget {
                     style: AppTextStyles.s14w300
                         .copyWith(color: AppColors.color414141),
                   ),
-                  onPressed: () {
-                    
-                  }),
+                  onPressed: () {}),
             ),
           ),
           const SizedBox(

@@ -27,13 +27,13 @@ class FooterWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: const [
               SizedBox(
-                width: 65,
+                width: 55,
               ),
               Contacts(),
               SizedBox(
-                width: 45,
+                width: 30,
               ),
-              Flexible(child: MapWidget()),
+              Expanded(child: MapWidget()),
             ],
           ),
           const SizedBox(

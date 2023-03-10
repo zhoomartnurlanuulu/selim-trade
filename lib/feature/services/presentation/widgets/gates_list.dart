@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:selim_trade/components/app_shimmer_widget.dart';
 import 'package:selim_trade/core/constants/app_text_style.dart';
 import 'package:selim_trade/feature/services/presentation/blocs/gates_cubit/gates_cubit.dart';
 import 'package:selim_trade/router/router.gr.dart';
 import 'package:selim_trade/server/service_locator.dart';
-import 'package:selim_trade/theme/app_colors.dart';
 
 class GatesList extends StatelessWidget {
   const GatesList({
@@ -21,9 +21,18 @@ class GatesList extends StatelessWidget {
           BlocBuilder<GatesCubit, GatesState>(
             builder: (context, state) {
               return state.when(
-                loading: () => const Center(
-                  child:
-                      CircularProgressIndicator(color: AppColors.color105BFB),
+                loading: () => SizedBox(
+                  height: 800,
+                  child: ListView.separated(
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: 4,
+                      separatorBuilder: (context, index) => const SizedBox(
+                            height: 30,
+                          ),
+                      itemBuilder: (context, index) => AppShimmerWidget(
+                            height: 170,
+                            width: 339,
+                          )),
                 ),
                 error: (error) => Center(
                   child: Text(error.message),
@@ -42,28 +51,29 @@ class GatesList extends StatelessWidget {
                             .push(GateInfoPageRoute(model: model[index]));
                       },
                       child: Container(
-                        height: 172,
+                        height: 170,
                         width: 339,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           image: DecorationImage(
                               image: NetworkImage(model[index].image),
-                              fit: BoxFit.fill),
+                              fit: BoxFit.cover),
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Container(
-                              margin: const EdgeInsets.only(top: 127, left: 6),
+                              margin: const EdgeInsets.only(top: 150, left: 9),
                               height: 20,
-                              width: 220,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(12),
                                 color: Colors.black.withOpacity(0.2),
                               ),
-                              child: Center(
+                              child: SizedBox(
+                                width: 190,
                                 child: Text(
                                   model[index].title,
+                                  textAlign: TextAlign.left,
                                   style: AppTextStyles.s12w800
                                       .copyWith(color: Colors.white),
                                 ),

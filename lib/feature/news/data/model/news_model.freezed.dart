@@ -27,7 +27,7 @@ mixin _$NewsModel {
   DateTime get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'title_image')
   String get titleImage => throw _privateConstructorUsedError;
-  List<NewsImage>? get images => throw _privateConstructorUsedError;
+  List<NewsImage> get images => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,7 +46,7 @@ abstract class $NewsModelCopyWith<$Res> {
       String content,
       @JsonKey(name: 'created_at') DateTime createdAt,
       @JsonKey(name: 'title_image') String titleImage,
-      List<NewsImage>? images});
+      List<NewsImage> images});
 }
 
 /// @nodoc
@@ -67,7 +67,7 @@ class _$NewsModelCopyWithImpl<$Res, $Val extends NewsModel>
     Object? content = null,
     Object? createdAt = null,
     Object? titleImage = null,
-    Object? images = freezed,
+    Object? images = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -90,10 +90,10 @@ class _$NewsModelCopyWithImpl<$Res, $Val extends NewsModel>
           ? _value.titleImage
           : titleImage // ignore: cast_nullable_to_non_nullable
               as String,
-      images: freezed == images
+      images: null == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
-              as List<NewsImage>?,
+              as List<NewsImage>,
     ) as $Val);
   }
 }
@@ -111,7 +111,7 @@ abstract class _$$_NewsModelCopyWith<$Res> implements $NewsModelCopyWith<$Res> {
       String content,
       @JsonKey(name: 'created_at') DateTime createdAt,
       @JsonKey(name: 'title_image') String titleImage,
-      List<NewsImage>? images});
+      List<NewsImage> images});
 }
 
 /// @nodoc
@@ -130,7 +130,7 @@ class __$$_NewsModelCopyWithImpl<$Res>
     Object? content = null,
     Object? createdAt = null,
     Object? titleImage = null,
-    Object? images = freezed,
+    Object? images = null,
   }) {
     return _then(_$_NewsModel(
       id: null == id
@@ -153,10 +153,10 @@ class __$$_NewsModelCopyWithImpl<$Res>
           ? _value.titleImage
           : titleImage // ignore: cast_nullable_to_non_nullable
               as String,
-      images: freezed == images
+      images: null == images
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
-              as List<NewsImage>?,
+              as List<NewsImage>,
     ));
   }
 }
@@ -170,7 +170,7 @@ class _$_NewsModel implements _NewsModel {
       required this.content,
       @JsonKey(name: 'created_at') required this.createdAt,
       @JsonKey(name: 'title_image') required this.titleImage,
-      final List<NewsImage>? images})
+      required final List<NewsImage> images})
       : _images = images;
 
   factory _$_NewsModel.fromJson(Map<String, dynamic> json) =>
@@ -188,14 +188,12 @@ class _$_NewsModel implements _NewsModel {
   @override
   @JsonKey(name: 'title_image')
   final String titleImage;
-  final List<NewsImage>? _images;
+  final List<NewsImage> _images;
   @override
-  List<NewsImage>? get images {
-    final value = _images;
-    if (value == null) return null;
+  List<NewsImage> get images {
     if (_images is EqualUnmodifiableListView) return _images;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_images);
   }
 
   @override
@@ -244,7 +242,7 @@ abstract class _NewsModel implements NewsModel {
       required final String content,
       @JsonKey(name: 'created_at') required final DateTime createdAt,
       @JsonKey(name: 'title_image') required final String titleImage,
-      final List<NewsImage>? images}) = _$_NewsModel;
+      required final List<NewsImage> images}) = _$_NewsModel;
 
   factory _NewsModel.fromJson(Map<String, dynamic> json) =
       _$_NewsModel.fromJson;
@@ -262,7 +260,7 @@ abstract class _NewsModel implements NewsModel {
   @JsonKey(name: 'title_image')
   String get titleImage;
   @override
-  List<NewsImage>? get images;
+  List<NewsImage> get images;
   @override
   @JsonKey(ignore: true)
   _$$_NewsModelCopyWith<_$_NewsModel> get copyWith =>

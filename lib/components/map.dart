@@ -10,30 +10,73 @@ class MapWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        boxShadow: const [
-          BoxShadow(
-              color: AppColors.color105BFB, blurRadius: 1, spreadRadius: 1)
-        ],
-        borderRadius: BorderRadius.circular(5),
-      ),
-      height: 155,
-      width: 170,
-      child: GoogleMap(
-        zoomControlsEnabled: false,
-        myLocationButtonEnabled: false,
-        mapType: MapType.normal,
-        onTap: (argument) async {
-          const uri = 'https://goo.gl/maps/WJYcaegLxLLQoodw5';
-          final url = Uri.parse(uri);
-          if (await canLaunchUrl(url)) {
-            launchUrl(url);
-          }
-        },
-        buildingsEnabled: true,
-        initialCameraPosition: CameraPosition(target: currentLoc, zoom: 17.5),
-      ),
+    return Stack(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            boxShadow: const [
+              BoxShadow(
+                  color: AppColors.color105BFB, blurRadius: 1, spreadRadius: 1)
+            ],
+            borderRadius: BorderRadius.circular(5),
+          ),
+          height: 145,
+          width: 180,
+          child: GoogleMap(
+            zoomControlsEnabled: false,
+            myLocationButtonEnabled: false,
+            mapType: MapType.normal,
+            onTap: (argument) async {
+              const uri = 'https://goo.gl/maps/WJYcaegLxLLQoodw5';
+              final url = Uri.parse(uri);
+              if (await canLaunchUrl(url)) {
+                launchUrl(url);
+              }
+            },
+            buildingsEnabled: true,
+            initialCameraPosition:
+                CameraPosition(target: currentLoc, zoom: 17.5),
+          ),
+        ),
+        Positioned(
+            bottom: 5,
+            left: 5,
+            child: Container(
+              height: 30,
+              width: 100,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(3),
+                  color: Colors.grey[350]),
+            )),
+        Positioned(
+            bottom: 5,
+            left: 5,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 4),
+              height: 30,
+              width: 100,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(1),
+                  color: Colors.white.withOpacity(0.4)),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      'Адрес',
+                      style:
+                          TextStyle(color: AppColors.color414141, fontSize: 8),
+                    ),
+                    SizedBox(
+                      height: 3,
+                    ),
+                    Text(
+                      'г. Бишкек, ул. Айни 22',
+                      style:
+                          TextStyle(fontSize: 8, color: AppColors.color414141),
+                    )
+                  ]),
+            ))
+      ],
     );
   }
 }

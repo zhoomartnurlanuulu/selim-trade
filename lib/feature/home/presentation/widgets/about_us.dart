@@ -10,7 +10,7 @@ class AboutUs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 17),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -31,38 +31,41 @@ class AboutUs extends StatelessWidget {
           ),
           SizedBox(
             height: 199,
-            width: 370,
+            width: 380,
             child: Card(
               color: Colors.white,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(
-                    height: 3.77,
-                  ),
-                  Text(
-                    LocaleKeys.about_us_about_slim.tr(),
-                    style: AppTextStyles.s14w300
-                        .copyWith(color: AppColors.color414141),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    LocaleKeys.about_us_about_slim1.tr(),
-                    style: AppTextStyles.s14w300
-                        .copyWith(color: AppColors.color414141),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    LocaleKeys.about_us_about_slim2.tr(),
-                    style: AppTextStyles.s14w300.copyWith(
-                      color: AppColors.color414141,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(
+                      height: 3.77,
                     ),
-                  ),
-                ],
+                    Text(
+                      LocaleKeys.about_us_about_slim.tr(),
+                      style: AppTextStyles.s14w300
+                          .copyWith(color: AppColors.color414141),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      LocaleKeys.about_us_about_slim1.tr(),
+                      style: AppTextStyles.s14w300
+                          .copyWith(color: AppColors.color414141),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      LocaleKeys.about_us_about_slim2.tr(),
+                      style: AppTextStyles.s14w300.copyWith(
+                        color: AppColors.color414141,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

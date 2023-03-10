@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:selim_trade/components/app_shimmer_widget.dart';
 import 'package:selim_trade/components/circale_button_left.dart';
 import 'package:selim_trade/components/circale_button_right.dart';
 import 'package:selim_trade/components/custom_text_button.dart';
@@ -21,57 +23,67 @@ class OfferWidget extends StatelessWidget {
     return BlocProvider(
       create: (context) => sl<GatesCubit>(),
       child: SizedBox(
-          height: 340,
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 60,
+        height: 340,
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 60,
+            ),
+            Center(
+              child: Text(
+                LocaleKeys.about_us_we_offer.tr(),
+                style: AppTextStyles.s16w700,
+                textAlign: TextAlign.center,
               ),
-              Center(
-                child: Text(
-                  LocaleKeys.about_us_we_offer.tr(),
-                  style: AppTextStyles.s16w700,
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              const SizedBox(
-                height: 25,
-              ),
-              BlocBuilder<GatesCubit, GatesState>(
-                builder: (context, state) {
-                  return state.when(
-                    loading: () => const Center(
-                      child: CircularProgressIndicator(),
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            BlocBuilder<GatesCubit, GatesState>(
+              builder: (context, state) {
+                return state.when(
+                  loading: () => SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        AppShimmerWidget(height: 170, width: 250),
+                        const SizedBox(width: 20),
+                        AppShimmerWidget(height: 170, width: 250),
+                      ],
                     ),
-                    error: (error) => Center(
-                      child: Text(error.message),
-                    ),
-                    success: (model) => SizedBox(
-                      height: 174,
-                      width: double.infinity,
-                      child: CarouselSlider.builder(
-                        carouselController: controller,
-                        itemCount: 5,
-                        options: CarouselOptions(
-                          enableInfiniteScroll: false,
-                          viewportFraction: 0.63,
-                          padEnds: false,
-                          initialPage: 0,
-                        ),
-                        itemBuilder: (context, index, _) => GestureDetector(
-                          onTap: () {
-                            context.router
-                                .push(GateInfoPageRoute(model: model[index]));
-                          },
+                  ),
+                  error: (error) => Center(
+                    child: Text(error.message),
+                  ),
+                  success: (model) => SizedBox(
+                    height: 174,
+                    width: double.infinity,
+                    child: CarouselSlider.builder(
+                      carouselController: controller,
+                      itemCount: 5,
+                      options: CarouselOptions(
+                        enableInfiniteScroll: false,
+                        viewportFraction: 0.6,
+                        padEnds: false,
+                        initialPage: 0,
+                      ),
+                      itemBuilder: (context, index, _) => GestureDetector(
+                        onTap: () {
+                          context.router.push(
+                            GateInfoPageRoute(model: model[index]),
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 5),
                           child: Container(
                             height: 170,
                             width: 250,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               image: DecorationImage(
-                                image: NetworkImage(model[index].image),
-                                fit: BoxFit.fill,
-                              ),
+                                  image: CachedNetworkImageProvider(
+                                      model[index].image),
+                                  fit: BoxFit.fill),
                             ),
                             child: Row(
                               children: [
@@ -98,57 +110,54 @@ class OfferWidget extends StatelessWidget {
                         ),
                       ),
                     ),
-                  );
-                },
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                      height: 42.35,
-                      width: 42.35,
-                      child: CircleButtonLeft(
-                        onPressed: () {
-                          controller.previousPage();
-                        },
-                      )),
-                  const SizedBox(
-                    width: 50,
                   ),
-                  SizedBox(
-                      height: 42,
-                      width: 100,
-                      child: CustomTextButton(
-                        child: Text(
-                          'смотреть все',
-                          style: AppTextStyles.s12w600
-                              .copyWith(color: AppColors.color414141),
-                        ),
-                        onPressed: () {
-                          context.router.push(const ServiceScreenRoute());
-                        },
-                      )),
-                  const SizedBox(
-                    width: 50,
-                  ),
-                  SizedBox(
+                );
+              },
+            ),
+            const SizedBox(height: 15),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
                     height: 42.35,
                     width: 42.35,
-                    child: CircleButtonRight(
+                    child: CircleButtonLeft(
                       onPressed: () {
-                        controller.nextPage(
-                            curve: Curves.bounceIn,
-                            duration: const Duration(milliseconds: 200));
+                        controller.previousPage();
                       },
+                    )),
+                const SizedBox(width: 50),
+                SizedBox(
+                  height: 42,
+                  width: 100,
+                  child: CustomTextButton(
+                    child: Text(
+                      'смотреть все',
+                      style: AppTextStyles.s12w600
+                          .copyWith(color: AppColors.color414141),
                     ),
+                    onPressed: () {
+                      context.router.push(const ServiceScreenRoute());
+                    },
                   ),
-                ],
-              ),
-            ],
-          )),
+                ),
+                const SizedBox(width: 50),
+                SizedBox(
+                  height: 42.35,
+                  width: 42.35,
+                  child: CircleButtonRight(
+                    onPressed: () {
+                      controller.nextPage(
+                          curve: Curves.bounceIn,
+                          duration: const Duration(milliseconds: 200));
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

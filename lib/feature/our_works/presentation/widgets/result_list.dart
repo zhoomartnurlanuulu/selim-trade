@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:selim_trade/components/app_shimmer_widget.dart';
 import 'package:selim_trade/feature/our_works/presentation/blocs/our_works_cubit/our_works_cubit.dart';
 import 'package:selim_trade/server/service_locator.dart';
-import 'package:selim_trade/theme/app_colors.dart';
 
 class ResultList extends StatelessWidget {
   const ResultList({super.key});
@@ -14,8 +14,21 @@ class ResultList extends StatelessWidget {
       child: BlocBuilder<OurWorksCubit, OurWorksState>(
         builder: (context, state) {
           return state.when(
-            loading: () => const Center(
-              child: CircularProgressIndicator(color: AppColors.color105BFB),
+            loading: () => SizedBox(
+              height: 2240,
+              child: ListView.separated(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: 5,
+                itemBuilder: (context, index) => AppShimmerWidget(
+                  width: 340,
+                  height: 200,
+                  radius: 10,
+                ),
+                separatorBuilder: (context, index) => const SizedBox(
+                  height: 20,
+                ),
+              ),
             ),
             error: (error) => Center(
               child: Text(error.message),

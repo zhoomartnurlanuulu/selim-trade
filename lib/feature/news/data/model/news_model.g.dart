@@ -12,8 +12,8 @@ _$_NewsModel _$$_NewsModelFromJson(Map<String, dynamic> json) => _$_NewsModel(
       content: json['content'] as String,
       createdAt: DateTime.parse(json['created_at'] as String),
       titleImage: json['title_image'] as String,
-      images: (json['images'] as List<dynamic>?)
-          ?.map((e) => NewsImage.fromJson(e as Map<String, dynamic>))
+      images: (json['images'] as List<dynamic>)
+          .map((e) => NewsImage.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

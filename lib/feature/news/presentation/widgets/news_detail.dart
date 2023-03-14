@@ -7,16 +7,16 @@ import 'package:selim_trade/feature/news/data/model/news_model.dart';
 import 'package:selim_trade/feature/news/presentation/blocs/news_cubit/news_cubit.dart';
 import 'package:selim_trade/feature/news/presentation/widgets/news_detail_info.dart';
 import 'package:selim_trade/feature/news/presentation/widgets/detail_pop_up.dart';
-import 'package:selim_trade/core/constants/app_text_style.dart';
+import 'package:selim_trade/resource/app_text_style.dart';
 import 'package:selim_trade/components/question_widget.dart';
 import 'package:selim_trade/components/custom_app_bar.dart';
 import 'package:selim_trade/components/footer_widget.dart';
-import 'package:selim_trade/core/constants/app_images.dart';
+import 'package:selim_trade/resource/app_images.dart';
 import 'package:selim_trade/feature/news/presentation/widgets/news_image_builder.dart';
-import 'package:selim_trade/router/router.gr.dart';
+import 'package:selim_trade/core/router/router.gr.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:selim_trade/server/service_locator.dart';
+import 'package:selim_trade/api/service_locator.dart';
 
 class NewsDetailPage extends StatelessWidget {
   NewsDetailPage({super.key, required this.model});

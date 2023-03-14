@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:selim_trade/components/app_shimmer_widget.dart';
 import 'package:selim_trade/feature/our_works/presentation/blocs/our_works_cubit/our_works_cubit.dart';
-import 'package:selim_trade/server/service_locator.dart';
+import 'package:selim_trade/api/service_locator.dart';
 
 class ResultList extends StatelessWidget {
   const ResultList({super.key});

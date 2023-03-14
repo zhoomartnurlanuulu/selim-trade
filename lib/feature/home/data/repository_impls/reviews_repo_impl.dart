@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:selim_trade/feature/home/data/model/reviews_model.dart';
 import 'package:selim_trade/feature/home/domain/repositories/reviews_repo.dart';
-import 'package:selim_trade/server/catch_exception.dart';
+import 'package:selim_trade/api/catch_exception.dart';
 
 class ReviewsRepoImpl implements ReviewsRepo {
   ReviewsRepoImpl({required this.dio});

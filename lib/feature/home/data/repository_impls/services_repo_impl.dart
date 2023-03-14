@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 
 import 'package:selim_trade/feature/home/data/model/services_model.dart';
 import 'package:selim_trade/feature/home/domain/repositories/services_repo.dart';
-import 'package:selim_trade/server/catch_exception.dart';
+import 'package:selim_trade/api/catch_exception.dart';
 
 class ServicesRepoImpl implements ServicesRepo {
   @override

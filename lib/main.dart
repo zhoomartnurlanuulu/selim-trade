@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:selim_trade/feature/home/presentation/blocs/questions_cubit/questions_cubit.dart';
 
-import 'package:selim_trade/router/router.gr.dart';
-import 'package:selim_trade/server/service_locator.dart';
+import 'package:selim_trade/core/router/router.gr.dart';
+import 'package:selim_trade/api/service_locator.dart';
 import 'translation/codegen_loader.g.dart';
 
 void main() async {

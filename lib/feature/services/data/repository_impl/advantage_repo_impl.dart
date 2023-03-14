@@ -1,7 +1,7 @@
 import 'package:selim_trade/feature/services/data/model/advantage_model.dart';
 import 'package:selim_trade/feature/services/domain/repositories/advantage_repo.dart';
 import 'package:dio/dio.dart';
-import 'package:selim_trade/server/catch_exception.dart';
+import 'package:selim_trade/api/catch_exception.dart';
 
 class AdvantageRepoImpl implements AdvantageRepo {
   AdvantageRepoImpl({required this.dio});

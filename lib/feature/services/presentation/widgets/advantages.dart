@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:selim_trade/core/constants/app_images.dart';
-import 'package:selim_trade/core/constants/app_text_style.dart';
+import 'package:selim_trade/resource/app_images.dart';
+import 'package:selim_trade/resource/app_text_style.dart';
 import 'package:selim_trade/feature/services/presentation/blocs/advantage_cubit/advantage_cubit.dart';
-import 'package:selim_trade/server/service_locator.dart';
-import 'package:selim_trade/theme/app_colors.dart';
+import 'package:selim_trade/api/service_locator.dart';
+import 'package:selim_trade/resource/app_colors.dart';
 
 class AdvantagesWidget extends StatelessWidget {
   const AdvantagesWidget({super.key});

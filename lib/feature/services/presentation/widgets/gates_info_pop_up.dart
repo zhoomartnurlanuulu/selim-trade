@@ -4,12 +4,12 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'package:selim_trade/core/constants/app_icons.dart';
-import 'package:selim_trade/core/constants/app_images.dart';
-import 'package:selim_trade/core/constants/app_text_style.dart';
-import 'package:selim_trade/core/enums.dart';
-import 'package:selim_trade/router/router.gr.dart';
-import 'package:selim_trade/theme/app_colors.dart';
+import 'package:selim_trade/resource/app_icons.dart';
+import 'package:selim_trade/resource/app_images.dart';
+import 'package:selim_trade/resource/app_text_style.dart';
+import 'package:selim_trade/api/enums.dart';
+import 'package:selim_trade/core/router/router.gr.dart';
+import 'package:selim_trade/resource/app_colors.dart';
 
 class GateInfoPopUp extends StatelessWidget {
   const GateInfoPopUp({

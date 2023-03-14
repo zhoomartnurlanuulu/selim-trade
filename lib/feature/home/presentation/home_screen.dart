@@ -1,10 +1,9 @@
-// ignore_for_file: deprecated_member_use
 import 'package:flutter/material.dart';
 import 'package:selim_trade/components/footer_widget.dart';
+import 'package:selim_trade/components/question_widget.dart';
 import 'widgets/custom_sliver_appbar.dart';
 import 'widgets/main_sliver_delegate.dart';
 import 'widgets/our_works_widget.dart';
-import '../../../components/question_widget.dart';
 import 'widgets/service_widget.dart';
 import 'widgets/reviews_widget.dart';
 
@@ -14,12 +13,9 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = ScrollController();
-    Future<bool> _onWillPop() async {
-      return false;
-    }
 
     return WillPopScope(
-      onWillPop: _onWillPop,
+      onWillPop: () async => false,
       child: Scaffold(
         backgroundColor: Colors.white,
         body: CustomScrollView(
@@ -36,7 +32,7 @@ class HomeScreen extends StatelessWidget {
                   const OurWorksWidgets(),
                   const ServiceWidget(),
                   ReviewsWidget(),
-                  QuestionWidget(),
+                  const QuestionWidget(),
                   const FooterWidget()
                 ],
               ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:selim_trade/feature/home/presentation/blocs/address_cubit/address_cubit.dart';
-import 'package:selim_trade/theme/app_colors.dart';
+import 'package:selim_trade/resource/app_colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 LatLng currentLoc = const LatLng(42.848347597623814, 74.58740061363872);
@@ -20,10 +20,10 @@ class MapWidget extends StatelessWidget {
             child: Text(error.message),
           ),
           success: (model) => SizedBox(
-            height: 150,
-            width: 185,
+            height: 145,
+            width: 195,
             child: ListView.builder(
-              padding: const EdgeInsets.only(top: 15, left: 20),
+              padding: EdgeInsets.zero,
               clipBehavior: Clip.none,
               physics: const NeverScrollableScrollPhysics(),
               scrollDirection: Axis.vertical,
@@ -41,8 +41,8 @@ class MapWidget extends StatelessWidget {
                       ],
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    height: 145,
-                    width: 180,
+                    height: 135,
+                    width: 175,
                     child: GoogleMap(
                       zoomControlsEnabled: false,
                       myLocationButtonEnabled: false,
@@ -56,9 +56,11 @@ class MapWidget extends StatelessWidget {
                       },
                       buildingsEnabled: true,
                       initialCameraPosition: CameraPosition(
-                          target: LatLng(double.parse(model[index].latitude),
-                              double.parse(model[index].longitude)),
-                          zoom: 17.5),
+                          target: LatLng(
+                            double.parse(model[index].latitude),
+                            double.parse(model[index].longitude),
+                          ),
+                          zoom: 17),
                     ),
                   ),
                   Positioned(

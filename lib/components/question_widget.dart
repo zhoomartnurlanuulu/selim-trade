@@ -4,8 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:selim_trade/components/custom_gradient_button.dart';
 import 'package:selim_trade/components/custom_show_dialog.dart';
-import 'package:selim_trade/core/constants/app_text_style.dart';
-import 'package:selim_trade/theme/app_colors.dart';
+import 'package:selim_trade/resource/app_text_style.dart';
+import 'package:selim_trade/resource/app_colors.dart';
 import 'package:selim_trade/translation/locale_keys.g.dart';
 
 import '../feature/home/presentation/blocs/questions_cubit/questions_cubit.dart';

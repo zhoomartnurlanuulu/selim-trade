@@ -2,10 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:selim_trade/components/app_shimmer_widget.dart';
-import 'package:selim_trade/core/constants/app_text_style.dart';
+import 'package:selim_trade/resource/app_text_style.dart';
 import 'package:selim_trade/feature/services/presentation/blocs/gates_cubit/gates_cubit.dart';
-import 'package:selim_trade/server/service_locator.dart';
-import 'package:selim_trade/theme/app_colors.dart';
+import 'package:selim_trade/api/service_locator.dart';
+import 'package:selim_trade/resource/app_colors.dart';
 
 class TypeOfGate extends StatelessWidget {
   const TypeOfGate({super.key});
@@ -27,17 +27,15 @@ class TypeOfGate extends StatelessWidget {
             BlocBuilder<GatesCubit, GatesState>(
               builder: (context, state) {
                 return state.when(
-                  loading: () => SizedBox(
-                    height: 1040,
-                    child: ListView.separated(
-                      itemCount: 5,
-                      itemBuilder: (context, index) => AppShimmerWidget(
-                        height: 172,
-                        width: 287,
-                      ),
-                      separatorBuilder: (context, index) => const SizedBox(
-                        height: 20,
-                      ),
+                  loading: () => ListView.separated(
+                    shrinkWrap: true,
+                    itemCount: 5,
+                    itemBuilder: (context, index) => AppShimmerWidget(
+                      height: 172,
+                      width: 287,
+                    ),
+                    separatorBuilder: (context, index) => const SizedBox(
+                      height: 20,
                     ),
                   ),
                   error: (error) => Center(

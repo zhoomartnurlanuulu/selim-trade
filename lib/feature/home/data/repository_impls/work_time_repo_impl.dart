@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:selim_trade/feature/home/data/model/work_time_model.dart';
 import 'package:selim_trade/feature/home/domain/repositories/work_time_repo.dart';
-import 'package:selim_trade/server/catch_exception.dart';
+import 'package:selim_trade/api/catch_exception.dart';
 
 class WorkTimeRepoImpl implements WorkTimeRepo {
   WorkTimeRepoImpl({required this.dio});

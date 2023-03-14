@@ -2,9 +2,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:selim_trade/components/custom_gradient_button.dart';
-import 'package:selim_trade/core/constants/app_icons.dart';
-import 'package:selim_trade/core/constants/app_images.dart';
-import 'package:selim_trade/core/constants/app_text_style.dart';
+import 'package:selim_trade/resource/app_icons.dart';
+import 'package:selim_trade/resource/app_images.dart';
+import 'package:selim_trade/resource/app_text_style.dart';
 import 'package:selim_trade/translation/locale_keys.g.dart';
 
 class CustomFliexbleSpace extends StatelessWidget {

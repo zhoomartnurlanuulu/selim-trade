@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:selim_trade/core/constants/app_text_style.dart';
+import 'package:selim_trade/resource/app_text_style.dart';
 import 'package:selim_trade/feature/home/presentation/blocs/work_time_cubit/work_time_cubit.dart';
 
 class WorkTime extends StatelessWidget {
@@ -16,7 +16,7 @@ class WorkTime extends StatelessWidget {
             child: Text(error.message),
           ),
           success: (model) => SizedBox(
-            height: 75,
+            height: 45,
             width: 160,
             child: ListView.builder(
               clipBehavior: Clip.none,
@@ -24,15 +24,12 @@ class WorkTime extends StatelessWidget {
               padding: EdgeInsets.zero,
               physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) => Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    '${model[index].fromWeekday}-${model[index].toWeekday} ${model[index].fromHour}-${model[index].toHour}',
+                    '${model[index].fromWeekday}-${model[index].toWeekday} ${model[index].fromHour.substring(1, 5)}-${model[index].toHour.substring(0, 5)}',
                     textAlign: TextAlign.center,
                     style: AppTextStyles.s12w500,
-                  ),
-                  const SizedBox(
-                    height: 7,
                   ),
                 ],
               ),

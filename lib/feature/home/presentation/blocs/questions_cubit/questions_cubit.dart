@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:selim_trade/feature/home/data/model/questions_model.dart';
 import 'package:selim_trade/feature/home/domain/use_cases/questions_use_case.dart';
-import 'package:selim_trade/server/catch_exception.dart';
+import 'package:selim_trade/api/catch_exception.dart';
 
 part 'questions_state.dart';
 part 'questions_cubit.freezed.dart';

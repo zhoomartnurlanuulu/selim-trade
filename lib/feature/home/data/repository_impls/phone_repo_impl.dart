@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:selim_trade/feature/home/data/model/phone_model.dart';
 import 'package:selim_trade/feature/home/domain/repositories/phone_repo.dart';
-import 'package:selim_trade/server/catch_exception.dart';
+import 'package:selim_trade/api/catch_exception.dart';
 
 class PhoneRepoImpl implements PhoneRepo {
   PhoneRepoImpl({required this.dio});

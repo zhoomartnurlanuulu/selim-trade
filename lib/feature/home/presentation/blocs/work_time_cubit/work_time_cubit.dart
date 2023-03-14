@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:selim_trade/feature/home/data/model/work_time_model.dart';
 import 'package:selim_trade/feature/home/domain/use_cases/work_time_use_case.dart';
-import 'package:selim_trade/server/catch_exception.dart';
+import 'package:selim_trade/api/catch_exception.dart';
 
 part 'work_time_state.dart';
 part 'work_time_cubit.freezed.dart';

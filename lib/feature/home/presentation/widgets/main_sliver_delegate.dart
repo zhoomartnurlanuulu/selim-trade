@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:selim_trade/core/constants/app_images.dart';
+import 'package:selim_trade/resource/app_images.dart';
 import 'package:selim_trade/feature/home/presentation/widgets/about_us.dart';
 import 'package:selim_trade/feature/home/presentation/widgets/benefits.dart';
 import 'package:selim_trade/feature/home/presentation/widgets/last_news_widget.dart';
@@ -11,8 +11,7 @@ class MainSliverDelegate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 1200,
-      width: 361,
+      width: MediaQuery.of(context).size.width * 0.2,
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(AppImages.mainBackground),
@@ -22,10 +21,11 @@ class MainSliverDelegate extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          AboutUs(),
+          const AboutUs(),
           OfferWidget(),
           const Benefits(),
           const LastNewsWidget(),
+          const SizedBox(height: 60)
         ],
       ),
     );

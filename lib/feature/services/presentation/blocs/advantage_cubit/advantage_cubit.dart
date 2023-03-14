@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:selim_trade/feature/services/data/model/advantage_model.dart';
 import 'package:selim_trade/feature/services/domain/use_case/advantage_use_case.dart';
-import 'package:selim_trade/server/catch_exception.dart';
+import 'package:selim_trade/api/catch_exception.dart';
 
 part 'advantage_state.dart';
 part 'advantage_cubit.freezed.dart';

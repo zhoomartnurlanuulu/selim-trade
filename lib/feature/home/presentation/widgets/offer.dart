@@ -8,11 +8,11 @@ import 'package:selim_trade/components/app_shimmer_widget.dart';
 import 'package:selim_trade/components/circale_button_left.dart';
 import 'package:selim_trade/components/circale_button_right.dart';
 import 'package:selim_trade/components/custom_text_button.dart';
-import 'package:selim_trade/core/constants/app_text_style.dart';
+import 'package:selim_trade/resource/app_text_style.dart';
 import 'package:selim_trade/feature/services/presentation/blocs/gates_cubit/gates_cubit.dart';
-import 'package:selim_trade/router/router.gr.dart';
-import 'package:selim_trade/server/service_locator.dart';
-import 'package:selim_trade/theme/app_colors.dart';
+import 'package:selim_trade/core/router/router.gr.dart';
+import 'package:selim_trade/api/service_locator.dart';
+import 'package:selim_trade/resource/app_colors.dart';
 import 'package:selim_trade/translation/locale_keys.g.dart';
 
 class OfferWidget extends StatelessWidget {

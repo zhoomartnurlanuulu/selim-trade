@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:selim_trade/core/constants/app_text_style.dart';
+import 'package:selim_trade/resource/app_text_style.dart';
 import 'package:selim_trade/feature/home/presentation/blocs/phones_cubit/phones_cubit.dart';
 
 class PhoneNumbers extends StatelessWidget {
@@ -24,6 +24,8 @@ class PhoneNumbers extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: model.length,
                 itemBuilder: (context, index) => Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           model[index].phone,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:selim_trade/theme/app_colors.dart';
+import 'package:selim_trade/resource/app_colors.dart';
 
 class AppGradientButton extends StatelessWidget {
   const AppGradientButton({

@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:selim_trade/components/phone_numbers.dart';
 import 'package:selim_trade/components/work_time.dart';
-import 'package:selim_trade/core/constants/app_text_style.dart';
+import 'package:selim_trade/resource/app_text_style.dart';
 import 'package:selim_trade/translation/locale_keys.g.dart';
 
 class Contacts extends StatelessWidget {
@@ -11,7 +11,7 @@ class Contacts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
           LocaleKeys.work_time_operation_mode.tr(),

@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 
 import 'package:selim_trade/feature/our_works/data/model/our_works_model.dart';
 import 'package:selim_trade/feature/our_works/domain/repositories/our_works_repo.dart';
-import 'package:selim_trade/server/catch_exception.dart';
+import 'package:selim_trade/api/catch_exception.dart';
 
 class OurWorksRepoImpl implements OurWorksRepo {
   OurWorksRepoImpl({

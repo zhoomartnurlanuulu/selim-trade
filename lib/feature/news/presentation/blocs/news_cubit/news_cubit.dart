@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:selim_trade/feature/news/data/model/news_model.dart';
 import 'package:selim_trade/feature/news/domain/use_cases/news_use_case.dart';
-import 'package:selim_trade/server/catch_exception.dart';
+import 'package:selim_trade/api/catch_exception.dart';
 
 part 'news_state.dart';
 part 'news_cubit.freezed.dart';

@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:selim_trade/feature/news/data/model/news_model.dart';
 import 'package:selim_trade/feature/news/domain/repositories/news_repo.dart';
-import 'package:selim_trade/server/catch_exception.dart';
+import 'package:selim_trade/api/catch_exception.dart';
 
 class NewsRepoImpl implements NewsRepo {
   NewsRepoImpl({required this.dio});

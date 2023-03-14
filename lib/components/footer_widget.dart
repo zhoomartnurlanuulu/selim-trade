@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:selim_trade/components/contacts.dart';
 import 'package:selim_trade/components/social.dart';
-import 'package:selim_trade/core/constants/app_images.dart';
-import 'package:selim_trade/core/constants/app_text_style.dart';
+import 'package:selim_trade/resource/app_images.dart';
+import 'package:selim_trade/resource/app_text_style.dart';
 import 'package:selim_trade/feature/home/presentation/blocs/address_cubit/address_cubit.dart';
 import 'package:selim_trade/feature/home/presentation/blocs/phones_cubit/phones_cubit.dart';
 import 'package:selim_trade/feature/home/presentation/blocs/work_time_cubit/work_time_cubit.dart';
-import 'package:selim_trade/server/service_locator.dart';
+import 'package:selim_trade/api/service_locator.dart';
 
 import 'map.dart';
 
@@ -29,13 +29,11 @@ class FooterWidget extends StatelessWidget {
         ),
       ],
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-        height: 280,
-        width: 359,
+        padding: const EdgeInsets.symmetric(horizontal: 9.5, vertical: 11),
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(AppImages.footerBackground),
-            fit: BoxFit.fill,
+            fit: BoxFit.contain,
           ),
         ),
         child: Column(
@@ -45,12 +43,9 @@ class FooterWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: const [
                 SizedBox(
-                  width: 65,
+                  width: 55,
                 ),
                 Contacts(),
-                SizedBox(
-                  width: 1,
-                ),
                 Expanded(child: MapWidget()),
               ],
             ),

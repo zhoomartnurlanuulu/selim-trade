@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:selim_trade/core/constants/app_images.dart';
+import 'package:selim_trade/resource/app_images.dart';
 import 'package:selim_trade/feature/home/presentation/widgets/custom_fliexble_space.dart';
 
 import 'pop_up_menu_item.dart';

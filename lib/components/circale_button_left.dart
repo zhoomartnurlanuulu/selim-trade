@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'package:selim_trade/core/constants/app_icons.dart';
-import 'package:selim_trade/theme/app_colors.dart';
+import 'package:selim_trade/resource/app_icons.dart';
+import 'package:selim_trade/resource/app_colors.dart';
 
 class CircleButtonLeft extends StatelessWidget {
   const CircleButtonLeft({

@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:selim_trade/components/app_shimmer_widget.dart';
+import 'package:selim_trade/resource/app_colors.dart';
 import 'package:selim_trade/resource/app_text_style.dart';
 import 'package:selim_trade/feature/our_works/presentation/blocs/our_works_cubit/our_works_cubit.dart';
 import 'package:selim_trade/api/service_locator.dart';
@@ -66,6 +67,11 @@ class OurWorksWidgets extends StatelessWidget {
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8.96),
+                            boxShadow: const [
+                              BoxShadow(
+                                  color: AppColors.color105BFB,
+                                  blurRadius: 4.48)
+                            ],
                             image: DecorationImage(
                                 image: CachedNetworkImageProvider(
                                     model[index].image!),

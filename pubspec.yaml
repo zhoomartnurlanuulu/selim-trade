@@ -16,7 +16,6 @@ dependencies:
   dio: ^5.0.1
   flutter_bloc: ^8.1.2
   get_it: ^7.2.0
-  shared_preferences: ^2.0.17
   auto_route: ^5.0.4
   flutter_svg: ^2.0.0+1
   injectable: ^2.1.0
@@ -60,7 +59,7 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/images/mainbackground.png
-    - assets/images/baa.png
+    - assets/images/dialogback.png
     - assets/l10n/
 
   

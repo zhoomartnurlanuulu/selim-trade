@@ -27,13 +27,13 @@ class HomeScreen extends StatelessWidget {
             ),
             SliverList(
               delegate: SliverChildListDelegate(
-                [
-                  const MainSliverDelegate(),
-                  const OurWorksWidgets(),
-                  const ServiceWidget(),
+                const [
+                  MainSliverDelegate(),
+                  OurWorksWidgets(),
+                  ServiceWidget(),
                   ReviewsWidget(),
-                  const QuestionWidget(),
-                  const FooterWidget()
+                  QuestionWidget(),
+                  FooterWidget()
                 ],
               ),
             ),

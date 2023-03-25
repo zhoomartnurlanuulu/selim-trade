@@ -8,7 +8,6 @@ import 'package:selim_trade/feature/home/presentation/blocs/benifits_cubit/benif
 import 'package:selim_trade/api/service_locator.dart';
 import 'package:selim_trade/resource/app_colors.dart';
 import 'package:selim_trade/translation/locale_keys.g.dart';
-import 'package:shimmer/shimmer.dart';
 
 class Benefits extends StatelessWidget {
   const Benefits({super.key});
@@ -18,7 +17,7 @@ class Benefits extends StatelessWidget {
     return BlocProvider(
       create: (context) => sl<BenifitsCubit>(),
       child: SizedBox(
-        height: 222,
+        height: 234,
         child: Column(
           children: [
             const SizedBox(
@@ -60,6 +59,7 @@ class Benefits extends StatelessWidget {
                   ),
                   success: (model) => Expanded(
                     child: ListView.separated(
+                        shrinkWrap: true,
                         padding: const EdgeInsets.symmetric(horizontal: 19),
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) => Container(
@@ -74,7 +74,6 @@ class Benefits extends StatelessWidget {
                               borderRadius: BorderRadius.circular(10),
                               color: Colors.white,
                             ),
-                            height: 123,
                             width: 225,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,

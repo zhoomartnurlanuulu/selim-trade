@@ -29,11 +29,11 @@ class FooterWidget extends StatelessWidget {
         ),
       ],
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 9.5, vertical: 11),
+        padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(AppImages.footerBackground),
-            fit: BoxFit.contain,
+            fit: BoxFit.cover,
           ),
         ),
         child: Column(
@@ -43,33 +43,40 @@ class FooterWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: const [
                 SizedBox(
-                  width: 55,
+                  width: 53,
                 ),
                 Contacts(),
+                SizedBox(
+                  width: 10,
+                ),
                 Expanded(child: MapWidget()),
               ],
             ),
             const SizedBox(
               height: 40,
             ),
-            Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-              Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
-                      'Социальные \nсети',
-                      textAlign: TextAlign.start,
-                      style: AppTextStyles.s12w500,
-                    ),
-                    SizedBox(
-                      height: 6,
-                    ),
-                    Social(),
-                  ]),
-              const SizedBox(
-                width: 60,
-              ),
-            ])
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const SizedBox(width: 15),
+                Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text(
+                        'Социальные \nсети',
+                        textAlign: TextAlign.start,
+                        style: AppTextStyles.s12w500,
+                      ),
+                      SizedBox(
+                        height: 6,
+                      ),
+                      Social(),
+                    ]),
+                const SizedBox(
+                  width: 60,
+                ),
+              ],
+            )
           ],
         ),
       ),

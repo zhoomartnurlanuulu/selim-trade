@@ -15,12 +15,12 @@ class Contacts extends StatelessWidget {
       children: [
         Text(
           LocaleKeys.work_time_operation_mode.tr(),
-          style: AppTextStyles.s12w500,
+          style: AppTextStyles.s11w500,
         ),
         const WorkTime(),
         Text(
           LocaleKeys.work_time_phone.tr(),
-          style: AppTextStyles.s12w500,
+          style: AppTextStyles.s11w500,
         ),
         const PhoneNumbers(),
       ],

@@ -28,6 +28,7 @@ class OurWorksScreen extends StatelessWidget {
         ],
       ),
       body: ListView(
+        padding: EdgeInsets.zero,
         physics: const ClampingScrollPhysics(),
         children: [
           Center(
@@ -51,6 +52,9 @@ class OurWorksScreen extends StatelessWidget {
             height: 30,
           ),
           const ResultList(),
+          const SizedBox(
+            height: 40,
+          ),
           const QuestionWidget(),
           const FooterWidget()
         ],

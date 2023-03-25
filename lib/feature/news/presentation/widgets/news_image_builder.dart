@@ -1,6 +1,6 @@
+import 'package:selim_trade/feature/news/data/model/news_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:selim_trade/feature/news/data/model/news_model.dart';
 
 class NewsImageBuilder extends StatelessWidget {
   NewsImageBuilder({super.key, required this.model});

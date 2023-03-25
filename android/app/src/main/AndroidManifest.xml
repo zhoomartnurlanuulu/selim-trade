@@ -11,6 +11,10 @@
   <intent>
     <action android:name="android.intent.action.VIEW" />
     <data android:scheme="tel" />
+    <queries>
+        <package android:name="com.android.chrome" />
+        
+    </queries>
   </intent>
 </queries>
    <application

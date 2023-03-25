@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:selim_trade/components/app_shimmer_widget.dart';
 import 'package:selim_trade/feature/news/data/model/news_model.dart';
 import 'package:selim_trade/feature/news/presentation/blocs/news_cubit/news_cubit.dart';
-import 'package:selim_trade/feature/news/presentation/widgets/news_detail_info.dart';
+import 'package:selim_trade/feature/news/pages/news_detail_info.dart';
 import 'package:selim_trade/feature/news/presentation/widgets/detail_pop_up.dart';
 import 'package:selim_trade/resource/app_text_style.dart';
 import 'package:selim_trade/components/question_widget.dart';

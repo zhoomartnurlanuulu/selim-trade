@@ -16,147 +16,137 @@ import 'package:selim_trade/resource/app_colors.dart';
 import 'package:selim_trade/translation/locale_keys.g.dart';
 
 class OfferWidget extends StatelessWidget {
-  OfferWidget({super.key});
-  final CarouselController controller = CarouselController();
+  const OfferWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
+    final CarouselController controller = CarouselController();
     return BlocProvider(
       create: (context) => sl<GatesCubit>(),
-      child: SizedBox(
-        height: 340,
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 60,
+      child: Column(
+        children: [
+          const SizedBox(
+            height: 60,
+          ),
+          Center(
+            child: Text(
+              LocaleKeys.about_us_we_offer.tr(),
+              style: AppTextStyles.s16w700,
+              textAlign: TextAlign.center,
             ),
-            Center(
-              child: Text(
-                LocaleKeys.about_us_we_offer.tr(),
-                style: AppTextStyles.s16w700,
-                textAlign: TextAlign.center,
-              ),
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-            BlocBuilder<GatesCubit, GatesState>(
-              builder: (context, state) {
-                return state.when(
-                  loading: () => SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        AppShimmerWidget(height: 170, width: 250),
-                        const SizedBox(width: 20),
-                        AppShimmerWidget(height: 170, width: 250),
-                      ],
+          ),
+          const SizedBox(
+            height: 25,
+          ),
+          BlocBuilder<GatesCubit, GatesState>(
+            builder: (context, state) {
+              return state.when(
+                loading: () => SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      AppShimmerWidget(height: 170, width: 250),
+                      const SizedBox(width: 20),
+                      AppShimmerWidget(height: 170, width: 250),
+                    ],
+                  ),
+                ),
+                error: (error) => Center(
+                  child: Text(error.message),
+                ),
+                success: (model) => SizedBox(
+                  height: 174,
+                  width: double.infinity,
+                  child: CarouselSlider.builder(
+                    carouselController: controller,
+                    itemCount: 5,
+                    options: CarouselOptions(
+                      enableInfiniteScroll: false,
+                      viewportFraction: 0.6,
+                      padEnds: false,
+                      initialPage: 0,
                     ),
-                  ),
-                  error: (error) => Center(
-                    child: Text(error.message),
-                  ),
-                  success: (model) => SizedBox(
-                    height: 174,
-                    width: double.infinity,
-                    child: CarouselSlider.builder(
-                      carouselController: controller,
-                      itemCount: 5,
-                      options: CarouselOptions(
-                        enableInfiniteScroll: false,
-                        viewportFraction: 0.6,
-                        padEnds: false,
-                        initialPage: 0,
-                      ),
-                      itemBuilder: (context, index, _) => GestureDetector(
-                        onTap: () {
-                          context.router.push(
-                            GateInfoPageRoute(model: model[index]),
-                          );
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 5),
-                          child: Container(
-                            height: 170,
-                            width: 250,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              image: DecorationImage(
-                                  image: CachedNetworkImageProvider(
-                                      model[index].image),
-                                  fit: BoxFit.fill),
-                            ),
-                            child: Row(
-                              children: [
-                                Container(
-                                  margin:
-                                      const EdgeInsets.only(top: 127, left: 6),
-                                  height: 34,
-                                  width: 135,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12),
-                                    color: Colors.black.withOpacity(0.2),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      model[index].title,
-                                      style: AppTextStyles.s14w800
-                                          .copyWith(color: Colors.white),
-                                    ),
-                                  ),
+                    itemBuilder: (context, index, _) => GestureDetector(
+                      onTap: () {
+                        context.router.push(
+                          GateInfoPageRoute(model: model[index]),
+                        );
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 5),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                                image: CachedNetworkImageProvider(
+                                    model[index].image),
+                                fit: BoxFit.cover),
+                          ),
+                          child: Row(
+                            children: [
+                              Container(
+                                margin:
+                                    const EdgeInsets.only(top: 140, left: 6),
+                                width: 135,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.black.withOpacity(0.2),
                                 ),
-                              ],
-                            ),
+                                child: Text(
+                                  model[index].title,
+                                  textAlign: TextAlign.start,
+                                  style: AppTextStyles.s12w800
+                                      .copyWith(color: Colors.white),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
                     ),
                   ),
-                );
-              },
-            ),
-            const SizedBox(height: 15),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                    height: 42.35,
-                    width: 42.35,
-                    child: CircleButtonLeft(
-                      onPressed: () {
-                        controller.previousPage();
-                      },
-                    )),
-                const SizedBox(width: 50),
-                SizedBox(
-                  height: 42,
-                  width: 100,
-                  child: CustomTextButton(
-                    child: Text(
-                      'смотреть все',
-                      style: AppTextStyles.s12w600
-                          .copyWith(color: AppColors.color414141),
-                    ),
-                    onPressed: () {
-                      context.router.push(const ServiceScreenRoute());
-                    },
-                  ),
                 ),
-                const SizedBox(width: 50),
-                SizedBox(
+              );
+            },
+          ),
+          const SizedBox(height: 15),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
                   height: 42.35,
                   width: 42.35,
-                  child: CircleButtonRight(
+                  child: CircleButtonLeft(
                     onPressed: () {
-                      controller.nextPage(
-                          curve: Curves.bounceIn,
-                          duration: const Duration(milliseconds: 200));
+                      controller.previousPage();
                     },
-                  ),
+                  )),
+              const SizedBox(width: 50),
+              CustomTextButton(
+                child: Text(
+                  'смотреть все',
+                  style: AppTextStyles.s12w600
+                      .copyWith(color: AppColors.color414141),
                 ),
-              ],
-            ),
-          ],
-        ),
+                onPressed: () {
+                  context.router.push(const ServiceScreenRoute());
+                },
+              ),
+              const SizedBox(width: 50),
+              SizedBox(
+                height: 42.35,
+                width: 42.35,
+                child: CircleButtonRight(
+                  onPressed: () {
+                    controller.nextPage(
+                        curve: Curves.bounceIn,
+                        duration: const Duration(milliseconds: 200));
+                  },
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

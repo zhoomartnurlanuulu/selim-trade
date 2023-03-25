@@ -1,11 +1,11 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:selim_trade/feature/services/presentation/blocs/gates_cubit/gates_cubit.dart';
 import 'package:selim_trade/components/app_shimmer_widget.dart';
 import 'package:selim_trade/resource/app_text_style.dart';
-import 'package:selim_trade/feature/services/presentation/blocs/gates_cubit/gates_cubit.dart';
 import 'package:selim_trade/core/router/router.gr.dart';
 import 'package:selim_trade/api/service_locator.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 
 class GatesList extends StatelessWidget {
   const GatesList({

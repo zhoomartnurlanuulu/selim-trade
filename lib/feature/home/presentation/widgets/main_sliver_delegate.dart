@@ -11,7 +11,6 @@ class MainSliverDelegate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.2,
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(AppImages.mainBackground),
@@ -20,12 +19,12 @@ class MainSliverDelegate extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const AboutUs(),
+        children: const [
+          AboutUs(),
           OfferWidget(),
-          const Benefits(),
-          const LastNewsWidget(),
-          const SizedBox(height: 60)
+          Benefits(),
+          LastNewsWidget(),
+          SizedBox(height: 60)
         ],
       ),
     );

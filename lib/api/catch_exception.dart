@@ -9,17 +9,17 @@ class CatchException {
       if (error.type == DioErrorType.connectionTimeout) {
         return CatchException(message: 'не удалось подключиться');
       } else if (error.type == DioErrorType.receiveTimeout) {
-        return CatchException(message: 'Вышло время');
+        return CatchException(message: 'Сервер не отвечает');
       } else if (error.response == null) {
-        return CatchException(message: 'нет интернета');
+        return CatchException(message: 'Нет подключение к интернет');
       } else if (error.response!.statusCode == 405) {
-        return CatchException(message: 'ошибка');
+        return CatchException(message: 'Метод не разрешён');
       } else if (error.response!.statusCode == 409) {
         return CatchException(message: '409');
       } else if (error.response!.statusCode == 500) {
-        return CatchException(message: '500');
+        return CatchException(message: 'Внутренняя ошибка сервера');
       } else {
-        return CatchException(message: 'error');
+        return CatchException(message: 'Произошла ошибка');
       }
     }
     if (error is CatchException) {

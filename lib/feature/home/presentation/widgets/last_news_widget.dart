@@ -20,7 +20,7 @@ class LastNewsWidget extends StatelessWidget {
     return BlocProvider(
       create: (context) => sl<NewsCubit>(),
       child: SizedBox(
-        height: 309,
+        height: 311,
         child: Column(
           children: [
             const SizedBox(
@@ -68,11 +68,12 @@ class LastNewsWidget extends StatelessWidget {
                       itemBuilder: (context, index) => GestureDetector(
                         onTap: () {
                           context.router.replace(
-                              NewsDetailPageRoute(model: model[index]));
+                            NewsDetailPageRoute(
+                              model: model[index],
+                            ),
+                          );
                         },
                         child: Container(
-                          padding: const EdgeInsets.only(left: 26.33),
-                          height: 164,
                           width: 241,
                           decoration: BoxDecoration(
                             image: DecorationImage(
@@ -86,7 +87,7 @@ class LastNewsWidget extends StatelessWidget {
                           child: Center(
                             child: Text(
                               model[index].title,
-                              textAlign: TextAlign.start,
+                              textAlign: TextAlign.center,
                               style: AppTextStyles.s10w800
                                   .copyWith(color: Colors.white),
                             ),

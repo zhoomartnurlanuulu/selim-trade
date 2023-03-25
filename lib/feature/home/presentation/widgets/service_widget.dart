@@ -16,93 +16,90 @@ class ServiceWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => sl<ServicesCubit>(),
-      child: SizedBox(
-        height: 224,
-        child: Column(
-          children: [
-            Center(
-              child: Text(
-                LocaleKeys.about_us_services.tr(),
-                style: AppTextStyles.s16w700.copyWith(
-                  color: AppColors.color414141,
-                ),
+      child: Column(
+        children: [
+          Center(
+            child: Text(
+              LocaleKeys.about_us_services.tr(),
+              style: AppTextStyles.s16w700.copyWith(
+                color: AppColors.color414141,
               ),
             ),
-            const SizedBox(
-              height: 19,
-            ),
-            BlocBuilder<ServicesCubit, ServicesState>(
-              builder: (context, state) {
-                return state.when(
-                  loading: () => SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        AppShimmerWidget(
-                          height: 123,
-                          width: 225,
+          ),
+          const SizedBox(
+            height: 19,
+          ),
+          BlocBuilder<ServicesCubit, ServicesState>(
+            builder: (context, state) {
+              return state.when(
+                loading: () => SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      AppShimmerWidget(
+                        height: 123,
+                        width: 225,
+                      ),
+                      const SizedBox(width: 20),
+                      AppShimmerWidget(
+                        height: 123,
+                        width: 225,
+                      )
+                    ],
+                  ),
+                ),
+                error: (error) => Center(
+                  child: Text(error.message),
+                ),
+                success: (model) => SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                      children: model.map((model) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.black.withOpacity(0.1),
+                                spreadRadius: 1.5,
+                                blurRadius: 3),
+                          ],
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
                         ),
-                        const SizedBox(width: 20),
-                        AppShimmerWidget(
-                          height: 123,
-                          width: 225,
-                        )
-                      ],
-                    ),
-                  ),
-                  error: (error) => Center(
-                    child: Text(error.message),
-                  ),
-                  success: (model) => SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Row(
-                        children: model.map((model) {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.08),
-                                spreadRadius: 1,
-                                blurRadius: 4,
-                              )
-                            ],
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.white,
-                          ),
-                          height: 123,
-                          width: 225,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SvgPicture.network(
-                                model.icon ?? '',
-                                height: 44,
-                              ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                model.title ?? '',
-                                style: AppTextStyles.s14w600,
-                                textAlign: TextAlign.center,
-                              )
-                            ],
-                          ),
+                        height: 123,
+                        width: 225,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SvgPicture.network(
+                              model.icon,
+                              height: 44,
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              model.title,
+                              style: AppTextStyles.s14w600,
+                              softWrap: true,
+                              textAlign: TextAlign.center,
+                            )
+                          ],
                         ),
-                      );
-                    }).toList()),
-                  ),
-                );
-              },
-            ),
-            const SizedBox(
-              height: 60,
-            )
-          ],
-        ),
+                      ),
+                    );
+                  }).toList()),
+                ),
+              );
+            },
+          ),
+          const SizedBox(
+            height: 60,
+          )
+        ],
       ),
     );
   }

@@ -38,6 +38,7 @@ class NewsDetailPage extends StatelessWidget {
           actions: const [DetailPopUp()],
         ),
         body: ListView(
+          padding: EdgeInsets.zero,
           physics: const ClampingScrollPhysics(),
           children: [
             NewsDetailInfo(

@@ -52,6 +52,7 @@ class ServiceWidget extends StatelessWidget {
                   child: Text(error.message),
                 ),
                 success: (model) => SingleChildScrollView(
+                  clipBehavior: Clip.none,
                   scrollDirection: Axis.horizontal,
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Row(
@@ -72,6 +73,7 @@ class ServiceWidget extends StatelessWidget {
                         height: 123,
                         width: 225,
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             SvgPicture.network(

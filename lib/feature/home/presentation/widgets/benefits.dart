@@ -59,6 +59,7 @@ class Benefits extends StatelessWidget {
                   ),
                   success: (model) => Expanded(
                     child: ListView.separated(
+                        clipBehavior: Clip.none,
                         shrinkWrap: true,
                         padding: const EdgeInsets.symmetric(horizontal: 19),
                         scrollDirection: Axis.horizontal,
@@ -76,6 +77,7 @@ class Benefits extends StatelessWidget {
                             ),
                             width: 225,
                             child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SvgPicture.network(

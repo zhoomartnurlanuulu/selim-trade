@@ -1,6 +1,6 @@
+import 'package:selim_trade/components/custom_show_dialog.dart';
 import 'package:selim_trade/feature/home/presentation/blocs/questions_cubit/questions_cubit.dart';
 import 'package:selim_trade/components/custom_gradient_button.dart';
-import 'package:selim_trade/components/custom_show_dialog.dart';
 import 'package:selim_trade/translation/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:selim_trade/resource/app_text_style.dart';
@@ -16,13 +16,7 @@ class QuestionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     FocusNode unUsedFocusNode = FocusNode();
     final formKey = GlobalKey<FormState>();
-    final nameController = TextEditingController();
-
-    final phoneController = TextEditingController();
-
-    final contentController = TextEditingController();
-    final regExp = RegExp(r'^[0-9+]+$');
-
+    RegExp textPattern = RegExp(r'^[A-Za-z]+(\s?[A-Za-z]+)*$');
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Form(
@@ -40,8 +34,18 @@ class QuestionWidget extends StatelessWidget {
               height: 20,
             ),
             TextFormField(
-              controller: nameController,
+              controller: context.read<QuestionsCubit>().nameController,
               autocorrect: false,
+              validator: (value) {
+                if (value == null ||
+                    value.isEmpty ||
+                    !textPattern.hasMatch(value)) {
+                  context.read<QuestionsCubit>().nameValidation();
+                  return 'Введите ваше имя';
+                }
+
+                return null;
+              },
               decoration: InputDecoration(
                 hintText: 'Имя',
                 border: OutlineInputBorder(
@@ -53,11 +57,18 @@ class QuestionWidget extends StatelessWidget {
               height: 15,
             ),
             TextFormField(
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  context.read<QuestionsCubit>().phoneValidation();
+                  return 'Введите номер телефона';
+                }
+                return null;
+              },
               inputFormatters: [
-                FilteringTextInputFormatter.allow(regExp),
-                LengthLimitingTextInputFormatter(13),
+                FilteringTextInputFormatter.allow(RegExp(r'^[0-9+]+$')),
+                LengthLimitingTextInputFormatter(10),
               ],
-              controller: phoneController,
+              controller: context.read<QuestionsCubit>().phoneController,
               keyboardType: TextInputType.phone,
               decoration: InputDecoration(
                 hintText: 'Tелефон',
@@ -70,11 +81,21 @@ class QuestionWidget extends StatelessWidget {
               height: 15,
             ),
             TextFormField(
-              controller: contentController,
+              controller: context.read<QuestionsCubit>().contentController,
               onTapOutside: (PointerDownEvent event) {
                 FocusScope.of(context).requestFocus(unUsedFocusNode);
               },
               maxLines: 8,
+              validator: (value) {
+                if (value == null ||
+                    value.isEmpty ||
+                    !textPattern.hasMatch(value)) {
+                  context.read<QuestionsCubit>().contentValidation();
+                  return 'Напишите что нибудь';
+                }
+
+                return null;
+              },
               decoration: InputDecoration(
                 hintText: 'Сообщение',
                 border: OutlineInputBorder(
@@ -90,12 +111,17 @@ class QuestionWidget extends StatelessWidget {
               height: 57,
               child: AppGradientButton(
                 onPressed: () {
-                  context.read<QuestionsCubit>().getQuestions(
-                        nameController.text,
-                        phoneController.text,
-                        contentController.text,
-                      );
-                  showAppDialog(context);
+                  if (formKey.currentState!.validate()) {
+                    context.read<QuestionsCubit>().sendQuestions(
+                          context.read<QuestionsCubit>().nameController.text,
+                          context.read<QuestionsCubit>().phoneController.text,
+                          context.read<QuestionsCubit>().contentController.text,
+                        );
+                    showAppDialog(context);
+                    context.read<QuestionsCubit>().nameController.clear();
+                    context.read<QuestionsCubit>().phoneController.clear();
+                    context.read<QuestionsCubit>().contentController.clear();
+                  }
                 },
                 child: Text(
                   'Оставить заявку',

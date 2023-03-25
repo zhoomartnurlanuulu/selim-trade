@@ -94,6 +94,7 @@ class OfferWidget extends StatelessWidget {
                                 ),
                                 child: Text(
                                   model[index].title,
+                                  overflow: TextOverflow.ellipsis,
                                   textAlign: TextAlign.start,
                                   style: AppTextStyles.s12w800
                                       .copyWith(color: Colors.white),

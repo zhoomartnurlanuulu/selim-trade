@@ -23,16 +23,16 @@ class CustomPopUp extends StatelessWidget {
       onSelected: (value) {
         switch (value) {
           case MenuItem.main:
-            context.router.replace(const HomeScreenRoute());
+            context.router.popAndPush(const HomeScreenRoute());
             break;
           case MenuItem.news:
-            context.router.replace(const NewsScreenRoute());
+            context.router.popAndPush(const NewsScreenRoute());
             break;
           case MenuItem.services:
-            context.router.replace(const ServiceScreenRoute());
+            context.router.popAndPush(const ServiceScreenRoute());
             break;
           case MenuItem.works:
-            context.router.replace(const OurWorksScreenRoute());
+            context.router.popAndPush(const OurWorksScreenRoute());
             break;
         }
       },

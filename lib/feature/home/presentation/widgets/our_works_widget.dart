@@ -14,7 +14,7 @@ class OurWorksWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ctrl = PageController(initialPage: 0, viewportFraction: 0.7);
+    final ctrl = PageController(initialPage: 1, viewportFraction: 0.7);
     return BlocProvider(
       create: (context) => sl<OurWorksCubit>(),
       child: Column(
@@ -40,8 +40,8 @@ class OurWorksWidgets extends StatelessWidget {
                 ),
                 success: (model) => SizedBox(
                   height: 250,
-                  width: double.infinity,
                   child: PageView.builder(
+                    clipBehavior: Clip.none,
                     pageSnapping: true,
                     physics: const BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
@@ -65,6 +65,7 @@ class OurWorksWidgets extends StatelessWidget {
                           );
                         },
                         child: Container(
+                          height: 250,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8.96),
                             boxShadow: const [

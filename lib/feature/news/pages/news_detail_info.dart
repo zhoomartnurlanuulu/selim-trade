@@ -5,7 +5,7 @@ import 'package:selim_trade/feature/news/data/model/news_model.dart';
 
 class NewsDetailInfo extends StatelessWidget {
   NewsDetailInfo({super.key, required this.model});
-  NewsModel model;
+  Result model;
 
   @override
   Widget build(BuildContext context) {

@@ -85,7 +85,7 @@ class ServiceWidget extends StatelessWidget {
                             ),
                             Text(
                               model.title,
-                              style: AppTextStyles.s14w600,
+                              style: AppTextStyles.s12w600,
                               softWrap: true,
                               textAlign: TextAlign.center,
                             )

@@ -1,7 +1,1 @@
-enum MenuItem {
-  main,
-  services,
-  news,
-  works,
-  call,
-}
+enum MenuItem { main, services, news, works, call }

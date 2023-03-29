@@ -7,6 +7,23 @@ part of 'news_model.dart';
 // **************************************************************************
 
 _$_NewsModel _$$_NewsModelFromJson(Map<String, dynamic> json) => _$_NewsModel(
+      count: json['count'] as int,
+      next: json['next'] as String?,
+      previous: json['previous'] as String?,
+      results: (json['results'] as List<dynamic>)
+          .map((e) => Result.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$$_NewsModelToJson(_$_NewsModel instance) =>
+    <String, dynamic>{
+      'count': instance.count,
+      'next': instance.next,
+      'previous': instance.previous,
+      'results': instance.results,
+    };
+
+_$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
       id: json['id'] as int,
       title: json['title'] as String,
       content: json['content'] as String,
@@ -17,8 +34,7 @@ _$_NewsModel _$$_NewsModelFromJson(Map<String, dynamic> json) => _$_NewsModel(
           .toList(),
     );
 
-Map<String, dynamic> _$$_NewsModelToJson(_$_NewsModel instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
       'content': instance.content,
@@ -28,8 +44,8 @@ Map<String, dynamic> _$$_NewsModelToJson(_$_NewsModel instance) =>
     };
 
 _$_NewsImage _$$_NewsImageFromJson(Map<String, dynamic> json) => _$_NewsImage(
-      id: json['id'] as int?,
-      image: json['image'] as String?,
+      id: json['id'] as int,
+      image: json['image'] as String,
     );
 
 Map<String, dynamic> _$$_NewsImageToJson(_$_NewsImage instance) =>

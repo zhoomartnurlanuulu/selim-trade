@@ -1,26 +1,26 @@
-import 'package:auto_route/auto_route.dart';
+import 'package:selim_trade/feature/services/presentation/blocs/gates_cubit/gates_cubit.dart';
+import 'package:selim_trade/components/circale_button_right.dart';
+import 'package:selim_trade/components/circale_button_left.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:selim_trade/components/app_shimmer_widget.dart';
+import 'package:selim_trade/components/custom_text_button.dart';
+import 'package:selim_trade/translation/locale_keys.g.dart';
+import 'package:selim_trade/resource/app_text_style.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:selim_trade/core/router/router.gr.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:selim_trade/components/app_shimmer_widget.dart';
-import 'package:selim_trade/components/circale_button_left.dart';
-import 'package:selim_trade/components/circale_button_right.dart';
-import 'package:selim_trade/components/custom_text_button.dart';
-import 'package:selim_trade/resource/app_text_style.dart';
-import 'package:selim_trade/feature/services/presentation/blocs/gates_cubit/gates_cubit.dart';
-import 'package:selim_trade/core/router/router.gr.dart';
 import 'package:selim_trade/api/service_locator.dart';
 import 'package:selim_trade/resource/app_colors.dart';
-import 'package:selim_trade/translation/locale_keys.g.dart';
 
 class OfferWidget extends StatelessWidget {
   const OfferWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final CarouselController controller = CarouselController();
+    CarouselController controller = CarouselController();
     return BlocProvider(
       create: (context) => sl<GatesCubit>(),
       child: Column(
@@ -62,7 +62,7 @@ class OfferWidget extends StatelessWidget {
                     itemCount: 5,
                     options: CarouselOptions(
                       enableInfiniteScroll: false,
-                      viewportFraction: 0.6,
+                      viewportFraction: 0.6077,
                       padEnds: false,
                       initialPage: 0,
                     ),
@@ -85,9 +85,9 @@ class OfferWidget extends StatelessWidget {
                           child: Row(
                             children: [
                               Container(
+                                transformAlignment: Alignment.bottomLeft,
                                 margin:
-                                    const EdgeInsets.only(top: 140, left: 6),
-                                width: 135,
+                                    const EdgeInsets.only(top: 150, left: 6),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   color: Colors.black.withOpacity(0.2),
@@ -139,9 +139,7 @@ class OfferWidget extends StatelessWidget {
                 width: 42.35,
                 child: CircleButtonRight(
                   onPressed: () {
-                    controller.nextPage(
-                        curve: Curves.bounceIn,
-                        duration: const Duration(milliseconds: 200));
+                    controller.nextPage();
                   },
                 ),
               ),

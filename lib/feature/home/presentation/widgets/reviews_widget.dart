@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:selim_trade/components/app_shimmer_widget.dart';
 import 'package:selim_trade/components/circale_button_left.dart';
 import 'package:selim_trade/components/circale_button_right.dart';
-import 'package:selim_trade/components/reviews_show_dialog.dart';
 import 'package:selim_trade/resource/app_images.dart';
 import 'package:selim_trade/resource/app_text_style.dart';
 import 'package:selim_trade/feature/home/presentation/blocs/reviews_cubit/reviews_cubit.dart';
@@ -17,7 +16,7 @@ class ReviewsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = CarouselController();
+    final CarouselController controller = CarouselController();
     return BlocProvider(
       create: (context) => sl<ReviewsCubit>(),
       child: Column(
@@ -60,8 +59,13 @@ class ReviewsWidget extends StatelessWidget {
                   ),
                   itemBuilder: (context, index, _) {
                     return Container(
-                      padding: const EdgeInsets.only(top: 24, left: 33),
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.only(top: 6, left: 30.9),
+                      margin: const EdgeInsets.only(
+                        top: 30,
+                      ),
                       decoration: const BoxDecoration(
+                        color: Colors.white,
                         image: DecorationImage(
                           image: AssetImage(AppImages.reviewBack),
                           fit: BoxFit.fitWidth,
@@ -72,7 +76,7 @@ class ReviewsWidget extends StatelessWidget {
                           Row(
                             children: [
                               CircleAvatar(
-                                radius: 32,
+                                radius: 31.7,
                                 backgroundImage: CachedNetworkImageProvider(
                                     model[index].image),
                               ),
@@ -84,11 +88,11 @@ class ReviewsWidget extends StatelessWidget {
                                 children: [
                                   Text(
                                     "${model[index].name} ${model[index].surname}",
-                                    style: AppTextStyles.s13w600,
+                                    style: AppTextStyles.s12w600,
                                   ),
                                   Text(
                                     model[index].title,
-                                    style: AppTextStyles.s11w600,
+                                    style: AppTextStyles.s10w600,
                                   ),
                                 ],
                               )
@@ -104,32 +108,6 @@ class ReviewsWidget extends StatelessWidget {
                               style: AppTextStyles.s12w400,
                             ),
                           ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              GestureDetector(
-                                onTap: () {
-                                  showReviewDialog(
-                                      context,
-                                      '${model[index].name} ${model[index].surname}',
-                                      model[index].image,
-                                      model[index].title,
-                                      model[index].content);
-                                },
-                                child: const Text(
-                                  'еще',
-                                  style:
-                                      TextStyle(color: AppColors.color105BFB),
-                                ),
-                              ),
-                              const SizedBox(
-                                width: 20,
-                              )
-                            ],
-                          )
                         ],
                       ),
                     );

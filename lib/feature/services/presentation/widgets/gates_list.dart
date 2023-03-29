@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:selim_trade/feature/services/presentation/blocs/gates_cubit/gates_cubit.dart';
 import 'package:selim_trade/components/app_shimmer_widget.dart';
 import 'package:selim_trade/resource/app_text_style.dart';
@@ -30,7 +31,7 @@ class GatesList extends StatelessWidget {
                         ),
                     itemBuilder: (context, index) => AppShimmerWidget(
                           height: 170,
-                          width: 339,
+                          width: 400,
                         )),
                 error: (error) => Center(
                   child: Text(error.message),
@@ -53,7 +54,8 @@ class GatesList extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         image: DecorationImage(
-                            image: NetworkImage(model[index].image),
+                            image:
+                                CachedNetworkImageProvider(model[index].image),
                             fit: BoxFit.cover),
                       ),
                       child: Row(

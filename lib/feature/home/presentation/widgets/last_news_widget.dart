@@ -69,7 +69,7 @@ class LastNewsWidget extends StatelessWidget {
                         onTap: () {
                           context.router.replace(
                             NewsDetailPageRoute(
-                              model: model[index],
+                              model: model.results[index],
                             ),
                           );
                         },
@@ -78,7 +78,7 @@ class LastNewsWidget extends StatelessWidget {
                           decoration: BoxDecoration(
                             image: DecorationImage(
                               image: CachedNetworkImageProvider(
-                                  model[index].titleImage),
+                                  model.results[index].titleImage),
                               fit: BoxFit.fill,
                             ),
                             color: Colors.grey,
@@ -86,7 +86,7 @@ class LastNewsWidget extends StatelessWidget {
                           ),
                           child: Center(
                             child: Text(
-                              model[index].title,
+                              model.results[index].title,
                               textAlign: TextAlign.center,
                               style: AppTextStyles.s10w800
                                   .copyWith(color: Colors.white),
@@ -97,7 +97,7 @@ class LastNewsWidget extends StatelessWidget {
                       separatorBuilder: (context, index) => const SizedBox(
                         width: 20,
                       ),
-                      itemCount: model.length,
+                      itemCount: model.results.length,
                     ),
                   ),
                 );

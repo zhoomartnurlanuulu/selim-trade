@@ -11,11 +11,11 @@ class CatchException {
       } else if (error.type == DioErrorType.receiveTimeout) {
         return CatchException(message: 'Сервер не отвечает');
       } else if (error.response == null) {
-        return CatchException(message: 'Нет подключение к интернет');
+        return CatchException(message: 'Нет подключение к интернету');
       } else if (error.response!.statusCode == 405) {
         return CatchException(message: 'Метод не разрешён');
       } else if (error.response!.statusCode == 409) {
-        return CatchException(message: '409');
+        return CatchException(message: 'Неизвестная ошибка');
       } else if (error.response!.statusCode == 500) {
         return CatchException(message: 'Внутренняя ошибка сервера');
       } else {

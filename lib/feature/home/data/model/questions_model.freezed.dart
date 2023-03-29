@@ -20,9 +20,9 @@ QuestionsModel _$QuestionsModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$QuestionsModel {
-  String? get username => throw _privateConstructorUsedError;
-  String? get phone => throw _privateConstructorUsedError;
-  String? get content => throw _privateConstructorUsedError;
+  String get username => throw _privateConstructorUsedError;
+  String get phone => throw _privateConstructorUsedError;
+  String get content => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +36,7 @@ abstract class $QuestionsModelCopyWith<$Res> {
           QuestionsModel value, $Res Function(QuestionsModel) then) =
       _$QuestionsModelCopyWithImpl<$Res, QuestionsModel>;
   @useResult
-  $Res call({String? username, String? phone, String? content});
+  $Res call({String username, String phone, String content});
 }
 
 /// @nodoc
@@ -52,23 +52,23 @@ class _$QuestionsModelCopyWithImpl<$Res, $Val extends QuestionsModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? username = freezed,
-    Object? phone = freezed,
-    Object? content = freezed,
+    Object? username = null,
+    Object? phone = null,
+    Object? content = null,
   }) {
     return _then(_value.copyWith(
-      username: freezed == username
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phone: freezed == phone
+              as String,
+      phone: null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String?,
-      content: freezed == content
+              as String,
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ) as $Val);
   }
 }
@@ -81,7 +81,7 @@ abstract class _$$_QuestionsModelCopyWith<$Res>
       __$$_QuestionsModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? username, String? phone, String? content});
+  $Res call({String username, String phone, String content});
 }
 
 /// @nodoc
@@ -95,23 +95,23 @@ class __$$_QuestionsModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? username = freezed,
-    Object? phone = freezed,
-    Object? content = freezed,
+    Object? username = null,
+    Object? phone = null,
+    Object? content = null,
   }) {
     return _then(_$_QuestionsModel(
-      username: freezed == username
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phone: freezed == phone
+              as String,
+      phone: null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String?,
-      content: freezed == content
+              as String,
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -119,17 +119,18 @@ class __$$_QuestionsModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_QuestionsModel implements _QuestionsModel {
-  _$_QuestionsModel({this.username, this.phone, this.content});
+  _$_QuestionsModel(
+      {required this.username, required this.phone, required this.content});
 
   factory _$_QuestionsModel.fromJson(Map<String, dynamic> json) =>
       _$$_QuestionsModelFromJson(json);
 
   @override
-  final String? username;
+  final String username;
   @override
-  final String? phone;
+  final String phone;
   @override
-  final String? content;
+  final String content;
 
   @override
   String toString() {
@@ -167,19 +168,19 @@ class _$_QuestionsModel implements _QuestionsModel {
 
 abstract class _QuestionsModel implements QuestionsModel {
   factory _QuestionsModel(
-      {final String? username,
-      final String? phone,
-      final String? content}) = _$_QuestionsModel;
+      {required final String username,
+      required final String phone,
+      required final String content}) = _$_QuestionsModel;
 
   factory _QuestionsModel.fromJson(Map<String, dynamic> json) =
       _$_QuestionsModel.fromJson;
 
   @override
-  String? get username;
+  String get username;
   @override
-  String? get phone;
+  String get phone;
   @override
-  String? get content;
+  String get content;
   @override
   @JsonKey(ignore: true)
   _$$_QuestionsModelCopyWith<_$_QuestionsModel> get copyWith =>

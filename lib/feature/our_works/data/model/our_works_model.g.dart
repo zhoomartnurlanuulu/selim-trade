@@ -8,8 +8,8 @@ part of 'our_works_model.dart';
 
 _$_OurWorksModel _$$_OurWorksModelFromJson(Map<String, dynamic> json) =>
     _$_OurWorksModel(
-      id: json['id'] as int?,
-      image: json['image'] as String?,
+      id: json['id'] as int,
+      image: json['image'] as String,
     );
 
 Map<String, dynamic> _$$_OurWorksModelToJson(_$_OurWorksModel instance) =>

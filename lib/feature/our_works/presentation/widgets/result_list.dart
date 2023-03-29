@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:selim_trade/components/app_shimmer_widget.dart';
@@ -20,8 +21,8 @@ class ResultList extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               itemCount: 5,
               itemBuilder: (context, index) => AppShimmerWidget(
-                width: 340,
-                height: 200,
+                width: 396,
+                height: 248,
                 radius: 10,
               ),
               separatorBuilder: (context, index) => const SizedBox(
@@ -36,14 +37,12 @@ class ResultList extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) => Container(
-                width: 320,
-                height: 200,
+                clipBehavior: Clip.hardEdge,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  image: DecorationImage(
-                    image: NetworkImage(model[index].image ?? ''),
-                    fit: BoxFit.cover,
-                  ),
+                ),
+                child: CachedNetworkImage(
+                  imageUrl: model[index].image,
                 ),
               ),
               separatorBuilder: (context, index) => const SizedBox(

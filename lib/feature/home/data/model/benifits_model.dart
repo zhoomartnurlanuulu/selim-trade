@@ -6,9 +6,9 @@ part 'benifits_model.g.dart';
 @freezed
 class BenifitsModel with _$BenifitsModel {
   const factory BenifitsModel({
-    int? id,
-    String? title,
-    String? icon,
+    required int id,
+    required String title,
+    required String icon,
   }) = _BenifitsModel;
 
   factory BenifitsModel.fromJson(Map<String, dynamic> json) =>

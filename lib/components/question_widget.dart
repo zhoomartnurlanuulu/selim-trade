@@ -16,7 +16,7 @@ class QuestionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     FocusNode unUsedFocusNode = FocusNode();
     final formKey = GlobalKey<FormState>();
-    RegExp textPattern = RegExp(r'^[A-Za-z]+(\s?[A-Za-z]+)*$');
+    RegExp textPattern = RegExp(r'^[A-Za-z-А-Яа-я]+(\s?[A-Za-z-А-Яа-я]+)*$');
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Form(

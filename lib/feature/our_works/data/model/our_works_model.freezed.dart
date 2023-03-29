@@ -20,8 +20,8 @@ OurWorksModel _$OurWorksModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$OurWorksModel {
-  int? get id => throw _privateConstructorUsedError;
-  String? get image => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  String get image => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ abstract class $OurWorksModelCopyWith<$Res> {
           OurWorksModel value, $Res Function(OurWorksModel) then) =
       _$OurWorksModelCopyWithImpl<$Res, OurWorksModel>;
   @useResult
-  $Res call({int? id, String? image});
+  $Res call({int id, String image});
 }
 
 /// @nodoc
@@ -51,18 +51,18 @@ class _$OurWorksModelCopyWithImpl<$Res, $Val extends OurWorksModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? image = freezed,
+    Object? id = null,
+    Object? image = null,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      image: freezed == image
+              as int,
+      image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ) as $Val);
   }
 }
@@ -75,7 +75,7 @@ abstract class _$$_OurWorksModelCopyWith<$Res>
       __$$_OurWorksModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? id, String? image});
+  $Res call({int id, String image});
 }
 
 /// @nodoc
@@ -89,18 +89,18 @@ class __$$_OurWorksModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? image = freezed,
+    Object? id = null,
+    Object? image = null,
   }) {
     return _then(_$_OurWorksModel(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      image: freezed == image
+              as int,
+      image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -108,15 +108,15 @@ class __$$_OurWorksModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_OurWorksModel implements _OurWorksModel {
-  const _$_OurWorksModel({this.id, this.image});
+  const _$_OurWorksModel({required this.id, required this.image});
 
   factory _$_OurWorksModel.fromJson(Map<String, dynamic> json) =>
       _$$_OurWorksModelFromJson(json);
 
   @override
-  final int? id;
+  final int id;
   @override
-  final String? image;
+  final String image;
 
   @override
   String toString() {
@@ -151,16 +151,16 @@ class _$_OurWorksModel implements _OurWorksModel {
 }
 
 abstract class _OurWorksModel implements OurWorksModel {
-  const factory _OurWorksModel({final int? id, final String? image}) =
-      _$_OurWorksModel;
+  const factory _OurWorksModel(
+      {required final int id, required final String image}) = _$_OurWorksModel;
 
   factory _OurWorksModel.fromJson(Map<String, dynamic> json) =
       _$_OurWorksModel.fromJson;
 
   @override
-  int? get id;
+  int get id;
   @override
-  String? get image;
+  String get image;
   @override
   @JsonKey(ignore: true)
   _$$_OurWorksModelCopyWith<_$_OurWorksModel> get copyWith =>

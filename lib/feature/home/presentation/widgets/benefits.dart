@@ -81,15 +81,15 @@ class Benefits extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SvgPicture.network(
-                                  model[index].icon!,
+                                  model[index].icon,
                                   height: 50,
                                 ),
                                 const SizedBox(
                                   height: 10,
                                 ),
                                 Text(
-                                  model[index].title!,
-                                  style: AppTextStyles.s14w600,
+                                  model[index].title,
+                                  style: AppTextStyles.s12w600,
                                   textAlign: TextAlign.center,
                                 )
                               ],

@@ -5,9 +5,9 @@ part 'questions_model.g.dart';
 @freezed
 class QuestionsModel with _$QuestionsModel {
   factory QuestionsModel({
-    String? username,
-    String? phone,
-    String? content,
+    required String username,
+    required String phone,
+    required String content,
   }) = _QuestionsModel;
 
   factory QuestionsModel.fromJson(Map<String, dynamic> json) =>

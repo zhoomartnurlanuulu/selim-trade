@@ -33,7 +33,7 @@ class AdvantagesWidget extends StatelessWidget {
                   itemBuilder: (context, index) => Column(
                         children: [
                           Text(
-                            model[index].title!,
+                            model[index].title,
                             textAlign: TextAlign.center,
                             style: AppTextStyles.s20w600
                                 .copyWith(color: AppColors.color414141),
@@ -42,7 +42,7 @@ class AdvantagesWidget extends StatelessWidget {
                             height: 10,
                           ),
                           Text(
-                            model[index].content!,
+                            model[index].content,
                             style: AppTextStyles.s14w300
                                 .copyWith(color: AppColors.color414141),
                           ),

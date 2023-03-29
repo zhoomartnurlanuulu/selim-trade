@@ -8,9 +8,9 @@ part of 'questions_model.dart';
 
 _$_QuestionsModel _$$_QuestionsModelFromJson(Map<String, dynamic> json) =>
     _$_QuestionsModel(
-      username: json['username'] as String?,
-      phone: json['phone'] as String?,
-      content: json['content'] as String?,
+      username: json['username'] as String,
+      phone: json['phone'] as String,
+      content: json['content'] as String,
     );
 
 Map<String, dynamic> _$$_QuestionsModelToJson(_$_QuestionsModel instance) =>

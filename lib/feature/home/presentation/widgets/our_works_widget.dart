@@ -55,10 +55,9 @@ class OurWorksWidgets extends StatelessWidget {
                           if (ctrl.position.haveDimensions) {
                             value = ctrl.page! - index;
                             value = (1 - (value.abs() * .5)).clamp(0.0, 1.0);
-                          } else if (index != 0) {
+                          } else if (index != 1) {
                             value = 0.5;
                           }
-
                           return Padding(
                             padding: EdgeInsets.all(50 - value * 50),
                             child: child,
@@ -75,7 +74,7 @@ class OurWorksWidgets extends StatelessWidget {
                             ],
                             image: DecorationImage(
                                 image: CachedNetworkImageProvider(
-                                    model[index].image!),
+                                    model[index].image),
                                 fit: BoxFit.fill),
                           ),
                         ),

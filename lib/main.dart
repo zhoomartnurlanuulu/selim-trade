@@ -12,22 +12,20 @@ void main() async {
   await EasyLocalization.ensureInitialized();
   FlutterNativeSplash.remove();
 
-  runApp(
-    EasyLocalization(
-        assetLoader: const CodegenLoader(),
-        supportedLocales: const [
-          Locale('ru'),
-        ],
-        path: 'assets/l10n',
-        fallbackLocale: const Locale('ru'),
-        child: MyApp()),
-  );
+  runApp(EasyLocalization(
+    assetLoader: const CodegenLoader(),
+    supportedLocales: const [
+      Locale('ru'),
+    ],
+    path: 'assets/l10n',
+    fallbackLocale: const Locale('ru'),
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
   final router = AppRouter();
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

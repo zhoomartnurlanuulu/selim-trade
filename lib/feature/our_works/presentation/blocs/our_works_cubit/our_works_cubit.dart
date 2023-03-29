@@ -14,6 +14,7 @@ class OurWorksCubit extends Cubit<OurWorksState> {
   }
   OurWorksUseCase useCase;
   Future<void> getAllWorks() async {
+    emit(const OurWorksState.loading());
     try {
       emit(
         OurWorksState.success(await useCase.getAllWorks()),

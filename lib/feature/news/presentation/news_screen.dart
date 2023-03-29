@@ -19,6 +19,7 @@ class NewsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int currentPage = 1;
     return BlocProvider(
       create: (context) => sl<NewsCubit>(),
       child: Scaffold(
@@ -61,15 +62,7 @@ class NewsScreen extends StatelessWidget {
               height: 42,
             ),
             const NewsList(),
-            Center(
-              child: CustomTextButton(
-                  child: Text(
-                    LocaleKeys.news_load_more.tr(),
-                    style: AppTextStyles.s14w300
-                        .copyWith(color: AppColors.color414141),
-                  ),
-                  onPressed: () {}),
-            ),
+           
             const SizedBox(
               height: 71,
             ),

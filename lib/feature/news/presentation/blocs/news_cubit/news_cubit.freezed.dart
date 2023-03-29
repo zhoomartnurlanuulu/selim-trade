@@ -19,21 +19,21 @@ mixin _$NewsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<NewsModel> model) success,
+    required TResult Function(NewsModel model) success,
     required TResult Function(CatchException error) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<NewsModel> model)? success,
+    TResult? Function(NewsModel model)? success,
     TResult? Function(CatchException error)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<NewsModel> model)? success,
+    TResult Function(NewsModel model)? success,
     TResult Function(CatchException error)? error,
     required TResult orElse(),
   }) =>
@@ -117,7 +117,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<NewsModel> model) success,
+    required TResult Function(NewsModel model) success,
     required TResult Function(CatchException error) error,
   }) {
     return loading();
@@ -127,7 +127,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<NewsModel> model)? success,
+    TResult? Function(NewsModel model)? success,
     TResult? Function(CatchException error)? error,
   }) {
     return loading?.call();
@@ -137,7 +137,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<NewsModel> model)? success,
+    TResult Function(NewsModel model)? success,
     TResult Function(CatchException error)? error,
     required TResult orElse(),
   }) {
@@ -192,7 +192,9 @@ abstract class _$$_SuccessCopyWith<$Res> {
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<NewsModel> model});
+  $Res call({NewsModel model});
+
+  $NewsModelCopyWith<$Res> get model;
 }
 
 /// @nodoc
@@ -209,25 +211,28 @@ class __$$_SuccessCopyWithImpl<$Res>
   }) {
     return _then(_$_Success(
       null == model
-          ? _value._model
+          ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
-              as List<NewsModel>,
+              as NewsModel,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $NewsModelCopyWith<$Res> get model {
+    return $NewsModelCopyWith<$Res>(_value.model, (value) {
+      return _then(_value.copyWith(model: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$_Success implements _Success {
-  const _$_Success(final List<NewsModel> model) : _model = model;
+  const _$_Success(this.model);
 
-  final List<NewsModel> _model;
   @override
-  List<NewsModel> get model {
-    if (_model is EqualUnmodifiableListView) return _model;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_model);
-  }
+  final NewsModel model;
 
   @override
   String toString() {
@@ -239,12 +244,11 @@ class _$_Success implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Success &&
-            const DeepCollectionEquality().equals(other._model, _model));
+            (identical(other.model, model) || other.model == model));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_model));
+  int get hashCode => Object.hash(runtimeType, model);
 
   @JsonKey(ignore: true)
   @override
@@ -256,7 +260,7 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<NewsModel> model) success,
+    required TResult Function(NewsModel model) success,
     required TResult Function(CatchException error) error,
   }) {
     return success(model);
@@ -266,7 +270,7 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<NewsModel> model)? success,
+    TResult? Function(NewsModel model)? success,
     TResult? Function(CatchException error)? error,
   }) {
     return success?.call(model);
@@ -276,7 +280,7 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<NewsModel> model)? success,
+    TResult Function(NewsModel model)? success,
     TResult Function(CatchException error)? error,
     required TResult orElse(),
   }) {
@@ -322,9 +326,9 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements NewsState {
-  const factory _Success(final List<NewsModel> model) = _$_Success;
+  const factory _Success(final NewsModel model) = _$_Success;
 
-  List<NewsModel> get model;
+  NewsModel get model;
   @JsonKey(ignore: true)
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
       throw _privateConstructorUsedError;
@@ -393,7 +397,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<NewsModel> model) success,
+    required TResult Function(NewsModel model) success,
     required TResult Function(CatchException error) error,
   }) {
     return error(this.error);
@@ -403,7 +407,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<NewsModel> model)? success,
+    TResult? Function(NewsModel model)? success,
     TResult? Function(CatchException error)? error,
   }) {
     return error?.call(this.error);
@@ -413,7 +417,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<NewsModel> model)? success,
+    TResult Function(NewsModel model)? success,
     TResult Function(CatchException error)? error,
     required TResult orElse(),
   }) {

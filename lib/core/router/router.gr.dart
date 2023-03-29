@@ -191,7 +191,7 @@ class GateInfoPageRouteArgs {
 class NewsDetailPageRoute extends _i7.PageRouteInfo<NewsDetailPageRouteArgs> {
   NewsDetailPageRoute({
     _i8.Key? key,
-    required _i10.NewsModel model,
+    required _i10.Result model,
   }) : super(
           NewsDetailPageRoute.name,
           path: '/news-detail-page',
@@ -212,7 +212,7 @@ class NewsDetailPageRouteArgs {
 
   final _i8.Key? key;
 
-  final _i10.NewsModel model;
+  final _i10.Result model;
 
   @override
   String toString() {

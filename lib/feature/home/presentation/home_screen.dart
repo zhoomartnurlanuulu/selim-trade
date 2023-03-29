@@ -33,7 +33,7 @@ class HomeScreen extends StatelessWidget {
                   ServiceWidget(),
                   ReviewsWidget(),
                   QuestionWidget(),
-                  FooterWidget()
+                  FooterWidget(),
                 ],
               ),
             ),

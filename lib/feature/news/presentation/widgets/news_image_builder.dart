@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class NewsImageBuilder extends StatelessWidget {
   NewsImageBuilder({super.key, required this.model});
-  NewsModel model;
+  Result model;
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +20,8 @@ class NewsImageBuilder extends StatelessWidget {
                 width: 360,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: CachedNetworkImageProvider(
-                          model.images[index].image!),
+                      image:
+                          CachedNetworkImageProvider(model.images[index].image),
                       fit: BoxFit.contain),
                 ),
               );

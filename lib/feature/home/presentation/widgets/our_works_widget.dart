@@ -67,9 +67,11 @@ class OurWorksWidgets extends StatelessWidget {
                           height: 250,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8.96),
-                            boxShadow: const [
+                            boxShadow: [
                               BoxShadow(
-                                  color: AppColors.color105BFB,
+                                  color: model[index].image.isEmpty
+                                      ? Colors.transparent
+                                      : AppColors.color105BFB,
                                   blurRadius: 4.48)
                             ],
                             image: DecorationImage(

@@ -34,9 +34,10 @@ class Social extends StatelessWidget {
                                       final uri = model[index].link;
                                       final url = Uri.parse(uri);
                                       if (await canLaunchUrl(url)) {
-                                        launchUrl(url,
-                                            mode:
-                                                LaunchMode.externalApplication);
+                                        await launchUrl(
+                                          url,
+                                          mode: LaunchMode.externalApplication,
+                                        );
                                       } else {
                                         throw 'Couldn\'t launch $url';
                                       }

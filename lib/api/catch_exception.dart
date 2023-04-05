@@ -11,7 +11,7 @@ class CatchException {
       } else if (error.type == DioErrorType.receiveTimeout) {
         return CatchException(message: 'Сервер не отвечает');
       } else if (error.response == null) {
-        return CatchException(message: 'Нет подключение к интернету');
+        return CatchException(message: 'Нет подключение к сети');
       } else if (error.response!.statusCode == 405) {
         return CatchException(message: 'Метод не разрешён');
       } else if (error.response!.statusCode == 409) {

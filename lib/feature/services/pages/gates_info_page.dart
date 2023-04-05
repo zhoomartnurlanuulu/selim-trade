@@ -31,7 +31,9 @@ class GateInfoPage extends StatelessWidget {
                 GateInfoTitle(
                   model: model,
                 ),
-                const TypeOfGate(),
+                TypeOfGate(
+                  model: model,
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Column(

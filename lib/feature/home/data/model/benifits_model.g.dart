@@ -8,9 +8,9 @@ part of 'benifits_model.dart';
 
 _$_BenifitsModel _$$_BenifitsModelFromJson(Map<String, dynamic> json) =>
     _$_BenifitsModel(
-      id: json['id'] as int?,
-      title: json['title'] as String?,
-      icon: json['icon'] as String?,
+      id: json['id'] as int,
+      title: json['title'] as String,
+      icon: json['icon'] as String,
     );
 
 Map<String, dynamic> _$$_BenifitsModelToJson(_$_BenifitsModel instance) =>

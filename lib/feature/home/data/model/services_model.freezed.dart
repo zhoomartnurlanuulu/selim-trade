@@ -20,9 +20,9 @@ ServicesModel _$ServicesModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ServicesModel {
-  int? get id => throw _privateConstructorUsedError;
-  String? get title => throw _privateConstructorUsedError;
-  String? get icon => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  String get icon => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +36,7 @@ abstract class $ServicesModelCopyWith<$Res> {
           ServicesModel value, $Res Function(ServicesModel) then) =
       _$ServicesModelCopyWithImpl<$Res, ServicesModel>;
   @useResult
-  $Res call({int? id, String? title, String? icon});
+  $Res call({int id, String title, String icon});
 }
 
 /// @nodoc
@@ -52,23 +52,23 @@ class _$ServicesModelCopyWithImpl<$Res, $Val extends ServicesModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? icon = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? icon = null,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      title: freezed == title
+              as int,
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      icon: freezed == icon
+              as String,
+      icon: null == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ) as $Val);
   }
 }
@@ -81,7 +81,7 @@ abstract class _$$_ServicesModelCopyWith<$Res>
       __$$_ServicesModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? id, String? title, String? icon});
+  $Res call({int id, String title, String icon});
 }
 
 /// @nodoc
@@ -95,23 +95,23 @@ class __$$_ServicesModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? icon = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? icon = null,
   }) {
     return _then(_$_ServicesModel(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      title: freezed == title
+              as int,
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      icon: freezed == icon
+              as String,
+      icon: null == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -119,17 +119,18 @@ class __$$_ServicesModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ServicesModel implements _ServicesModel {
-  const _$_ServicesModel({this.id, this.title, this.icon});
+  const _$_ServicesModel(
+      {required this.id, required this.title, required this.icon});
 
   factory _$_ServicesModel.fromJson(Map<String, dynamic> json) =>
       _$$_ServicesModelFromJson(json);
 
   @override
-  final int? id;
+  final int id;
   @override
-  final String? title;
+  final String title;
   @override
-  final String? icon;
+  final String icon;
 
   @override
   String toString() {
@@ -166,19 +167,19 @@ class _$_ServicesModel implements _ServicesModel {
 
 abstract class _ServicesModel implements ServicesModel {
   const factory _ServicesModel(
-      {final int? id,
-      final String? title,
-      final String? icon}) = _$_ServicesModel;
+      {required final int id,
+      required final String title,
+      required final String icon}) = _$_ServicesModel;
 
   factory _ServicesModel.fromJson(Map<String, dynamic> json) =
       _$_ServicesModel.fromJson;
 
   @override
-  int? get id;
+  int get id;
   @override
-  String? get title;
+  String get title;
   @override
-  String? get icon;
+  String get icon;
   @override
   @JsonKey(ignore: true)
   _$$_ServicesModelCopyWith<_$_ServicesModel> get copyWith =>

@@ -1,13 +1,13 @@
+import 'package:selim_trade/resource/app_text_style.dart';
+import 'package:selim_trade/core/router/router.gr.dart';
+import 'package:selim_trade/resource/app_colors.dart';
+import 'package:selim_trade/resource/app_images.dart';
+import 'package:selim_trade/resource/app_icons.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:selim_trade/api/enums.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:selim_trade/resource/app_icons.dart';
-import 'package:selim_trade/resource/app_images.dart';
-import 'package:selim_trade/resource/app_text_style.dart';
-import 'package:selim_trade/api/enums.dart';
-import 'package:selim_trade/core/router/router.gr.dart';
-import 'package:selim_trade/resource/app_colors.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class NewsPopUp extends StatelessWidget {
   const NewsPopUp({
@@ -19,12 +19,16 @@ class NewsPopUp extends StatelessWidget {
     return PopupMenuButton(
       icon: SvgPicture.asset(AppIcons.menuBlackIcon),
       onSelected: (value) {
-        if (value == MenuItem.main) {
-          context.router.replace(const HomeScreenRoute());
-        } else if (value == MenuItem.services) {
-          context.router.replace(ServiceScreenRoute());
-        } else if (value == MenuItem.works) {
-          context.router.replace(const OurWorksScreenRoute());
+        switch (value) {
+          case MenuItem.main:
+            context.router.replace(const HomeScreenRoute());
+            break;
+          case MenuItem.services:
+            context.router.replace(const ServiceScreenRoute());
+            break;
+          case MenuItem.works:
+            context.router.replace(const OurWorksScreenRoute());
+            break;
         }
       },
       itemBuilder: (context) => [

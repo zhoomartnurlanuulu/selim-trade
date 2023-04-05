@@ -32,36 +32,34 @@ showAppDialog(BuildContext context) {
             alignment: Alignment.center,
             children: <Widget>[
               Image.asset(
-                AppImages.baa,
+                AppImages.dialogBack,
                 height: 220,
                 fit: BoxFit.cover,
               ),
-              SizedBox(
-                height: 123,
-                child: Column(
-                  children: [
-                    SvgPicture.asset(
-                      AppIcons.requestIcon,
-                      height: 50,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const Text(
-                      'Заявка успешно \nотправлена',
-                      textAlign: TextAlign.center,
-                      style: AppTextStyles.s11w600,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const Text(
-                      'Ваша заявка отправлена рассмотрение. \nВ ближайшее время с вами свяжется наш специалист',
-                      textAlign: TextAlign.center,
-                      style: AppTextStyles.s12w400,
-                    )
-                  ],
-                ),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SvgPicture.asset(
+                    AppIcons.requestIcon,
+                    height: 50,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Text(
+                    'Заявка успешно \nотправлена',
+                    textAlign: TextAlign.center,
+                    style: AppTextStyles.s11w600,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Text(
+                    'Ваша заявка отправлена рассмотрение. \nВ ближайшее время с вами свяжется \nнаш специалист',
+                    textAlign: TextAlign.center,
+                    style: AppTextStyles.s12w400,
+                  )
+                ],
               )
             ],
           ),

@@ -6,8 +6,8 @@ part 'our_works_model.g.dart';
 @freezed
 class OurWorksModel with _$OurWorksModel {
   const factory OurWorksModel({
-    int? id,
-    String? image,
+   required int id,
+  required  String image,
   }) = _OurWorksModel;
 
   factory OurWorksModel.fromJson(Map<String, dynamic> json) =>

@@ -8,7 +8,7 @@ import 'package:selim_trade/resource/app_text_style.dart';
 import 'package:selim_trade/translation/locale_keys.g.dart';
 
 class CustomFliexbleSpace extends StatelessWidget {
-  CustomFliexbleSpace({
+  const CustomFliexbleSpace({
     Key? key,
     required this.controller,
   }) : super(key: key);
@@ -24,11 +24,11 @@ class CustomFliexbleSpace extends StatelessWidget {
         fit: BoxFit.fill,
       ),
       title: AnimatedOpacity(
-        duration: Duration(milliseconds: 200),
+        duration: const Duration(milliseconds: 200),
         opacity:
             controller.hasClients && controller.offset > kToolbarHeight ? 0 : 1,
         child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -36,33 +36,34 @@ class CustomFliexbleSpace extends StatelessWidget {
                 LocaleKeys.sliver_app_bar_text_modern_safty.tr(),
                 style: AppTextStyles.s20w700.copyWith(color: Colors.white),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 6,
               ),
               Text(
                 LocaleKeys.sliver_app_bar_text_find.tr(),
                 style: AppTextStyles.s11w600.copyWith(color: Colors.white),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Row(
                 children: [
                   SizedBox(
                     height: 34.46,
-                    width: 150,
                     child: AppGradientButton(
                       onPressed: () {
-                        controller.animateTo(2280,
-                            duration: Duration(milliseconds: 200),
-                            curve: Curves.bounceIn);
+                        controller.animateTo(
+                          2280,
+                          duration: const Duration(milliseconds: 200),
+                          curve: Curves.bounceIn,
+                        );
                       },
                       child: Row(
                         children: [
                           SvgPicture.asset(
                             AppIcons.orderIcon,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 15.11,
                           ),
                           Text(
@@ -76,7 +77,7 @@ class CustomFliexbleSpace extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 35,
               )
             ],

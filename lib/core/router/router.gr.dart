@@ -16,12 +16,12 @@ import 'package:flutter/material.dart' as _i8;
 
 import '../../feature/home/presentation/home_screen.dart' as _i1;
 import '../../feature/news/data/model/news_model.dart' as _i10;
+import '../../feature/news/pages/news_detail.dart' as _i6;
 import '../../feature/news/presentation/news_screen.dart' as _i4;
-import '../../feature/news/presentation/widgets/news_detail.dart' as _i6;
 import '../../feature/our_works/presentation/our_work_screen.dart' as _i2;
 import '../../feature/services/data/model/gates_model.dart' as _i9;
-import '../../feature/services/presentation/service_screen.dart' as _i3;
 import '../../feature/services/pages/gates_info_page.dart' as _i5;
+import '../../feature/services/presentation/service_screen.dart' as _i3;
 
 class AppRouter extends _i7.RootStackRouter {
   AppRouter([_i8.GlobalKey<_i8.NavigatorState>? navigatorKey])
@@ -191,7 +191,7 @@ class GateInfoPageRouteArgs {
 class NewsDetailPageRoute extends _i7.PageRouteInfo<NewsDetailPageRouteArgs> {
   NewsDetailPageRoute({
     _i8.Key? key,
-    required _i10.NewsModel model,
+    required _i10.Result model,
   }) : super(
           NewsDetailPageRoute.name,
           path: '/news-detail-page',
@@ -212,7 +212,7 @@ class NewsDetailPageRouteArgs {
 
   final _i8.Key? key;
 
-  final _i10.NewsModel model;
+  final _i10.Result model;
 
   @override
   String toString() {

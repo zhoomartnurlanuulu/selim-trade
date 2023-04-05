@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppTextStyles {
   static const s20w700 = TextStyle(
-    fontSize: 20,
+    fontSize: 15,
     fontWeight: FontWeight.w700,
   );
   // font size 20
@@ -46,6 +46,11 @@ class AppTextStyles {
     fontSize: 14.91,
     fontWeight: FontWeight.w800,
   );
+  // font size 13
+  static const s13w600 = TextStyle(
+    fontSize: 13,
+    fontWeight: FontWeight.w600,
+  );
   // font size 12
   static const s12w800 = TextStyle(
     fontSize: 12,
@@ -60,17 +65,29 @@ class AppTextStyles {
     fontWeight: FontWeight.w600,
   );
   static const s12w400 = TextStyle(
-    fontSize: 10,
+    fontSize: 9,
     fontWeight: FontWeight.w400,
   );
   //font size 11
   static const s11w600 = TextStyle(
-    fontSize: 11,
+    fontSize: 9,
     fontWeight: FontWeight.w600,
+  );
+  static const s11w500 = TextStyle(
+    fontSize: 11,
+    fontWeight: FontWeight.w500,
   );
   static const s10w800 = TextStyle(
     fontSize: 10.97,
     fontWeight: FontWeight.w800,
+  );
+  static const s10w500 = TextStyle(
+    fontSize: 9,
+    fontWeight: FontWeight.w500,
+  );
+  static const s10w600 = TextStyle(
+    fontSize: 9,
+    fontWeight: FontWeight.w600,
   );
   //font size 13
   static const s13w300 = TextStyle(

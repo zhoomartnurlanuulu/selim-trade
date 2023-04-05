@@ -34,7 +34,10 @@ class Social extends StatelessWidget {
                                       final uri = model[index].link;
                                       final url = Uri.parse(uri);
                                       if (await canLaunchUrl(url)) {
-                                        launchUrl(url);
+                                        await launchUrl(
+                                          url,
+                                          mode: LaunchMode.externalApplication,
+                                        );
                                       } else {
                                         throw 'Couldn\'t launch $url';
                                       }
@@ -46,7 +49,7 @@ class Social extends StatelessWidget {
                                   ),
                                 ]),
                         separatorBuilder: (context, index) => const SizedBox(
-                              width: 12,
+                              width: 10,
                             ),
                         itemCount: model.length),
                   ));

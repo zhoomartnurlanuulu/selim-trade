@@ -12,151 +12,144 @@ import 'package:selim_trade/api/service_locator.dart';
 import 'package:selim_trade/resource/app_colors.dart';
 
 class ReviewsWidget extends StatelessWidget {
-  ReviewsWidget({super.key});
-  final controller = CarouselController();
+  const ReviewsWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final CarouselController controller = CarouselController();
     return BlocProvider(
       create: (context) => sl<ReviewsCubit>(),
-      child: SizedBox(
-        height: 327,
-        child: Column(
-          children: [
-            Center(
-              child: Text(
-                'Отзывы наших клиентов',
-                style: AppTextStyles.s16w700.copyWith(
-                  color: AppColors.color414141,
-                ),
+      child: Column(
+        children: [
+          Center(
+            child: Text(
+              'Отзывы наших клиентов',
+              style: AppTextStyles.s16w700.copyWith(
+                color: AppColors.color414141,
               ),
             ),
-            const SizedBox(
-              height: 29,
-            ),
-            BlocBuilder<ReviewsCubit, ReviewsState>(
-              builder: (context, state) {
-                return state.when(
-                  loading: () => SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          AppShimmerWidget(width: 260, height: 151),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          AppShimmerWidget(
-                            width: 260,
-                            height: 151,
-                          )
-                        ],
-                      )),
-                  error: (error) => Center(child: Text(error.message)),
-                  success: (model) => SizedBox(
-                    height: 150,
-                    width: double.infinity,
-                    child: CarouselSlider.builder(
-                      carouselController: controller,
-                      options: CarouselOptions(
-                        padEnds: false,
-                        viewportFraction: 0.64,
-                        enableInfiniteScroll: false,
+          ),
+          const SizedBox(
+            height: 29,
+          ),
+          BlocBuilder<ReviewsCubit, ReviewsState>(
+            builder: (context, state) {
+              return state.when(
+                loading: () => SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        AppShimmerWidget(width: 260, height: 151),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        AppShimmerWidget(
+                          width: 260,
+                          height: 151,
+                        )
+                      ],
+                    )),
+                error: (error) => Center(child: Text(error.message)),
+                success: (model) => CarouselSlider.builder(
+                  carouselController: controller,
+                  options: CarouselOptions(
+                    padEnds: false,
+                    viewportFraction: 0.72,
+                    enableInfiniteScroll: false,
+                  ),
+                  itemBuilder: (context, index, _) {
+                    return Container(
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.only(top: 6, left: 30.9),
+                      margin: const EdgeInsets.only(
+                        top: 30,
                       ),
-                      itemBuilder: (context, index, _) {
-                        return SizedBox(
-                          child: Container(
-                            width: 260,
-                            height: 151,
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(AppImages.reviewBack),
-                                fit: BoxFit.cover,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        image: DecorationImage(
+                          image: AssetImage(AppImages.reviewBack),
+                          fit: BoxFit.fitWidth,
+                        ),
+                      ),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              CircleAvatar(
+                                radius: 31.7,
+                                backgroundImage: CachedNetworkImageProvider(
+                                    model[index].image),
                               ),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                left: 25.9,
+                              const SizedBox(
+                                width: 15,
                               ),
-                              child: Column(
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Row(
-                                    children: [
-                                      CircleAvatar(
-                                        radius: 26,
-                                        backgroundImage:
-                                            CachedNetworkImageProvider(
-                                                model[index].image),
-                                      ),
-                                      const SizedBox(
-                                        width: 15,
-                                      ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "${model[index].name} ${model[index].surname}",
-                                            style: AppTextStyles.s14w600,
-                                          ),
-                                          Text(
-                                            model[index].title,
-                                            style: AppTextStyles.s11w600,
-                                          ),
-                                        ],
-                                      )
-                                    ],
+                                  Text(
+                                    "${model[index].name} ${model[index].surname}",
+                                    style: AppTextStyles.s12w600,
                                   ),
-                                  const SizedBox(
-                                    height: 15,
+                                  Text(
+                                    model[index].title,
+                                    style: AppTextStyles.s10w600,
                                   ),
-                                  Text(model[index].content,
-                                      style: AppTextStyles.s12w400)
                                 ],
-                              ),
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 15, right: 15),
+                            child: Text(
+                              model[index].content,
+                              style: AppTextStyles.s12w400,
                             ),
                           ),
-                        );
-                      },
-                      itemCount: model.length,
-                    ),
-                  ),
-                );
-              },
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: 44.59,
-                  width: 44.59,
-                  child: CircleButtonLeft(
-                    onPressed: () {
-                      controller.previousPage();
-                    },
-                  ),
+                        ],
+                      ),
+                    );
+                  },
+                  itemCount: model.length,
                 ),
-                const SizedBox(
-                  width: 30,
+              );
+            },
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 44.59,
+                width: 44.59,
+                child: CircleButtonLeft(
+                  onPressed: () {
+                    controller.previousPage();
+                  },
                 ),
-                SizedBox(
-                  height: 44.59,
-                  width: 44.59,
-                  child: CircleButtonRight(
-                    onPressed: () {
-                      controller.nextPage();
-                    },
-                  ),
-                )
-              ],
-            ),
-            const SizedBox(
-              height: 60,
-            )
-          ],
-        ),
+              ),
+              const SizedBox(
+                width: 30,
+              ),
+              SizedBox(
+                height: 44.59,
+                width: 44.59,
+                child: CircleButtonRight(
+                  onPressed: () {
+                    controller.nextPage();
+                  },
+                ),
+              )
+            ],
+          ),
+          const SizedBox(
+            height: 60,
+          )
+        ],
       ),
     );
   }

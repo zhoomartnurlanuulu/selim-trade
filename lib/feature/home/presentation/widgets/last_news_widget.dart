@@ -20,7 +20,7 @@ class LastNewsWidget extends StatelessWidget {
     return BlocProvider(
       create: (context) => sl<NewsCubit>(),
       child: SizedBox(
-        height: 309,
+        height: 311,
         child: Column(
           children: [
             const SizedBox(
@@ -68,16 +68,17 @@ class LastNewsWidget extends StatelessWidget {
                       itemBuilder: (context, index) => GestureDetector(
                         onTap: () {
                           context.router.replace(
-                              NewsDetailPageRoute(model: model[index]));
+                            NewsDetailPageRoute(
+                              model: model.results[index],
+                            ),
+                          );
                         },
                         child: Container(
-                          padding: const EdgeInsets.only(left: 26.33),
-                          height: 164,
                           width: 241,
                           decoration: BoxDecoration(
                             image: DecorationImage(
                               image: CachedNetworkImageProvider(
-                                  model[index].titleImage),
+                                  model.results[index].titleImage),
                               fit: BoxFit.fill,
                             ),
                             color: Colors.grey,
@@ -85,8 +86,8 @@ class LastNewsWidget extends StatelessWidget {
                           ),
                           child: Center(
                             child: Text(
-                              model[index].title,
-                              textAlign: TextAlign.start,
+                              model.results[index].title,
+                              textAlign: TextAlign.center,
                               style: AppTextStyles.s10w800
                                   .copyWith(color: Colors.white),
                             ),
@@ -96,7 +97,7 @@ class LastNewsWidget extends StatelessWidget {
                       separatorBuilder: (context, index) => const SizedBox(
                         width: 20,
                       ),
-                      itemCount: model.length,
+                      itemCount: model.results.length,
                     ),
                   ),
                 );

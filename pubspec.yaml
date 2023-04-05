@@ -16,22 +16,21 @@ dependencies:
   dio: ^5.0.1
   flutter_bloc: ^8.1.2
   get_it: ^7.2.0
-  shared_preferences: ^2.0.17
   auto_route: ^5.0.4
   flutter_svg: ^2.0.0+1
-  injectable: ^2.1.0
   intl: ^0.17.0
   easy_localization: ^3.0.1
   json_annotation: ^4.8.0
   freezed: ^2.3.2
   freezed_annotation: ^2.2.0
-  url_launcher: ^6.1.9
-  google_maps_flutter: ^2.2.3
+  url_launcher: ^6.1.10
+  google_maps_flutter: ^2.2.5
   carousel_slider: ^4.2.1
   dart_code_metrics: ^5.5.1
   cached_network_image: ^3.2.3
   flutter_native_splash: ^2.2.19
   shimmer: ^2.0.0
+  fluttertoast: ^8.2.1
 
 
 
@@ -44,7 +43,7 @@ dev_dependencies:
   json_serializable: ^6.6.1
   build_runner: ^2.3.3
   auto_route_generator: ^5.0.3
-  injectable_generator: ^2.1.4
+  injectable_generator: ^2.1.5
 flutter_native_splash: 
  color: '#105BFB'
  image:   assets/images/logo.png
@@ -60,7 +59,7 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/images/mainbackground.png
-    - assets/images/baa.png
+    - assets/images/dialogback.png
     - assets/l10n/
 
   

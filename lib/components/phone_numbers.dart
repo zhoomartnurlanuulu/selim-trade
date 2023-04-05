@@ -16,20 +16,20 @@ class PhoneNumbers extends StatelessWidget {
             child: Text(error.message),
           ),
           success: (model) => SizedBox(
-            height: 35,
             width: 120,
             child: ListView.builder(
+                shrinkWrap: true,
                 clipBehavior: Clip.none,
                 padding: EdgeInsets.zero,
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: model.length,
                 itemBuilder: (context, index) => Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           model[index].phone,
-                          style: AppTextStyles.s12w500,
+                          textAlign: TextAlign.center,
+                          style: AppTextStyles.s10w500,
                         ),
                       ],
                     )),

@@ -20,10 +20,10 @@ AdvantageModel _$AdvantageModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AdvantageModel {
-  int? get id => throw _privateConstructorUsedError;
-  String? get title => throw _privateConstructorUsedError;
-  String? get content => throw _privateConstructorUsedError;
-  int? get gate => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  String get content => throw _privateConstructorUsedError;
+  int get gate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +37,7 @@ abstract class $AdvantageModelCopyWith<$Res> {
           AdvantageModel value, $Res Function(AdvantageModel) then) =
       _$AdvantageModelCopyWithImpl<$Res, AdvantageModel>;
   @useResult
-  $Res call({int? id, String? title, String? content, int? gate});
+  $Res call({int id, String title, String content, int gate});
 }
 
 /// @nodoc
@@ -53,28 +53,28 @@ class _$AdvantageModelCopyWithImpl<$Res, $Val extends AdvantageModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? content = freezed,
-    Object? gate = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? content = null,
+    Object? gate = null,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      title: freezed == title
+              as int,
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      content: freezed == content
+              as String,
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String?,
-      gate: freezed == gate
+              as String,
+      gate: null == gate
           ? _value.gate
           : gate // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ) as $Val);
   }
 }
@@ -87,7 +87,7 @@ abstract class _$$_AdvantageModelCopyWith<$Res>
       __$$_AdvantageModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? id, String? title, String? content, int? gate});
+  $Res call({int id, String title, String content, int gate});
 }
 
 /// @nodoc
@@ -101,28 +101,28 @@ class __$$_AdvantageModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? content = freezed,
-    Object? gate = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? content = null,
+    Object? gate = null,
   }) {
     return _then(_$_AdvantageModel(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      title: freezed == title
+              as int,
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      content: freezed == content
+              as String,
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String?,
-      gate: freezed == gate
+              as String,
+      gate: null == gate
           ? _value.gate
           : gate // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ));
   }
 }
@@ -130,19 +130,23 @@ class __$$_AdvantageModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_AdvantageModel implements _AdvantageModel {
-  const _$_AdvantageModel({this.id, this.title, this.content, this.gate});
+  const _$_AdvantageModel(
+      {required this.id,
+      required this.title,
+      required this.content,
+      required this.gate});
 
   factory _$_AdvantageModel.fromJson(Map<String, dynamic> json) =>
       _$$_AdvantageModelFromJson(json);
 
   @override
-  final int? id;
+  final int id;
   @override
-  final String? title;
+  final String title;
   @override
-  final String? content;
+  final String content;
   @override
-  final int? gate;
+  final int gate;
 
   @override
   String toString() {
@@ -180,22 +184,22 @@ class _$_AdvantageModel implements _AdvantageModel {
 
 abstract class _AdvantageModel implements AdvantageModel {
   const factory _AdvantageModel(
-      {final int? id,
-      final String? title,
-      final String? content,
-      final int? gate}) = _$_AdvantageModel;
+      {required final int id,
+      required final String title,
+      required final String content,
+      required final int gate}) = _$_AdvantageModel;
 
   factory _AdvantageModel.fromJson(Map<String, dynamic> json) =
       _$_AdvantageModel.fromJson;
 
   @override
-  int? get id;
+  int get id;
   @override
-  String? get title;
+  String get title;
   @override
-  String? get content;
+  String get content;
   @override
-  int? get gate;
+  int get gate;
   @override
   @JsonKey(ignore: true)
   _$$_AdvantageModelCopyWith<_$_AdvantageModel> get copyWith =>

@@ -29,7 +29,7 @@ class WorkTime extends StatelessWidget {
                   Text(
                     '${model[index].fromWeekday}-${model[index].toWeekday} ${model[index].fromHour.substring(1, 5)}-${model[index].toHour.substring(0, 5)}',
                     textAlign: TextAlign.center,
-                    style: AppTextStyles.s12w500,
+                    style: AppTextStyles.s10w500,
                   ),
                 ],
               ),

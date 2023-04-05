@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-
-import 'package:selim_trade/resource/app_images.dart';
-import 'package:selim_trade/feature/services/data/model/gates_model.dart';
 import 'package:selim_trade/feature/services/presentation/widgets/flexible_gate_space.dart';
 import 'package:selim_trade/feature/services/presentation/widgets/gates_info_pop_up.dart';
+import 'package:selim_trade/feature/services/data/model/gates_model.dart';
+import 'package:selim_trade/resource/app_images.dart';
+import 'package:flutter/material.dart';
+
 
 class ServicesAppBar extends StatelessWidget {
   ServicesAppBar({Key? key, required this.ctrl, required this.model})

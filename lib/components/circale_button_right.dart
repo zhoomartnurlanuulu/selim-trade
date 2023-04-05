@@ -5,11 +5,11 @@ import 'package:selim_trade/resource/app_icons.dart';
 import 'package:selim_trade/resource/app_colors.dart';
 
 class CircleButtonRight extends StatelessWidget {
-  const CircleButtonRight({
+  CircleButtonRight({
     Key? key,
     required this.onPressed,
   }) : super(key: key);
-  final Function() onPressed;
+  Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return TextButton(

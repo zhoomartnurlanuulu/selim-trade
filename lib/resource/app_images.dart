@@ -17,5 +17,5 @@ class AppImages {
   static const restImage = 'assets/images/restimage.png';
   static const table = 'assets/images/table.png';
   static const reviewBack = 'assets/images/reviewback.png';
-  static const baa = 'assets/images/baa.png';
+  static const dialogBack = 'assets/images/dialogback.png';
 }

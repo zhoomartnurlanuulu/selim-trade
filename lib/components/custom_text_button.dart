@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:selim_trade/resource/app_colors.dart';
 
 class CustomTextButton extends StatelessWidget {
-  const CustomTextButton(
+   CustomTextButton(
       {Key? key, required this.child, required this.onPressed})
       : super(key: key);
-  final Function() onPressed;
+   Function()? onPressed;
   final Widget child;
   @override
   Widget build(BuildContext context) {

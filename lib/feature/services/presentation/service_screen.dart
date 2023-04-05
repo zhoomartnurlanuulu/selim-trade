@@ -1,11 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:selim_trade/feature/services/presentation/widgets/title_text.dart';
+import 'package:selim_trade/feature/services/presentation/widgets/pop_up_menu.dart';
+import 'package:selim_trade/components/question_widget.dart';
 import 'package:selim_trade/components/custom_app_bar.dart';
 import 'package:selim_trade/components/footer_widget.dart';
-import 'package:selim_trade/components/question_widget.dart';
 import 'package:selim_trade/resource/app_images.dart';
-import 'package:selim_trade/feature/services/presentation/widgets/pop_up_menu.dart';
-import 'package:selim_trade/feature/services/presentation/widgets/title_text.dart';
-
+import 'package:flutter/material.dart';
 import 'widgets/gates_list.dart';
 
 class ServiceScreen extends StatelessWidget {
@@ -27,7 +26,7 @@ class ServiceScreen extends StatelessWidget {
         ],
       ),
       body: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
+        padding: EdgeInsets.zero,
         physics: const ClampingScrollPhysics(),
         children: const [
           TitleText(),

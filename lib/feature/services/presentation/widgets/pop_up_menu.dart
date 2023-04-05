@@ -1,13 +1,13 @@
+import 'package:selim_trade/resource/app_text_style.dart';
+import 'package:selim_trade/core/router/router.gr.dart';
+import 'package:selim_trade/resource/app_colors.dart';
+import 'package:selim_trade/resource/app_images.dart';
+import 'package:selim_trade/resource/app_icons.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:selim_trade/api/enums.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:selim_trade/resource/app_icons.dart';
-import 'package:selim_trade/resource/app_images.dart';
-import 'package:selim_trade/resource/app_text_style.dart';
-import 'package:selim_trade/api/enums.dart';
-import 'package:selim_trade/core/router/router.gr.dart';
-import 'package:selim_trade/resource/app_colors.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class ServicePopUp extends StatelessWidget {
   const ServicePopUp({
@@ -19,12 +19,16 @@ class ServicePopUp extends StatelessWidget {
     return PopupMenuButton(
       icon: SvgPicture.asset(AppIcons.menuBlackIcon),
       onSelected: (value) {
-        if (value == MenuItem.main) {
-          context.router.replace(HomeScreenRoute());
-        } else if (value == MenuItem.news) {
-          context.router.replace(NewsScreenRoute());
-        } else if (value == MenuItem.works) {
-          context.router.replace(OurWorksScreenRoute());
+        switch (value) {
+          case MenuItem.main:
+            context.router.replace(const HomeScreenRoute());
+            break;
+          case MenuItem.news:
+            context.router.replace(const NewsScreenRoute());
+            break;
+          case MenuItem.works:
+            context.router.replace(const OurWorksScreenRoute());
+            break;
         }
       },
       itemBuilder: (context) => [
@@ -75,7 +79,7 @@ class ServicePopUp extends StatelessWidget {
           enabled: false,
           child: GestureDetector(
             onTap: () async {
-              final uri = '+996552570755';
+              const uri = '+996552570755';
               final url = Uri.parse('tel:$uri');
               if (await canLaunchUrl(url)) {
                 launchUrl(url);

@@ -1,11 +1,12 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:selim_trade/feature/services/presentation/blocs/gates_cubit/gates_cubit.dart';
 import 'package:selim_trade/components/app_shimmer_widget.dart';
 import 'package:selim_trade/resource/app_text_style.dart';
-import 'package:selim_trade/feature/services/presentation/blocs/gates_cubit/gates_cubit.dart';
 import 'package:selim_trade/core/router/router.gr.dart';
 import 'package:selim_trade/api/service_locator.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 
 class GatesList extends StatelessWidget {
   const GatesList({
@@ -30,7 +31,7 @@ class GatesList extends StatelessWidget {
                         ),
                     itemBuilder: (context, index) => AppShimmerWidget(
                           height: 170,
-                          width: 339,
+                          width: 400,
                         )),
                 error: (error) => Center(
                   child: Text(error.message),
@@ -53,7 +54,8 @@ class GatesList extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         image: DecorationImage(
-                            image: NetworkImage(model[index].image),
+                            image:
+                                CachedNetworkImageProvider(model[index].image),
                             fit: BoxFit.cover),
                       ),
                       child: Row(

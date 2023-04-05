@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:selim_trade/resource/app_colors.dart';
 import 'package:selim_trade/resource/app_text_style.dart';
 import 'package:selim_trade/feature/news/data/model/news_model.dart';
 
-import '../../../../resource/app_colors.dart';
-
 class NewsDetailInfo extends StatelessWidget {
   NewsDetailInfo({super.key, required this.model});
-  NewsModel model;
+  Result model;
 
   @override
   Widget build(BuildContext context) {

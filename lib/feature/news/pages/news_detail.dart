@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:selim_trade/components/app_shimmer_widget.dart';
 import 'package:selim_trade/feature/news/data/model/news_model.dart';
 import 'package:selim_trade/feature/news/presentation/blocs/news_cubit/news_cubit.dart';
-import 'package:selim_trade/feature/news/presentation/widgets/news_detail_info.dart';
+import 'package:selim_trade/feature/news/pages/news_detail_info.dart';
 import 'package:selim_trade/feature/news/presentation/widgets/detail_pop_up.dart';
 import 'package:selim_trade/resource/app_text_style.dart';
 import 'package:selim_trade/components/question_widget.dart';
@@ -20,7 +20,7 @@ import 'package:selim_trade/api/service_locator.dart';
 
 class NewsDetailPage extends StatelessWidget {
   NewsDetailPage({super.key, required this.model});
-  NewsModel model;
+  Result model;
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +38,7 @@ class NewsDetailPage extends StatelessWidget {
           actions: const [DetailPopUp()],
         ),
         body: ListView(
+          padding: EdgeInsets.zero,
           physics: const ClampingScrollPhysics(),
           children: [
             NewsDetailInfo(
@@ -94,7 +95,7 @@ class NewsDetailPage extends StatelessWidget {
                       itemBuilder: (context, index) => GestureDetector(
                         onTap: () {
                           context.router.replace(
-                            NewsDetailPageRoute(model: model[index]),
+                            NewsDetailPageRoute(model: model.results[index]),
                           );
                         },
                         child: Container(
@@ -104,7 +105,7 @@ class NewsDetailPage extends StatelessWidget {
                           decoration: BoxDecoration(
                             image: DecorationImage(
                               image: CachedNetworkImageProvider(
-                                  model[index].titleImage),
+                                  model.results[index].titleImage),
                               fit: BoxFit.cover,
                             ),
                             color: Colors.grey,
@@ -112,7 +113,7 @@ class NewsDetailPage extends StatelessWidget {
                           ),
                           child: Center(
                             child: Text(
-                              model[index].title,
+                              model.results[index].title,
                               textAlign: TextAlign.start,
                               style: AppTextStyles.s10w800
                                   .copyWith(color: Colors.white),
@@ -123,7 +124,7 @@ class NewsDetailPage extends StatelessWidget {
                       separatorBuilder: (context, index) => const SizedBox(
                         width: 20,
                       ),
-                      itemCount: model.length,
+                      itemCount: model.results.length,
                     ),
                   ),
                 );

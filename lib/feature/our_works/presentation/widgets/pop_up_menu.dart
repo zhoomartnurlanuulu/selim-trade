@@ -19,12 +19,16 @@ class OurWorksPopUp extends StatelessWidget {
     return PopupMenuButton(
       icon: SvgPicture.asset(AppIcons.menuBlackIcon),
       onSelected: (value) {
-        if (value == MenuItem.main) {
-          context.router.replace(const HomeScreenRoute());
-        } else if (value == MenuItem.news) {
-          context.router.replace(const NewsScreenRoute());
-        } else if (value == MenuItem.services) {
-          context.router.replace(const ServiceScreenRoute());
+        switch (value) {
+          case MenuItem.main:
+            context.router.replace(const HomeScreenRoute());
+            break;
+          case MenuItem.news:
+            context.router.replace(const NewsScreenRoute());
+            break;
+          case MenuItem.services:
+            context.router.replace(const ServiceScreenRoute());
+            break;
         }
       },
       itemBuilder: (context) => [

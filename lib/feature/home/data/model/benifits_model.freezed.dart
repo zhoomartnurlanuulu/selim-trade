@@ -20,9 +20,9 @@ BenifitsModel _$BenifitsModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$BenifitsModel {
-  int? get id => throw _privateConstructorUsedError;
-  String? get title => throw _privateConstructorUsedError;
-  String? get icon => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  String get icon => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +36,7 @@ abstract class $BenifitsModelCopyWith<$Res> {
           BenifitsModel value, $Res Function(BenifitsModel) then) =
       _$BenifitsModelCopyWithImpl<$Res, BenifitsModel>;
   @useResult
-  $Res call({int? id, String? title, String? icon});
+  $Res call({int id, String title, String icon});
 }
 
 /// @nodoc
@@ -52,23 +52,23 @@ class _$BenifitsModelCopyWithImpl<$Res, $Val extends BenifitsModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? icon = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? icon = null,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      title: freezed == title
+              as int,
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      icon: freezed == icon
+              as String,
+      icon: null == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ) as $Val);
   }
 }
@@ -81,7 +81,7 @@ abstract class _$$_BenifitsModelCopyWith<$Res>
       __$$_BenifitsModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? id, String? title, String? icon});
+  $Res call({int id, String title, String icon});
 }
 
 /// @nodoc
@@ -95,23 +95,23 @@ class __$$_BenifitsModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? icon = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? icon = null,
   }) {
     return _then(_$_BenifitsModel(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      title: freezed == title
+              as int,
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      icon: freezed == icon
+              as String,
+      icon: null == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -119,17 +119,18 @@ class __$$_BenifitsModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_BenifitsModel implements _BenifitsModel {
-  const _$_BenifitsModel({this.id, this.title, this.icon});
+  const _$_BenifitsModel(
+      {required this.id, required this.title, required this.icon});
 
   factory _$_BenifitsModel.fromJson(Map<String, dynamic> json) =>
       _$$_BenifitsModelFromJson(json);
 
   @override
-  final int? id;
+  final int id;
   @override
-  final String? title;
+  final String title;
   @override
-  final String? icon;
+  final String icon;
 
   @override
   String toString() {
@@ -166,19 +167,19 @@ class _$_BenifitsModel implements _BenifitsModel {
 
 abstract class _BenifitsModel implements BenifitsModel {
   const factory _BenifitsModel(
-      {final int? id,
-      final String? title,
-      final String? icon}) = _$_BenifitsModel;
+      {required final int id,
+      required final String title,
+      required final String icon}) = _$_BenifitsModel;
 
   factory _BenifitsModel.fromJson(Map<String, dynamic> json) =
       _$_BenifitsModel.fromJson;
 
   @override
-  int? get id;
+  int get id;
   @override
-  String? get title;
+  String get title;
   @override
-  String? get icon;
+  String get icon;
   @override
   @JsonKey(ignore: true)
   _$$_BenifitsModelCopyWith<_$_BenifitsModel> get copyWith =>

@@ -1,3 +1,4 @@
+import 'package:selim_trade/components/app_error_shimmer.dart';
 import 'package:selim_trade/feature/services/presentation/blocs/gates_cubit/gates_cubit.dart';
 import 'package:selim_trade/components/circale_button_right.dart';
 import 'package:selim_trade/components/circale_button_left.dart';
@@ -51,8 +52,15 @@ class OfferWidget extends StatelessWidget {
                     ],
                   ),
                 ),
-                error: (error) => Center(
-                  child: Text(error.message),
+                error: (error) => SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      AppErrorShimmer(height: 170, width: 250),
+                      const SizedBox(width: 20),
+                      AppErrorShimmer(height: 170, width: 250),
+                    ],
+                  ),
                 ),
                 success: (model) => SizedBox(
                   height: 174,

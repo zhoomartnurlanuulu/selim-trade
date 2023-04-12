@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:selim_trade/components/app_error_shimmer.dart';
+import 'package:selim_trade/components/app_shimmer_widget.dart';
 import 'package:selim_trade/resource/app_text_style.dart';
 import 'package:selim_trade/feature/home/presentation/blocs/work_time_cubit/work_time_cubit.dart';
 
@@ -11,18 +13,44 @@ class WorkTime extends StatelessWidget {
     return BlocBuilder<WorkTimeCubit, WorkTimeState>(
       builder: (context, state) {
         return state.when(
-          initial: () => const SizedBox(),
-          error: (error) => Center(
-            child: Text(error.message),
+          initial: () => Column(
+            children: [
+              AppShimmerWidget(
+                height: 12,
+                width: 105,
+              ),
+              const SizedBox(
+                height: 3,
+              ),
+              AppShimmerWidget(
+                height: 12,
+                width: 120,
+              ),
+            ],
+          ),
+          error: (error) => Column(
+            children: [
+              AppErrorShimmer(
+                height: 12,
+                width: 105,
+              ),
+              const SizedBox(
+                height: 3,
+              ),
+              AppErrorShimmer(
+                height: 12,
+                width: 120,
+              ),
+            ],
           ),
           success: (model) => SizedBox(
             height: 45,
             width: 160,
             child: ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              padding: EdgeInsets.zero,
               clipBehavior: Clip.none,
               itemCount: model.length,
-              padding: EdgeInsets.zero,
-              physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) => Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [

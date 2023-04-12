@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:selim_trade/components/app_error_shimmer.dart';
 import 'package:selim_trade/components/app_shimmer_widget.dart';
 import 'package:selim_trade/components/circale_button_left.dart';
 import 'package:selim_trade/components/circale_button_right.dart';
@@ -49,7 +50,21 @@ class ReviewsWidget extends StatelessWidget {
                         )
                       ],
                     )),
-                error: (error) => Center(child: Text(error.message)),
+                error: (error) => SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      AppErrorShimmer(width: 260, height: 151),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      AppErrorShimmer(
+                        width: 260,
+                        height: 151,
+                      )
+                    ],
+                  ),
+                ),
                 success: (model) => CarouselSlider.builder(
                   carouselController: controller,
                   options: CarouselOptions(

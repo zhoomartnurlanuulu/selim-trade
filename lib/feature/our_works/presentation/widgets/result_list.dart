@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:selim_trade/components/app_error_shimmer.dart';
 import 'package:selim_trade/components/app_shimmer_widget.dart';
 import 'package:selim_trade/feature/our_works/presentation/blocs/our_works_cubit/our_works_cubit.dart';
 import 'package:selim_trade/api/service_locator.dart';
@@ -21,16 +22,25 @@ class ResultList extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               itemCount: 5,
               itemBuilder: (context, index) => AppShimmerWidget(
-                width: 396,
-                height: 248,
+                height: 223,
                 radius: 10,
               ),
               separatorBuilder: (context, index) => const SizedBox(
                 height: 20,
               ),
             ),
-            error: (error) => Center(
-              child: Text(error.message),
+            error: (error) => ListView.separated(
+              shrinkWrap: true,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: 5,
+              itemBuilder: (context, index) => AppErrorShimmer(
+                height: 223,
+                radius: 10,
+              ),
+              separatorBuilder: (context, index) => const SizedBox(
+                height: 20,
+              ),
             ),
             success: (model) => ListView.separated(
               shrinkWrap: true,

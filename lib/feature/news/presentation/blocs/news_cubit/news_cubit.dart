@@ -9,13 +9,13 @@ part 'news_cubit.freezed.dart';
 
 class NewsCubit extends Cubit<NewsState> {
   NewsCubit({required this.useCase}) : super(const NewsState.loading()) {
-    getNews(1);
+    getNews(1, 4);
   }
   NewsUseCase useCase;
-  Future<void> getNews(int currentPage) async {
+  Future<void> getNews(int currentPage, int pageSize) async {
     try {
       emit(
-        NewsState.success(await useCase.getNews(currentPage)),
+        NewsState.success(await useCase.getNews(currentPage, pageSize)),
       );
     } catch (e) {
       emit(
@@ -23,6 +23,4 @@ class NewsCubit extends Cubit<NewsState> {
       );
     }
   }
-
- 
 }

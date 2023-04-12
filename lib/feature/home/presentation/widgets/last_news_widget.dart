@@ -3,6 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:selim_trade/components/app_error_shimmer.dart';
 import 'package:selim_trade/components/app_shimmer_widget.dart';
 import 'package:selim_trade/components/custom_text_button.dart';
 import 'package:selim_trade/resource/app_text_style.dart';
@@ -58,8 +59,24 @@ class LastNewsWidget extends StatelessWidget {
                       ],
                     ),
                   ),
-                  error: (error) => Center(
-                    child: Text(error.message),
+                  error: (error) => SingleChildScrollView(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        AppErrorShimmer(
+                          height: 164,
+                          width: 241,
+                        ),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        AppErrorShimmer(
+                          height: 164,
+                          width: 241,
+                        ),
+                      ],
+                    ),
                   ),
                   success: (model) => Expanded(
                     child: ListView.separated(

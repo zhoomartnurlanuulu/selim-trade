@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:selim_trade/components/app_error_shimmer.dart';
+import 'package:selim_trade/components/app_shimmer_widget.dart';
 import 'package:selim_trade/feature/home/presentation/blocs/social_media_cubit/social_media_cubit.dart';
 import 'package:selim_trade/api/service_locator.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -15,9 +17,39 @@ class Social extends StatelessWidget {
       child: BlocBuilder<SocialMediaCubit, SocialMediaState>(
         builder: (context, state) {
           return state.when(
-              initial: () => const SizedBox(),
-              error: (error) => Center(
-                    child: Text(error.message),
+              initial: () => Row(
+                    children: [
+                      AppShimmerWidget(
+                        height: 30,
+                        width: 30,
+                        radius: 5,
+                      ),
+                      const SizedBox(
+                        width: 12,
+                      ),
+                      AppShimmerWidget(
+                        height: 30,
+                        width: 30,
+                        radius: 5,
+                      ),
+                    ],
+                  ),
+              error: (error) => Row(
+                    children: [
+                      AppErrorShimmer(
+                        height: 30,
+                        width: 30,
+                        radius: 5,
+                      ),
+                      const SizedBox(
+                        width: 12,
+                      ),
+                      AppErrorShimmer(
+                        height: 30,
+                        width: 30,
+                        radius: 5,
+                      ),
+                    ],
                   ),
               success: (model) => SizedBox(
                     height: 32,

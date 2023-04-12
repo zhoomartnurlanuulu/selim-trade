@@ -13,7 +13,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = ScrollController();
-
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(

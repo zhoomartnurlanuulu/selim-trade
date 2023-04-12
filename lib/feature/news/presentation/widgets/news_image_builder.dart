@@ -14,20 +14,18 @@ class NewsImageBuilder extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           itemCount: model.images.length,
           itemBuilder: (context, index) {
-            if (model.images.isNotEmpty) {
-              return Container(
-                height: 320,
-                width: 360,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image:
-                          CachedNetworkImageProvider(model.images[index].image),
-                      fit: BoxFit.contain),
-                ),
-              );
-            } else {
-              return const SizedBox.shrink();
-            }
+            return model.images != null
+                ? Container(
+                    height: 320,
+                    width: 360,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: CachedNetworkImageProvider(
+                              model.images[index].image),
+                          fit: BoxFit.contain),
+                    ),
+                  )
+                : const SizedBox.expand();
           }),
     );
   }

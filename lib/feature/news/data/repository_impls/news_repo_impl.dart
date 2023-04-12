@@ -7,9 +7,9 @@ class NewsRepoImpl implements NewsRepo {
   NewsRepoImpl({required this.dio});
   Dio dio;
   @override
-  Future<NewsModel> getNews(int currentPage) async {
+  Future<NewsModel> getNews(int currentPage, int pageSize) async {
     try {
-      final response = await dio.get('news/?p=$currentPage');
+      final response = await dio.get('news/?p=$currentPage&page_size=$pageSize');
       return NewsModel.fromJson(response.data);
     } catch (e) {
       throw CatchException.convertException(e);

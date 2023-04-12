@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:selim_trade/components/app_error_shimmer.dart';
 import 'package:selim_trade/components/custom_text_button.dart';
 import 'package:selim_trade/feature/news/presentation/blocs/news_cubit/news_cubit.dart';
 import 'package:selim_trade/components/app_shimmer_widget.dart';
@@ -19,6 +20,7 @@ class NewsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     int currentPage = 1;
+    int pageSize = 0;
     return BlocBuilder<NewsCubit, NewsState>(
       builder: (context, state) {
         return state.when(
@@ -36,8 +38,28 @@ class NewsList extends StatelessWidget {
               height: 20,
             ),
           ),
-          error: (error) => Center(
-            child: Text(error.message),
+          error: (error) => Column(
+            children: [
+              ListView.separated(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) => AppErrorShimmer(),
+                separatorBuilder: (context, index) => const SizedBox(
+                  height: 30,
+                ),
+                itemCount: 3,
+              ),
+              Center(
+                child: CustomTextButton(
+                    onPressed: null,
+                    child: Text(
+                      LocaleKeys.news_load_more.tr(),
+                      style: AppTextStyles.s14w300
+                          .copyWith(color: AppColors.color414141),
+                    )),
+              ),
+            ],
           ),
           success: (model) => Column(
             children: [
@@ -86,12 +108,15 @@ class NewsList extends StatelessWidget {
               ),
               Center(
                 child: CustomTextButton(
-                    onPressed: model.next == null
-                        ? null
-                        : () {
+                    onPressed: model.next != null
+                        ? () {
                             currentPage += 1;
-                            context.read<NewsCubit>().getNews(currentPage);
-                          },
+                            pageSize += 3;
+                            context
+                                .read<NewsCubit>()
+                                .getNews(currentPage, pageSize);
+                          }
+                        : null,
                     child: Text(
                       LocaleKeys.news_load_more.tr(),
                       style: AppTextStyles.s14w300

@@ -23,6 +23,7 @@ class GatesList extends StatelessWidget {
             builder: (context, state) {
               return state.when(
                 loading: () => ListView.separated(
+                    padding: const EdgeInsets.symmetric(horizontal: 14),
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     itemCount: 4,
@@ -31,11 +32,19 @@ class GatesList extends StatelessWidget {
                         ),
                     itemBuilder: (context, index) => AppShimmerWidget(
                           height: 170,
-                          width: 400,
                         )),
-                error: (error) => Center(
-                  child: Text(error.message),
-                ),
+                error: (error) => ListView.separated(
+                    padding: const EdgeInsets.symmetric(horizontal: 14),
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: 4,
+                    separatorBuilder: (context, index) => const SizedBox(
+                          height: 30,
+                        ),
+                    itemBuilder: (context, index) => AppShimmerWidget(
+                          height: 170,
+                          width: 380,
+                        )),
                 success: (model) => ListView.separated(
                   shrinkWrap: true,
                   clipBehavior: Clip.none,

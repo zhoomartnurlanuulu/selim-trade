@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:selim_trade/components/app_error_shimmer.dart';
 import 'package:selim_trade/components/app_shimmer_widget.dart';
 import 'package:selim_trade/resource/app_colors.dart';
 import 'package:selim_trade/resource/app_text_style.dart';
@@ -35,8 +36,37 @@ class OurWorksWidgets extends StatelessWidget {
                   height: 250,
                   width: 300,
                 ),
-                error: (error) => Center(
-                  child: Text(error.message),
+                error: (error) => SizedBox(
+                  height: 250,
+                  child: PageView.builder(
+                    clipBehavior: Clip.none,
+                    pageSnapping: true,
+                    physics: const BouncingScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    controller: ctrl,
+                    itemCount: 5,
+                    itemBuilder: (context, index) {
+                      return AnimatedBuilder(
+                          animation: ctrl,
+                          builder: (context, child) {
+                            double value = 1.0;
+                            if (ctrl.position.haveDimensions) {
+                              value = ctrl.page! - index;
+                              value = (1 - (value.abs() * .5)).clamp(0.0, 1.0);
+                            } else if (index != 1) {
+                              value = 0.5;
+                            }
+                            return Padding(
+                              padding: EdgeInsets.all(50 - value * 50),
+                              child: child,
+                            );
+                          },
+                          child: AppErrorShimmer(
+                            height: 250,
+                            width: 300,
+                          ));
+                    },
+                  ),
                 ),
                 success: (model) => SizedBox(
                   height: 250,

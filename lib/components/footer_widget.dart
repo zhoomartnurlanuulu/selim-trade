@@ -41,15 +41,18 @@ class FooterWidget extends StatelessWidget {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
-              children: const [
-                SizedBox(
-                  width: 53,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Image.asset(
+                  AppImages.footerLogo,
+                  height: 23.55,
+                  width: 45.29,
                 ),
-                Contacts(),
-                SizedBox(
-                  width: 10,
+                const Contacts(),
+                const SizedBox(width: 10),
+                const Expanded(
+                  child: MapWidget(),
                 ),
-                Expanded(child: MapWidget()),
               ],
             ),
             const SizedBox(
